@@ -1,0 +1,50 @@
+{
+	"groups": [
+		{
+			"keys": "PreLoadingBar_png,PreLoadingBarBg_png,PreLoadingBg_png,game_atlas0,game",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/bg.jpg",
+			"type": "image",
+			"name": "bg_jpg"
+		},
+		{
+			"url": "assets/egret_icon.png",
+			"type": "image",
+			"name": "egret_icon_png"
+		},
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/image/loading/PreLoadingBar.png",
+			"type": "image",
+			"name": "PreLoadingBar_png"
+		},
+		{
+			"url": "assets/image/loading/PreLoadingBarBg.png",
+			"type": "image",
+			"name": "PreLoadingBarBg_png"
+		},
+		{
+			"url": "assets/image/loading/PreLoadingBg.png",
+			"type": "image",
+			"name": "PreLoadingBg_png"
+		},
+		{
+			"url": "assets/image/game/game_atlas0.png",
+			"type": "image",
+			"name": "game_atlas0"
+		},
+		{
+			"url": "assets/image/game/game.fui",
+			"type": "bin",
+			"name": "game"
+		}
+	]
+}

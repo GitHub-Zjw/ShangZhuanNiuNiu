@@ -1,0 +1,17 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/game/game.js",
+		"libs/modules/tween/tween.js",
+		"libs/WXCloudApi/WXCloudApi.js",
+		"libs/egretmgobe/egretmgobe.js",
+		"libs/modules/socket/socket.js",
+		"libs/modules/puremvc/puremvc.js",
+		"libs/modules/protobuf/protobuf.js",
+		"libs/modules/newaes/newaes.js",
+		"libs/modules/jszip/jszip.js",
+		"libs/modules/fairygui/fairygui.js"
+	],
+	"game": []
+}

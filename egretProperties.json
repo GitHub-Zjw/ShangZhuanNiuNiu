@@ -1,0 +1,59 @@
+{
+  "engineVersion": "5.2.30",
+  "compilerVersion": "5.2.30",
+  "template": {},
+  "target": {
+    "current": "web"
+  },
+  "modules": [
+    {
+      "name": "egret"
+    },
+    {
+      "name": "game"
+    },
+    {
+      "name": "tween"
+    },
+    {
+      "name": "assetsmanager"
+    },
+    {
+      "name": "egretia-sdk"
+    },
+    {
+      "name": "promise"
+    },
+    {
+      "name": "WXCloudApi",
+      "path": "./libs/WXCloudApi"
+    },
+    {
+      "name": "egretmgobe",
+      "path": "./libs/egretmgobe"
+    },
+		{
+			"name": "socket"
+		},
+		{
+			"name": "puremvc",
+			"path": "../modules/puremvc"
+		},
+		{
+			"name": "protobuf",
+			"path": "../modules/protobuf"
+		},
+		{
+			"name": "newaes",
+			"path": "../modules/newaes"
+		},
+    {
+      "name": "jszip",
+      "path": "../modules/jszip"
+    },
+    {
+      "name": "fairygui",
+      "path": "../modules/fgui/fairygui"
+    }
+  ]
+}
