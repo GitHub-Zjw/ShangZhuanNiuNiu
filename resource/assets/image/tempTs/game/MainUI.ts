@@ -31,9 +31,9 @@ module game {
 		public region2:RegionCom;
 		public region3:RegionCom;
 		public beginBtn:fairygui.GButton;
+		public beginTran:fairygui.Transition;
 		public bossResultTran:fairygui.Transition;
 		public playerResultTran:fairygui.Transition;
-		public beginTran:fairygui.Transition;
 
 		public static URL:string = "ui://v1h0uw6cfjnq0";
 
@@ -75,20 +75,9 @@ module game {
 			this.region2 = <RegionCom><any>(this.getChild("region2"));
 			this.region3 = <RegionCom><any>(this.getChild("region3"));
 			this.beginBtn = <fairygui.GButton><any>(this.getChild("beginBtn"));
+			this.beginTran = this.getTransition("beginTran");
 			this.bossResultTran = this.getTransition("bossResultTran");
 			this.playerResultTran = this.getTransition("playerResultTran");
-			this.beginTran = this.getTransition("beginTran");
-		}
-
-		protected onButtonClick(btnName: string): void
-		{
-			super.onButtonClick(btnName);
-			switch (btnName)
-			{
-				case "beginBtn":
-					this.beginTran.play();
-					break;
-			}
 		}
 	}
 }

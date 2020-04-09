@@ -2,7 +2,7 @@
 
 module game {
 
-	export class BallBtn extends UIButton {
+	export class BallBtn extends UIComponent {
 
 		public state:fairygui.Controller;
 		public t0:fairygui.Transition;

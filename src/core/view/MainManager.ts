@@ -36,8 +36,7 @@ module game
             switch (notification.getName())
             {
                 case MainNotify.OPEN_MAIN:
-                    this.initAssets();
-                    gameBinder.bindAll();
+                    Binder.bindAll();
                     if (this._mainUI == null)
                     {
                         this._mainUI = MainUI.createInstance();
@@ -56,9 +55,5 @@ module game
             }
         }
 
-        initAssets(): void
-        {
-            fgui.UIPackage.addPackage("game");
-        }
     }
 }

@@ -2,15 +2,14 @@
 
 module game {
 
-	export class BallBtn extends UIButton {
+	export class WLPointItem extends UIComponent {
 
 		public state:fairygui.Controller;
-		public t0:fairygui.Transition;
 
-		public static URL:string = "ui://v1h0uw6citti1t";
+		public static URL:string = "ui://v1h0uw6csrv91m";
 
-		public static createInstance():BallBtn {
-			return <BallBtn><any>(fairygui.UIPackage.createObject("game","BallBtn"));
+		public static createInstance():WLPointItem {
+			return <WLPointItem><any>(fairygui.UIPackage.createObject("game","WLPointItem"));
 		}
 
 		public constructor() {
@@ -21,7 +20,6 @@ module game {
 			super.constructFromXML(xml);
 
 			this.state = this.getController("state");
-			this.t0 = this.getTransition("t0");
 		}
 	}
 }

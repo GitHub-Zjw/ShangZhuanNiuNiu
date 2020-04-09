@@ -7,7 +7,7 @@
     * Main-GameScene（sceneLayer、mainLayer、popLayer、effectLayer、maskLayer、loadLayer）
     * 
     */
-class GameLayerManager extends egret.DisplayObjectContainer{
+class GameLayerManager extends fgui.GComponent{
     // 场景层 如 战场、主城、副本战场之类的
     public sceneLayer:UIComponent = new UIComponent();
     // 主UI层 如 底部功能栏
@@ -40,7 +40,7 @@ class GameLayerManager extends egret.DisplayObjectContainer{
     //初始化场景类
     public init():void {
 
-        this.touchEnabled = true;
+        this.touchable = true;
         this.sceneLayer.touchable = true;
         this.mainLayer.touchable = true;
         this.panelLayer.touchable = true;

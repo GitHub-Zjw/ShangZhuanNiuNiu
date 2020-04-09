@@ -1,82 +1,72 @@
-// @RES.mapConfig("config.json",()=>"resource",path => {
-//     var ext = path.substr(path.lastIndexOf(".") + 1);
-//     var typeMap = {
-//         "jpg": "image",
-//         "png": "image",
-//         "webp": "image",
-//         "json": "json",
-//         "fnt": "font",
-//         "pvr": "pvr",
-//         "mp3": "sound",
-//         "proto": "proto",
-//         "txt": "txt"
-//     }
-//     var type = typeMap[ext];
-//     if (type == "json") {
-//         if (path.indexOf("sheet") >= 0) {
-//             type = "sheet";
-//         } else if (path.indexOf("movieclip") >= 0) {
-//             type = "movieclip";
-//         };
-//     }
-//     return type;
-// })
-class Main extends egret.DisplayObjectContainer {
+class Main extends egret.DisplayObjectContainer
+{
 
 
 
-    public constructor() {
+    public constructor()
+    {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
-    private onAddToStage(event: egret.Event) {
+    private onAddToStage(event: egret.Event)
+    {
 
-        egret.lifecycle.addLifecycleListener((context) => {
+        egret.lifecycle.addLifecycleListener((context) =>
+        {
             // custom lifecycle plugin
 
-            context.onUpdate = () => {
+            context.onUpdate = () =>
+            {
 
             }
         })
 
-        egret.lifecycle.onPause = () => {
+        egret.lifecycle.onPause = () =>
+        {
             egret.ticker.pause();
         }
 
-        egret.lifecycle.onResume = () => {
+        egret.lifecycle.onResume = () =>
+        {
             egret.ticker.resume();
         }
 
-        this.runGame().catch(e => {
+        this.runGame().catch(e =>
+        {
             console.log(e);
         })
     }
 
     // private _demoEntry: DemoEntry;
 
-    private async runGame() {
+    private async runGame()
+    {
         await this.loadResource()
         await platform.login();
         const userInfo = await platform.getUserInfo();
 
-        this.stage.addChild(fgui.GRoot.inst.displayObject);
         RES.processor.map("proto", ProtoAnalyzer);
         RES.processor.map("txt", EnJsonAnalyzer);
-        this.addChild(GameLayerManager.gameLayer());
-        // this._demoEntry = new DemoEntry();
     }
 
-    private async loadResource() {
-        try {
-            const loadingView = new LoadingUI();
-            this.stage.addChild(loadingView);
+    private async loadResource()
+    {
+        try
+        {
             await RES.loadConfig("resource/default.res.json", "resource/");
+            await RES.loadGroup("loading");
+            this.stage.addChild(fgui.GRoot.inst.displayObject);
+            fgui.GRoot.inst.addChild(GameLayerManager.gameLayer());
+            loading.Binder.bindAll();
+            const loadingView = loading.LoadingUI.createInstance();
+            GameLayerManager.gameLayer().loadLayer.addChild(loadingView);
             await RES.loadGroup("preload", 0, loadingView);
-            this.stage.removeChild(loadingView);
+            GameLayerManager.gameLayer().loadLayer.removeChild(loadingView);
             this.createGameScene();
         }
-        catch (e) {
+        catch (e)
+        {
             console.error(e);
         }
     }
@@ -84,7 +74,8 @@ class Main extends egret.DisplayObjectContainer {
     /**
      * 创建游戏场景
      */
-    private createGameScene():void {
+    private createGameScene(): void
+    {
         // this.testEnJson();
 
         game.AppFacade.getInstance().startUp(GameLayerManager.gameLayer());

@@ -1,0 +1,6 @@
+bin-debug/
+bin-release/
+libs/
+.js
+.min.js
+.d.ts

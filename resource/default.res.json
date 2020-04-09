@@ -1,8 +1,12 @@
 {
 	"groups": [
 		{
-			"keys": "PreLoadingBar_png,PreLoadingBarBg_png,PreLoadingBg_png,game_atlas0,game",
+			"keys": "game_atlas0,game",
 			"name": "preload"
+		},
+		{
+			"keys": "loading,loading_atlas0",
+			"name": "loading"
 		}
 	],
 	"resources": [
@@ -22,21 +26,6 @@
 			"name": "description_json"
 		},
 		{
-			"url": "assets/image/loading/PreLoadingBar.png",
-			"type": "image",
-			"name": "PreLoadingBar_png"
-		},
-		{
-			"url": "assets/image/loading/PreLoadingBarBg.png",
-			"type": "image",
-			"name": "PreLoadingBarBg_png"
-		},
-		{
-			"url": "assets/image/loading/PreLoadingBg.png",
-			"type": "image",
-			"name": "PreLoadingBg_png"
-		},
-		{
 			"url": "assets/image/game/game_atlas0.png",
 			"type": "image",
 			"name": "game_atlas0"
@@ -45,6 +34,16 @@
 			"url": "assets/image/game/game.fui",
 			"type": "bin",
 			"name": "game"
+		},
+		{
+			"url": "assets/image/loading/loading.fui",
+			"type": "bin",
+			"name": "loading"
+		},
+		{
+			"url": "assets/image/loading/loading_atlas0.png",
+			"type": "image",
+			"name": "loading_atlas0"
 		}
 	]
 }

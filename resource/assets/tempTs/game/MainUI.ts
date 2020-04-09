@@ -79,16 +79,5 @@ module game {
 			this.playerResultTran = this.getTransition("playerResultTran");
 			this.beginTran = this.getTransition("beginTran");
 		}
-
-		protected onButtonClick(btnName: string): void
-		{
-			super.onButtonClick(btnName);
-			switch (btnName)
-			{
-				case "beginBtn":
-					this.beginTran.play();
-					break;
-			}
-		}
 	}
 }
