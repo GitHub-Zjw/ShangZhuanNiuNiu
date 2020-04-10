@@ -29,7 +29,7 @@ module game
 		
 		public setData(state: EnumerationType.WinOrLose): void
 		{
-			this.state.setSelectedPage(state.toString());
+			this.state.setSelectedPage(EnumerationType.WinOrLose[state]);
 		}
 	}
 }

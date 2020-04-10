@@ -5,6 +5,7 @@ module game {
 	export class Binder{
 		public static bindAll():void {
 			fgui.UIPackage.addPackage("game")
+			fairygui.UIObjectFactory.setPackageItemExtension(BetBallCom.URL, BetBallCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(MainUI.URL, MainUI);
 			fairygui.UIObjectFactory.setPackageItemExtension(BallBtn.URL, BallBtn);
 			fairygui.UIObjectFactory.setPackageItemExtension(ClockCom.URL, ClockCom);

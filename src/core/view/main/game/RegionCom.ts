@@ -39,25 +39,25 @@ module game
 		{
 			super.initView();
 			this.resultList.itemRenderer = this.resultListItemRenderer;
+			this.resultList.callbackThisObj = this;
 		}
 
 		private _results: EnumerationType.WinOrLose[];
-		private _betValue: string;
+
 		/**
+		 * 设置胜负记录
 		 * @param results 胜负记录数组
-		 * @param betValueTxt 投注大小
 		 */
-		public setData(results: EnumerationType.WinOrLose[], betValue: string): void
+		public setResults(results: EnumerationType.WinOrLose[]): void
 		{
 			this._results = results;
-			this._betValue = betValue;
-			this.updateView();
+			this.resultList.numItems = this._results.length;
 		}
 
-		private updateView(): void
+		/**设置投注数值 */
+		public setBetValue(betValue: string): void
 		{
-			this.betValueTxt.text = this._betValue;
-			this.resultList.numItems = this._results.length;
+			this.betValueTxt.text = betValue;
 		}
 
 		private resultListItemRenderer(index: number, obj: WLPointItem): void

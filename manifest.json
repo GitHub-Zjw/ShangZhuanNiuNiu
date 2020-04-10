@@ -44,6 +44,7 @@
 		"bin-debug/core/model/proxy/TemplateProxy.js",
 		"bin-debug/core/model/vo/EnumerationType.js",
 		"bin-debug/core/model/vo/GameVO.js",
+		"bin-debug/core/model/vo/HomePageData.js",
 		"bin-debug/core/view/GameLayerManager.js",
 		"bin-debug/core/view/MainManager.js",
 		"bin-debug/core/view/SceneManager.js",

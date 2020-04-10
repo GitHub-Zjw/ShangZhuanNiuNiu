@@ -2,14 +2,14 @@
 
 module game {
 
-	export class WLPointItem extends UIComponent {
+	export class BetBallCom extends UIComponent {
 
 		public state:fairygui.Controller;
 
-		public static URL:string = "ui://v1h0uw6csrv91m";
+		public static URL:string = "ui://v1h0uw6cecgg20";
 
-		public static createInstance():WLPointItem {
-			return <WLPointItem><any>(fairygui.UIPackage.createObject("game","WLPointItem"));
+		public static createInstance():BetBallCom {
+			return <BetBallCom><any>(fairygui.UIPackage.createObject("game","BetBallCom"));
 		}
 
 		public constructor() {

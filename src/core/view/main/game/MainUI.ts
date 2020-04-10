@@ -1,51 +1,57 @@
 /** This is an automatically generated class by FairyGUI. Please do not modify it. **/
 
-module game {
+module game
+{
 
-	export class MainUI extends UIComponent {
+	export class MainUI extends UIComponent
+	{
 
-		public ballSelect:fairygui.Controller;
-		public bg:fairygui.GImage;
-		public ball1_btn:BallBtn;
-		public ball2_btn:BallBtn;
-		public ball3_btn:BallBtn;
-		public ball4_btn:BallBtn;
-		public ball5_btn:BallBtn;
-		public ball6_btn:BallBtn;
-		public methodBtn:fairygui.GButton;
-		public settingBtn:fairygui.GButton;
-		public closeBtn:fairygui.GButton;
-		public cleanBtn:fairygui.GButton;
-		public betBtn:fairygui.GButton;
-		public pgValueTxt:fairygui.GTextField;
-		public bossChangeTxt:fairygui.GTextField;
-		public playerChangeTxt:fairygui.GTextField;
-		public playerMoneyTxt:fairygui.GTextField;
-		public dzValueTxt:fairygui.GTextField;
-		public tzValueTxt:fairygui.GTextField;
-		public betPlayerCom:BetPlayerCom;
-		public clockCom:ClockCom;
-		public bossCom:BossCom;
-		public region0:RegionCom;
-		public region1:RegionCom;
-		public region2:RegionCom;
-		public region3:RegionCom;
-		public beginBtn:fairygui.GButton;
-		public bossResultTran:fairygui.Transition;
-		public playerResultTran:fairygui.Transition;
-		public beginTran:fairygui.Transition;
+		public ballSelect: fairygui.Controller;
+		public bg: fairygui.GImage;
+		public ball1_btn: BallBtn;
+		public ball2_btn: BallBtn;
+		public ball3_btn: BallBtn;
+		public ball4_btn: BallBtn;
+		public ball5_btn: BallBtn;
+		public ball6_btn: BallBtn;
+		public methodBtn: fairygui.GButton;
+		public settingBtn: fairygui.GButton;
+		public closeBtn: fairygui.GButton;
+		public cleanBtn: fairygui.GButton;
+		public betBtn: fairygui.GButton;
+		public pgValueTxt: fairygui.GTextField;
+		public bossChangeTxt: fairygui.GTextField;
+		public playerChangeTxt: fairygui.GTextField;
+		public playerMoneyTxt: fairygui.GTextField;
+		public dzValueTxt: fairygui.GTextField;
+		public tzValueTxt: fairygui.GTextField;
+		public betPlayerCom: BetPlayerCom;
+		public clockCom: ClockCom;
+		public bossCom: BossCom;
+		public region0: RegionCom;
+		public region1: RegionCom;
+		public region2: RegionCom;
+		public region3: RegionCom;
+		public beginBtn: fairygui.GButton;
+		public bossResultTran: fairygui.Transition;
+		public playerResultTran: fairygui.Transition;
+		public beginTran: fairygui.Transition;
+		public maxBetBar: fairygui.GProgressBar;
 
-		public static URL:string = "ui://v1h0uw6cfjnq0";
+		public static URL: string = "ui://v1h0uw6cfjnq0";
 
-		public static createInstance():MainUI {
-			return <MainUI><any>(fairygui.UIPackage.createObject("game","MainUI"));
+		public static createInstance(): MainUI
+		{
+			return <MainUI><any>(fairygui.UIPackage.createObject("game", "MainUI"));
 		}
 
-		public constructor() {
+		public constructor()
+		{
 			super();
 		}
 
-		protected constructFromXML(xml: any): void {
+		protected constructFromXML(xml: any): void
+		{
 			super.constructFromXML(xml);
 
 			this.ballSelect = this.getController("ballSelect");
@@ -78,6 +84,7 @@ module game {
 			this.bossResultTran = this.getTransition("bossResultTran");
 			this.playerResultTran = this.getTransition("playerResultTran");
 			this.beginTran = this.getTransition("beginTran");
+			this.maxBetBar = <fairygui.GProgressBar><any>(this.getChild("maxBetBar"));
 		}
 
 		protected onButtonClick(btnName: string): void
@@ -85,10 +92,51 @@ module game {
 			super.onButtonClick(btnName);
 			switch (btnName)
 			{
-				case "beginBtn":
-					this.beginTran.play();
+				/********************************* 以下是测试按钮 **********************************/
+				case "homePageDataBtn":
+					AllData.instance.setTestHomePageData();
+					this.onGetHomePageData();
+					break;
+				case "betDetailDataBtn":
 					break;
 			}
 		}
+		
+
+		public onGetHomePageData(): void
+		{
+			let homePageData = AllData.instance.HomePageData;
+			this.dzValueTxt.text = homePageData.myAntes.toString();
+			this.tzValueTxt.text = homePageData.myBetMoney.toString();
+			this.playerMoneyTxt.text = homePageData.myMoney.toString();
+			this.maxBetBar.max = homePageData.maxBet;
+			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
+			this.updateAllBetBar(0, homePageData.maxBet);
+			this.region0.setResults(homePageData.regionRecord[0]);
+			this.region1.setResults(homePageData.regionRecord[1]);
+			this.region2.setResults(homePageData.regionRecord[2]);
+			this.region3.setResults(homePageData.regionRecord[3]);
+			this.playBiginAmi();
+		}
+
+		private updateAllBetBar(currentValue: number, maxValue: number): void
+		{
+			this.maxBetBar.max = maxValue;
+			this.maxBetBar.value = currentValue;
+			this.pgValueTxt.text = currentValue + "/" + maxValue + "HDAG";
+		}
+		/****************************************** 以下是动画流程 ******************************************/
+
+		private playBiginAmi(): void
+		{
+			this.beginTran.play(this.starTimerAmi, this);
+		}
+
+		private starTimerAmi(): void
+		{
+			let starTime: number = 28 - AllData.instance.getCurrentSecond();
+			this.clockCom.starTiming(starTime, null, this);
+		}
+		/****************************************** 以上是动画流程 ******************************************/
 	}
 }

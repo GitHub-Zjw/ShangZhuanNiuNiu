@@ -30,7 +30,9 @@ module game {
 		public region1:RegionCom;
 		public region2:RegionCom;
 		public region3:RegionCom;
-		public beginBtn:fairygui.GButton;
+		public maxBetBar:fairygui.GProgressBar;
+		public homePageDataBtn:fairygui.GButton;
+		public betDetailDataBtn:fairygui.GButton;
 		public bossResultTran:fairygui.Transition;
 		public playerResultTran:fairygui.Transition;
 		public beginTran:fairygui.Transition;
@@ -74,7 +76,9 @@ module game {
 			this.region1 = <RegionCom><any>(this.getChild("region1"));
 			this.region2 = <RegionCom><any>(this.getChild("region2"));
 			this.region3 = <RegionCom><any>(this.getChild("region3"));
-			this.beginBtn = <fairygui.GButton><any>(this.getChild("beginBtn"));
+			this.maxBetBar = <fairygui.GProgressBar><any>(this.getChild("maxBetBar"));
+			this.homePageDataBtn = <fairygui.GButton><any>(this.getChild("homePageDataBtn"));
+			this.betDetailDataBtn = <fairygui.GButton><any>(this.getChild("betDetailDataBtn"));
 			this.bossResultTran = this.getTransition("bossResultTran");
 			this.playerResultTran = this.getTransition("playerResultTran");
 			this.beginTran = this.getTransition("beginTran");

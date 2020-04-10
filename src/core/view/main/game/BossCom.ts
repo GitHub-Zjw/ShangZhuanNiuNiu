@@ -37,12 +37,15 @@ module game
 		{
 			super.initView();
 			this.resultList.itemRenderer = this.resultListItemRenderer;
+			this.resultList.callbackThisObj = this;
 		}
 
 		private _money: string;
 		private _people: string;
-		private _sound: number
+		private _second: number
 		private _records: EnumerationType.WinOrLose[];
+		private _timer: egret.Timer;
+		private _surplusTime: number;
 
 		/**
 		 * @param money 庄家钱
@@ -50,12 +53,13 @@ module game
 		 * @param sound 剩余秒数
 		 * @param records 庄家胜败记录数组
 		 */
-		public setData(money: string, people: string, sound: number, records: EnumerationType.WinOrLose[]): void
+		public setData(money: string, people: string, second: number, records: EnumerationType.WinOrLose[]): void
 		{
 			this._money = money;
 			this._people = people;
-			this._sound = sound;
+			this._second = second;
 			this._records = records;
+			this._surplusTime = this._second;
 			this.updateView();
 		}
 
@@ -64,13 +68,53 @@ module game
 			this.moneyValueTxt.text = this._money;
 			this.playerNumTxt.text = this._people;
 			this.resultList.numItems = this._records.length;
-			let time: Date = new Date(this._sound);
-			this.countDownTxt.text = time.getMinutes() + ":" + time.getSeconds();
+			this.startTimer(1000);
 		}
 
 		private resultListItemRenderer(index: number, obj: WLPointItem): void
 		{
 			obj.setData(this._records[index]);
+		}
+
+
+
+		private startTimer(time: number): void
+		{
+			if (this._timer == null)
+			{
+				this._timer = new egret.Timer(time);
+				this._timer.addEventListener(egret.TimerEvent.TIMER, this.onTimer, this);
+			}
+			this._timer.start();
+			this.onTimer(null);
+		}
+
+		private removeTimer(): void
+		{
+			if (this._timer)
+			{
+				this._timer.removeEventListener(egret.TimerEvent.TIMER, this.onTimer, this);
+				this._timer.stop();
+				this._timer = null;
+			}
+		}
+
+		private onTimer(e: egret.TimerEvent): void
+		{
+			this._surplusTime--;
+			if (this._surplusTime < 0)
+			{
+				AllData.instance.dispatchEventWith(MainNotify.BOSS_TIME_OVER);
+				this.removeTimer();
+			}
+			else
+			{
+				let minet = Math.floor(this._surplusTime / 60);
+				let second = this._surplusTime % 60;
+				let minetStr = minet > 9 ? minet.toString() : "0" + minet;
+				let secondStr = second > 9 ? second.toString() : "0" + second;
+				this.countDownTxt.text = minetStr + ":" + secondStr;
+			}
 		}
 	}
 }

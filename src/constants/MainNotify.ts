@@ -18,6 +18,9 @@
 		
 		/**下注时间到 */
 		public static STOP_BETS: string = "STOP_BETS";
+
+		/**庄家时间到 */
+		public static BOSS_TIME_OVER: string = "BOSS_TIME_OVER";
 	}	
 
 
