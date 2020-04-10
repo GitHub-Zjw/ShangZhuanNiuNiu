@@ -15,24 +15,9 @@
 
         //关闭主界面UI
         public static CLOSE_MAIN: string = "MainNotify_CLOSE_MAIN";
-        
-		//打开角色UI
-		public static OPEN_ROLE:string = "MainNotify_OPEN_ROLE";
-
-		//关闭角色UI
-		public static CLOSE_ROLE:string = "MainNotify_CLOSE_ROLE";
-
-		//打开功能UI
-		public static OPEN_FUNCTION:string = "MainNotify_OPEN_FUNCTION";
-
-		//关闭功能UI
-		public static CLOSE_FUNCTION:string = "MainNotify_CLOSE_FUNCTION";
-
-		//打开活动UI
-		public static OPEN_ACTIVITY:string = "MainNotify_OPEN_ACTIVITY";
-
-		//关闭活动UI
-		public static CLOSE_ACTIVITY:string = "MainNotify_CLOSE_ACTIVITY";
+		
+		/**下注时间到 */
+		public static STOP_BETS: string = "STOP_BETS";
 	}	
 
 
