@@ -87,6 +87,19 @@ module game
 			this.maxBetBar = <fairygui.GProgressBar><any>(this.getChild("maxBetBar"));
 		}
 
+		private _otherEegionBalls: BetBallCom[][];
+		private _myEegionBalls: BetBallCom[][];
+		private _regionComs: RegionCom[];
+		private _alreadyBetNum: number;									//所有玩家已下注总金额
+
+		protected initView(): void
+		{
+			super.initView();
+			this._otherEegionBalls = [];
+			this._myEegionBalls = [];
+			this._regionComs = [this.region0, this.region1, this.region2, this.region3];
+		}
+
 		protected onButtonClick(btnName: string): void
 		{
 			super.onButtonClick(btnName);
@@ -98,18 +111,20 @@ module game
 					this.onGetHomePageData();
 					break;
 				case "betDetailDataBtn":
+					AllData.instance.setTestOtherBetData();
+					this.onGetOtherBetData();
 					break;
 			}
 		}
-		
 
+		/**接收到首页信息 */
 		public onGetHomePageData(): void
 		{
+			this.resetting();
 			let homePageData = AllData.instance.HomePageData;
 			this.dzValueTxt.text = homePageData.myAntes.toString();
 			this.tzValueTxt.text = homePageData.myBetMoney.toString();
 			this.playerMoneyTxt.text = homePageData.myMoney.toString();
-			this.maxBetBar.max = homePageData.maxBet;
 			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
 			this.updateAllBetBar(0, homePageData.maxBet);
 			this.region0.setResults(homePageData.regionRecord[0]);
@@ -117,6 +132,39 @@ module game
 			this.region2.setResults(homePageData.regionRecord[2]);
 			this.region3.setResults(homePageData.regionRecord[3]);
 			this.playBiginAmi();
+		}
+
+		/**
+		 * 收到投注信息
+		 */
+		public onGetOtherBetData(): void
+		{
+			let otherBetData = AllData.instance.OtherBetData;
+			this.betPlayerCom.refreshView(otherBetData.playerLevel, otherBetData.betMoney, otherBetData.playerName, otherBetData.betRegions);
+			let ballIndexs: number[][] = [];
+			for (let i = 0; i < 4; i++)
+			{
+				ballIndexs[i] = [];
+				let betValue = otherBetData.allBet[i];
+				if (betValue)
+				{
+					ballIndexs[i] = AllData.instance.getBetIndexByValue(betValue);
+					this._regionComs[i].addBetValue(betValue);
+				}
+			}
+			this.addBall(ballIndexs, false);
+			this._alreadyBetNum += otherBetData.totalBetNum;
+			this.updateAllBetBar(this._alreadyBetNum, AllData.instance.HomePageData.maxBet);
+		}
+
+		private resetting(): void
+		{
+			this.removeAllBall();
+			this.region0.resetting();
+			this.region1.resetting();
+			this.region2.resetting();
+			this.region3.resetting();
+			this._alreadyBetNum = 0;
 		}
 
 		private updateAllBetBar(currentValue: number, maxValue: number): void
@@ -138,5 +186,139 @@ module game
 			this.clockCom.starTiming(starTime, null, this);
 		}
 		/****************************************** 以上是动画流程 ******************************************/
+
+
+		/**
+		 * 增加小球
+		 * @param indexs 小球类型数组
+		 * @param boolean 是否是玩家本人
+		 */
+		public addBall(indexs: number[][], isSelf: boolean = false): void
+		{
+			if (indexs && indexs.length > 0)
+			{
+				// core.SoundUtils.getInstance().playSound(6);
+			}
+			for (let k = 0; k < 4; k++)
+			{
+				if (this._otherEegionBalls == null)
+				{
+					this._otherEegionBalls = [];
+				}
+				if (this._myEegionBalls == null)
+				{
+					this._myEegionBalls = [];
+				}
+				let len = indexs[k].length;
+				for (let i = 0; i < len; i++)
+				{
+					let ball: BetBallCom = ObjectPool.instance.getFguiCom(BetBallCom,BetBallCom.NAME);
+					this.addChild(ball);
+					if (isSelf)
+					{
+						ball.x = this.betBtn.x;
+						ball.y = this.betBtn.y;
+						if (this._myEegionBalls[k] == null)
+						{
+							this._myEegionBalls[k] = [];
+						}
+						this._myEegionBalls[k].push(ball);
+					}
+					else
+					{
+						ball.x = this.betPlayerCom.x;
+						ball.y = this.betPlayerCom.y;
+						if (this._otherEegionBalls[k] == null)
+						{
+							this._otherEegionBalls[k] = [];
+						}
+						this._otherEegionBalls[k].push(ball);
+					}
+					let pEnd = this.getBollEndPByIndex(k);
+					ball.showJoinAmi(pEnd.x, pEnd.y, indexs[k][i]);
+				}
+			}
+		}
+
+		private getBollEndPByIndex(index: number): egret.Point
+		{
+			let returnValue: egret.Point = new egret.Point();
+			let betBall: BetBallCom = ObjectPool.instance.getFguiCom(BetBallCom,BetBallCom.NAME);
+			let region: RegionCom = this._regionComs[index];
+			let xMax = region.x + region.width - betBall.width;
+			let xMin = region.x ;
+			let yMax = region.y + region.height - betBall.height * 2;
+			let yMin = region.y + betBall.height;
+			returnValue.x = AllData.instance.getRandomF(xMin, xMax);
+			returnValue.y = AllData.instance.getRandomF(yMin, yMax);
+			ObjectPool.instance.push(betBall, "hideBall");
+			return returnValue;
+		}
+
+		/**
+		 * 移除小球
+		 */
+		public removeAllBall(): void
+		{
+			for (let k = 0; k < 4; k++)
+			{
+				if (this._otherEegionBalls[k] == null)
+				{
+					continue;
+				}
+				let len = this._otherEegionBalls[k].length;
+				for (let i = 0; i < len; i++)
+				{
+					ObjectPool.instance.push(this._otherEegionBalls[k][i], "hideBall");
+					this.removeChild(this._otherEegionBalls[k][i]);
+				}
+				this._otherEegionBalls[k] = [];
+				this.withdrawBall();
+			}
+		}
+
+		/**
+		 * 撤回小球
+		 */
+		public withdrawBall(): boolean
+		{
+			let isHaveBall: boolean = false;
+			for (let k = 0; k < 4; k++)
+			{
+				if (this._myEegionBalls[k] == null)
+				{
+					continue;
+				}
+				let len = this._myEegionBalls[k].length;
+				if (len > 0)
+				{
+					isHaveBall = true;
+				}
+				for (let i = 0; i < len; i++)
+				{
+					ObjectPool.instance.push(this._myEegionBalls[k][i], "hideBall");
+					this.removeChild(this._myEegionBalls[k][i]);
+				}
+				this._myEegionBalls[k] = [];
+			}
+			return isHaveBall;
+		}
+
+		/**投注成功 */
+		public onBetSucceed(): void
+		{
+			for (let i = 0; i < 4; i++)
+			{
+				if (this._otherEegionBalls[i] == null)
+				{
+					this._otherEegionBalls[i] = [];
+				}
+				if (this._myEegionBalls[i])
+				{
+					this._otherEegionBalls[i].push.apply(this._otherEegionBalls[i], this._myEegionBalls[i]);
+					this._myEegionBalls[i] = [];
+				}
+			}
+		}
 	}
 }

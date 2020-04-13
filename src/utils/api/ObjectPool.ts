@@ -17,6 +17,29 @@ class ObjectPool
         }
         return ObjectPool._objectPool;
     }
+
+    /**
+     * 获取fgui对象
+     */
+    public getFguiCom(o: any,className: string): any
+    {
+        if (this.pool[className] == null)
+        {
+            this.pool[className] = [];
+        }
+        var list: Array<any> = this.pool[className];
+        if (list.length > 0)
+        {
+            return list.pop();
+        } else
+        {
+            var clz: any = Object.create(o);
+            var obj: any = clz.createInstance();
+            obj.className = className;
+        }
+        return obj;
+    }
+
     /**
      * 获取对象
      * @className 对象类名

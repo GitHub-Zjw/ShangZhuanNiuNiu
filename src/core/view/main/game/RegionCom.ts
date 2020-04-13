@@ -35,14 +35,17 @@ module game
 			this.loseTran = this.getTransition("loseTran");
 		}
 
+
+		private _results: EnumerationType.WinOrLose[];
+		private _betValue: number;
+
 		protected initView(): void
 		{
 			super.initView();
 			this.resultList.itemRenderer = this.resultListItemRenderer;
 			this.resultList.callbackThisObj = this;
+			this._betValue = 0;
 		}
-
-		private _results: EnumerationType.WinOrLose[];
 
 		/**
 		 * 设置胜负记录
@@ -58,6 +61,22 @@ module game
 		public setBetValue(betValue: string): void
 		{
 			this.betValueTxt.text = betValue;
+		}
+
+		/**添加下注 */
+		public addBetValue(value: number): void
+		{
+			this._betValue += value;
+			this.setBetValue(this._betValue.toString());
+		}
+
+		/**
+		 * 重置
+		 */
+		public resetting(): void
+		{
+			this._betValue = 0;
+			this.setBetValue(this._betValue.toString());
 		}
 
 		private resultListItemRenderer(index: number, obj: WLPointItem): void

@@ -62,7 +62,8 @@ module game
 		{
 			this.redo();
 			this.playerNameTxt.text = name;
-			this.ballValueTxt.text = betMoney;
+			this.ballValueTxt.text = level;
+			this.batValueTxt.text = betMoney;
 			let len = region.length;
 			for (let i = 0; i < len; i++)
 			{
