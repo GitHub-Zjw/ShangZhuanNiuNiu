@@ -63,6 +63,22 @@ module game
 			this.updateView();
 		}
 
+		/**
+		 * 增加一名胜败
+		 */
+		public addResult(isWin: EnumerationType.WinOrLose)
+		{
+			if (this._records.length == 10)
+			{
+				for(let i = 0; i < 9; i ++)
+				{
+					this._records[i] = this._records[i + 1];
+				}
+				this._records[9] = isWin;
+			}
+			this.resultList.numItems = this._records.length;
+		}
+
 		private updateView(): void
 		{
 			this.moneyValueTxt.text = this._money;

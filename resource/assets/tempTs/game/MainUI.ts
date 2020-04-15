@@ -30,12 +30,18 @@ module game {
 		public region1:RegionCom;
 		public region2:RegionCom;
 		public region3:RegionCom;
+		public ballGroupCom:fairygui.GComponent;
 		public maxBetBar:fairygui.GProgressBar;
+		public resultCom:ResultCom;
 		public homePageDataBtn:fairygui.GButton;
 		public betDetailDataBtn:fairygui.GButton;
+		public joinSucceedBtn:fairygui.GButton;
+		public cardResultBtn:fairygui.GButton;
+		public testLoad:fairygui.GLoader;
 		public bossResultTran:fairygui.Transition;
 		public playerResultTran:fairygui.Transition;
 		public beginTran:fairygui.Transition;
+		public stopBetTran:fairygui.Transition;
 
 		public static URL:string = "ui://v1h0uw6cfjnq0";
 
@@ -76,12 +82,18 @@ module game {
 			this.region1 = <RegionCom><any>(this.getChild("region1"));
 			this.region2 = <RegionCom><any>(this.getChild("region2"));
 			this.region3 = <RegionCom><any>(this.getChild("region3"));
+			this.ballGroupCom = <fairygui.GComponent><any>(this.getChild("ballGroupCom"));
 			this.maxBetBar = <fairygui.GProgressBar><any>(this.getChild("maxBetBar"));
+			this.resultCom = <ResultCom><any>(this.getChild("resultCom"));
 			this.homePageDataBtn = <fairygui.GButton><any>(this.getChild("homePageDataBtn"));
 			this.betDetailDataBtn = <fairygui.GButton><any>(this.getChild("betDetailDataBtn"));
+			this.joinSucceedBtn = <fairygui.GButton><any>(this.getChild("joinSucceedBtn"));
+			this.cardResultBtn = <fairygui.GButton><any>(this.getChild("cardResultBtn"));
+			this.testLoad = <fairygui.GLoader><any>(this.getChild("testLoad"));
 			this.bossResultTran = this.getTransition("bossResultTran");
 			this.playerResultTran = this.getTransition("playerResultTran");
 			this.beginTran = this.getTransition("beginTran");
+			this.stopBetTran = this.getTransition("stopBetTran");
 		}
 	}
 }

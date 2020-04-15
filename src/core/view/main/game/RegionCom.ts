@@ -57,6 +57,37 @@ module game
 			this.resultList.numItems = this._results.length;
 		}
 
+		/**
+		 * 增加一名胜败
+		 */
+		public addResult(isWin: EnumerationType.WinOrLose)
+		{
+			if (this._results.length == 10)
+			{
+				for (let i = 0; i < 9; i++)
+				{
+					this._results[i] = this._results[i + 1];
+				}
+				this._results[9] = isWin;
+			}
+			this.resultList.numItems = this._results.length;
+		}
+
+		/**
+		 * 根据胜负播放动画
+		 */
+		public playAmiByIsWin(isWin: EnumerationType.WinOrLose, call: Function, objThi: any): void
+		{
+			if (isWin == EnumerationType.WinOrLose.win)
+			{
+				this.winTran.play(call, objThi);
+			}
+			else
+			{
+				this.winTran.play(call, objThi);
+			}
+		}
+
 		/**设置投注数值 */
 		public setBetValue(betValue: string): void
 		{

@@ -32,11 +32,16 @@ module game
 		public region1: RegionCom;
 		public region2: RegionCom;
 		public region3: RegionCom;
+		public ballGroupCom: fairygui.GComponent;
 		public beginBtn: fairygui.GButton;
 		public bossResultTran: fairygui.Transition;
 		public playerResultTran: fairygui.Transition;
 		public beginTran: fairygui.Transition;
 		public maxBetBar: fairygui.GProgressBar;
+		public stopBetTran: fairygui.Transition;
+		public joinSucceedBtn: fairygui.GButton;
+		public cardResultBtn: fairygui.GButton;
+		public resultCom: ResultCom;
 
 		public static URL: string = "ui://v1h0uw6cfjnq0";
 
@@ -80,24 +85,53 @@ module game
 			this.region1 = <RegionCom><any>(this.getChild("region1"));
 			this.region2 = <RegionCom><any>(this.getChild("region2"));
 			this.region3 = <RegionCom><any>(this.getChild("region3"));
+			this.ballGroupCom = <fairygui.GComponent><any>this.getChild("ballGroupCom")
 			this.beginBtn = <fairygui.GButton><any>(this.getChild("beginBtn"));
 			this.bossResultTran = this.getTransition("bossResultTran");
 			this.playerResultTran = this.getTransition("playerResultTran");
 			this.beginTran = this.getTransition("beginTran");
 			this.maxBetBar = <fairygui.GProgressBar><any>(this.getChild("maxBetBar"));
+			this.stopBetTran = this.getTransition("stopBetTran");
+			this.resultCom = <ResultCom><any>(this.getChild("resultCom"));
+			this.joinSucceedBtn = <fairygui.GButton><any>(this.getChild("joinSucceedBtn"));
+			this.cardResultBtn = <fairygui.GButton><any>(this.getChild("cardResult"));
 		}
 
-		private _otherEegionBalls: BetBallCom[][];
-		private _myEegionBalls: BetBallCom[][];
+		private _otherRegionBalls: BetBallCom[][];
+		private _myRegionBalls: BetBallCom[][];
 		private _regionComs: RegionCom[];
-		private _alreadyBetNum: number;									//所有玩家已下注总金额
+		private _allBallBtns: BallBtn[];
+		private _selectBallIndex: number;								//选中的筹码索引，0表示未选中
 
 		protected initView(): void
 		{
 			super.initView();
-			this._otherEegionBalls = [];
-			this._myEegionBalls = [];
+			this._otherRegionBalls = [];
+			this._myRegionBalls = [];
 			this._regionComs = [this.region0, this.region1, this.region2, this.region3];
+			this._allBallBtns = [null, this.ball1_btn, this.ball2_btn, this.ball3_btn, this.ball4_btn, this.ball5_btn, this.ball6_btn];
+			this._selectBallIndex = 0;
+		}
+
+		protected addEvent(): void
+		{
+			super.addEvent();
+			this.region0.addClickListener(this.onRegionClick, this);
+			this.region1.addClickListener(this.onRegionClick, this);
+			this.region2.addClickListener(this.onRegionClick, this);
+			this.region3.addClickListener(this.onRegionClick, this);
+			this.addEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
+		}
+
+		protected removeEvent(): void
+		{
+			super.removeEvent();
+			let len = this._regionComs.length;
+			for (let i = 0; i < len; i++)
+			{
+				this._regionComs[i].removeClickListener(this.onRegionClick, this);
+			}
+			this.removeEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
 		}
 
 		protected onButtonClick(btnName: string): void
@@ -105,28 +139,106 @@ module game
 			super.onButtonClick(btnName);
 			switch (btnName)
 			{
+				case "ball1_btn":
+					this._selectBallIndex = 1;
+					break;
+				case "ball2_btn":
+					this._selectBallIndex = 2;
+					break;
+				case "ball3_btn":
+					this._selectBallIndex = 3;
+					break;
+				case "ball4_btn":
+					this._selectBallIndex = 4;
+					break;
+				case "ball5_btn":
+					this._selectBallIndex = 5;
+					break;
+				case "ball6_btn":
+					this._selectBallIndex = 6;
+					break;
+				case "cleanBtn":
+					if (AllData.instance.getMyAllBet() == 0)
+					{
+						TipsUtils.showTipsFromCenter("没有可撤回下注");
+						return;
+					}
+					this.withdrawBall();
+					break;
 				/********************************* 以下是测试按钮 **********************************/
 				case "homePageDataBtn":
 					AllData.instance.setTestHomePageData();
 					this.onGetHomePageData();
 					break;
 				case "betDetailDataBtn":
-					AllData.instance.setTestOtherBetData();
-					this.onGetOtherBetData();
+					// AllData.instance.setTestOtherBetData();
+					// this.onGetOtherBetData();
+					let testLoad = <fairygui.GLoader><any>(this.getChild("testLoad"));
+					testLoad.url="ui://game/card0_0";
+					break;
+				case "joinSucceedBtn":
+					AllData.instance.setPlayerBetSucceed();
+					this.onGetBetSucceedData();
+					break;
+				case "cardResultBtn":
+					AllData.instance.setTestResultData();
+					this.onGetResultData();
 					break;
 			}
+		}
+
+		private onRegionClick(e: Event): void
+		{
+			if (!this._selectBallIndex)
+			{
+				return;
+			}
+			let sourceIndex = this._selectBallIndex - 1;
+			let selectMoney = AllData.instance.BallValues[sourceIndex];
+			if (!AllData.instance.getBetMoneyIsEnough(selectMoney))
+			{
+				TipsUtils.showTipsFromCenter("您的金额不足");
+				return;
+			}
+			if (AllData.instance.getIsCapByBetMoney(selectMoney))
+			{
+				TipsUtils.showTipsFromCenter("不能超过最大投注金额");
+				return;
+			}
+			let region: RegionCom = <RegionCom><any>e.currentTarget;
+			let addBallNum: number[][] = [[], [], [], []];
+			switch (region.name)
+			{
+				case "region0":
+					AllData.instance.addMyBet(selectMoney, 0);
+					addBallNum[0] = [sourceIndex];
+					break;
+				case "region1":
+					AllData.instance.addMyBet(selectMoney, 1);
+					addBallNum[1] = [sourceIndex];
+					break;
+				case "region2":
+					AllData.instance.addMyBet(selectMoney, 2);
+					addBallNum[2] = [sourceIndex];
+					break;
+				case "region3":
+					AllData.instance.addMyBet(selectMoney, 3);
+					addBallNum[3] = [sourceIndex];
+					break;
+			}
+			this.addBall(addBallNum, true);
 		}
 
 		/**接收到首页信息 */
 		public onGetHomePageData(): void
 		{
-			this.resetting();
+			this.redo();
 			let homePageData = AllData.instance.HomePageData;
 			this.dzValueTxt.text = homePageData.myAntes.toString();
 			this.tzValueTxt.text = homePageData.myBetMoney.toString();
 			this.playerMoneyTxt.text = homePageData.myMoney.toString();
 			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
-			this.updateAllBetBar(0, homePageData.maxBet);
+			this.updateAllBetBar();
 			this.region0.setResults(homePageData.regionRecord[0]);
 			this.region1.setResults(homePageData.regionRecord[1]);
 			this.region2.setResults(homePageData.regionRecord[2]);
@@ -153,38 +265,135 @@ module game
 				}
 			}
 			this.addBall(ballIndexs, false);
-			this._alreadyBetNum += otherBetData.totalBetNum;
-			this.updateAllBetBar(this._alreadyBetNum, AllData.instance.HomePageData.maxBet);
+			this.updateAllBetBar();
 		}
 
-		private resetting(): void
+		/**
+		 * 收到投注成功信息
+		 */
+		public onGetBetSucceedData(): void
+		{
+			TipsUtils.showTipsFromCenter("投注成功")
+			let myBetNums = AllData.instance.MyBetNums;
+			for (let i = 0; i < 4; i++)
+			{
+				this._regionComs[i].addBetValue(myBetNums[i]);
+			}
+			let homePageData = AllData.instance.HomePageData;
+			this.dzValueTxt.text = homePageData.myAntes.toString();
+			this.tzValueTxt.text = homePageData.myBetMoney.toString();
+			this.playerMoneyTxt.text = homePageData.myMoney.toString();
+			this.updateAllBetBar();
+			this.onBetSucceed();
+			AllData.instance.cleanMyBet();//fix
+		}
+
+		/**
+		 * 获取结果数据消息
+		 */
+		public onGetResultData(): void
+		{
+			this.playResultAmi();
+		}
+
+		/**
+		 * 停止下注
+		 */
+		public onStopBet(): void
+		{
+			this.changeBetBtn(false);
+			this.playStopBetAmi();
+		}
+
+		private changeBetBtn(enabled: boolean): void
+		{
+			let len = this._allBallBtns.length;
+			for (let i = 1; i < len; i++)
+			{
+				this._allBallBtns[i].enabled = enabled;
+			}
+			this.cleanBtn.enabled = enabled;
+			this.betBtn.enabled = enabled;
+
+			this.pgValueTxt.visible = enabled;
+			this.maxBetBar.visible = enabled;
+		}
+
+		private redo(): void
 		{
 			this.removeAllBall();
 			this.region0.resetting();
 			this.region1.resetting();
 			this.region2.resetting();
 			this.region3.resetting();
-			this._alreadyBetNum = 0;
+			this.changeBetBtn(true);
+			this.resultCom.visible = false;
 		}
 
-		private updateAllBetBar(currentValue: number, maxValue: number): void
+		private updateAllBetBar(): void
 		{
-			this.maxBetBar.max = maxValue;
-			this.maxBetBar.value = currentValue;
-			this.pgValueTxt.text = currentValue + "/" + maxValue + "HDAG";
+			let max = AllData.instance.HomePageData.maxBet;
+			let value = AllData.instance.AllBetMoneyNum;
+			this.maxBetBar.max = max;
+			this.maxBetBar.value = value;
+			this.pgValueTxt.text = value + "/" + max + "HDAG";
 		}
 		/****************************************** 以下是动画流程 ******************************************/
-
+		//开局动画
 		private playBiginAmi(): void
 		{
 			this.beginTran.play(this.starTimerAmi, this);
 		}
-
+		//开始倒计时
 		private starTimerAmi(): void
 		{
 			let starTime: number = 28 - AllData.instance.getCurrentSecond();
 			this.clockCom.starTiming(starTime, null, this);
 		}
+		//停止下注
+		private playStopBetAmi(): void
+		{
+			this.stopBetTran.play(function ()
+			{
+				//请求结果数据 todo
+			});
+		}
+		//哈希选牌发牌
+		private playResultAmi(): void
+		{
+			this.resultCom.playResultAmi(this._regionComs, this.playAddResultAmi, this);
+		}
+		//记录结果动画
+		private playAddResultAmi(): void
+		{
+			let self = this;
+			let resultData = AllData.instance.ResultData;
+			TipsUtils.showTipsDownToUp(AllData.instance.ResultData.bossChange + " HDAG");
+			let temp = setTimeout(function() {
+				clearTimeout(temp);
+				for(let i = 0; i < 4; i++)
+				{
+					let isWin: EnumerationType.WinOrLose;
+					if (i < resultData.bossPosition)
+					{
+						isWin = resultData.isWins[i];
+					}
+					else
+					{
+						isWin = resultData.isWins[i+1];
+					}
+					self._regionComs[i].addResult(isWin);
+				}
+				self.bossCom.addResult(resultData.isWins[resultData.bossPosition]);
+				self.playBigWinnerAmi();
+			}, 300);
+		}
+		//大赢家动画
+		private playBigWinnerAmi(): void
+		{
+			
+		}
+
 		/****************************************** 以上是动画流程 ******************************************/
 
 
@@ -201,38 +410,39 @@ module game
 			}
 			for (let k = 0; k < 4; k++)
 			{
-				if (this._otherEegionBalls == null)
+				if (this._otherRegionBalls == null)
 				{
-					this._otherEegionBalls = [];
+					this._otherRegionBalls = [];
 				}
-				if (this._myEegionBalls == null)
+				if (this._myRegionBalls == null)
 				{
-					this._myEegionBalls = [];
+					this._myRegionBalls = [];
 				}
 				let len = indexs[k].length;
 				for (let i = 0; i < len; i++)
 				{
-					let ball: BetBallCom = ObjectPool.instance.getFguiCom(BetBallCom,BetBallCom.NAME);
-					this.addChild(ball);
+					let ball: BetBallCom = ObjectPool.instance.getFguiCom(BetBallCom, BetBallCom.NAME);
+					ball.touchable = false;
+					this.ballGroupCom.addChild(ball);
 					if (isSelf)
 					{
-						ball.x = this.betBtn.x;
-						ball.y = this.betBtn.y;
-						if (this._myEegionBalls[k] == null)
+						ball.x = this._allBallBtns[this._selectBallIndex].x;
+						ball.y = this._allBallBtns[this._selectBallIndex].y;
+						if (this._myRegionBalls[k] == null)
 						{
-							this._myEegionBalls[k] = [];
+							this._myRegionBalls[k] = [];
 						}
-						this._myEegionBalls[k].push(ball);
+						this._myRegionBalls[k].push(ball);
 					}
 					else
 					{
 						ball.x = this.betPlayerCom.x;
 						ball.y = this.betPlayerCom.y;
-						if (this._otherEegionBalls[k] == null)
+						if (this._otherRegionBalls[k] == null)
 						{
-							this._otherEegionBalls[k] = [];
+							this._otherRegionBalls[k] = [];
 						}
-						this._otherEegionBalls[k].push(ball);
+						this._otherRegionBalls[k].push(ball);
 					}
 					let pEnd = this.getBollEndPByIndex(k);
 					ball.showJoinAmi(pEnd.x, pEnd.y, indexs[k][i]);
@@ -243,10 +453,10 @@ module game
 		private getBollEndPByIndex(index: number): egret.Point
 		{
 			let returnValue: egret.Point = new egret.Point();
-			let betBall: BetBallCom = ObjectPool.instance.getFguiCom(BetBallCom,BetBallCom.NAME);
+			let betBall: BetBallCom = ObjectPool.instance.getFguiCom(BetBallCom, BetBallCom.NAME);
 			let region: RegionCom = this._regionComs[index];
 			let xMax = region.x + region.width - betBall.width;
-			let xMin = region.x ;
+			let xMin = region.x;
 			let yMax = region.y + region.height - betBall.height * 2;
 			let yMin = region.y + betBall.height;
 			returnValue.x = AllData.instance.getRandomF(xMin, xMax);
@@ -262,17 +472,17 @@ module game
 		{
 			for (let k = 0; k < 4; k++)
 			{
-				if (this._otherEegionBalls[k] == null)
+				if (this._otherRegionBalls[k] == null)
 				{
 					continue;
 				}
-				let len = this._otherEegionBalls[k].length;
+				let len = this._otherRegionBalls[k].length;
 				for (let i = 0; i < len; i++)
 				{
-					ObjectPool.instance.push(this._otherEegionBalls[k][i], "hideBall");
-					this.removeChild(this._otherEegionBalls[k][i]);
+					ObjectPool.instance.push(this._otherRegionBalls[k][i], "hideBall");
+					this.ballGroupCom.removeChild(this._otherRegionBalls[k][i]);
 				}
-				this._otherEegionBalls[k] = [];
+				this._otherRegionBalls[k] = [];
 				this.withdrawBall();
 			}
 		}
@@ -283,23 +493,24 @@ module game
 		public withdrawBall(): boolean
 		{
 			let isHaveBall: boolean = false;
+			AllData.instance.cleanMyBet();
 			for (let k = 0; k < 4; k++)
 			{
-				if (this._myEegionBalls[k] == null)
+				if (this._myRegionBalls[k] == null)
 				{
 					continue;
 				}
-				let len = this._myEegionBalls[k].length;
+				let len = this._myRegionBalls[k].length;
 				if (len > 0)
 				{
 					isHaveBall = true;
 				}
 				for (let i = 0; i < len; i++)
 				{
-					ObjectPool.instance.push(this._myEegionBalls[k][i], "hideBall");
-					this.removeChild(this._myEegionBalls[k][i]);
+					ObjectPool.instance.push(this._myRegionBalls[k][i], "hideBall");
+					this.ballGroupCom.removeChild(this._myRegionBalls[k][i]);
 				}
-				this._myEegionBalls[k] = [];
+				this._myRegionBalls[k] = [];
 			}
 			return isHaveBall;
 		}
@@ -309,14 +520,14 @@ module game
 		{
 			for (let i = 0; i < 4; i++)
 			{
-				if (this._otherEegionBalls[i] == null)
+				if (this._otherRegionBalls[i] == null)
 				{
-					this._otherEegionBalls[i] = [];
+					this._otherRegionBalls[i] = [];
 				}
-				if (this._myEegionBalls[i])
+				if (this._myRegionBalls[i])
 				{
-					this._otherEegionBalls[i].push.apply(this._otherEegionBalls[i], this._myEegionBalls[i]);
-					this._myEegionBalls[i] = [];
+					this._otherRegionBalls[i].push.apply(this._otherRegionBalls[i], this._myRegionBalls[i]);
+					this._myRegionBalls[i] = [];
 				}
 			}
 		}

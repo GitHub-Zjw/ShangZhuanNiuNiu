@@ -31,6 +31,11 @@ class UIComponent extends fgui.GComponent
 
 	protected initView(): void
 	{
+		this.addEvent();
+	}
+
+	protected addEvent(): void
+	{
 		let len = this.numChildren;
 		for (let i = 0; i < len; i++)
 		{
@@ -40,6 +45,15 @@ class UIComponent extends fgui.GComponent
 				com.addClickListener(this.onClick, this);
 				this.btnList.push(com);
 			}
+		}
+	}
+
+	protected removeEvent(): void
+	{
+		let len = this.btnList.length;
+		for (let i = 0; i < len; i++)
+		{
+			this.btnList[i].removeClickListener(this.onClick, this);
 		}
 	}
 
@@ -55,6 +69,7 @@ class UIComponent extends fgui.GComponent
 
 	public dispose(): void
 	{
+		this.removeEvent();
 		super.dispose();
 	}
 }

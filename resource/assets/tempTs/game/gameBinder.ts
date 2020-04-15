@@ -8,11 +8,17 @@ module game {
 			fairygui.UIObjectFactory.setPackageItemExtension(BetBallCom.URL, BetBallCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(MainUI.URL, MainUI);
 			fairygui.UIObjectFactory.setPackageItemExtension(BallBtn.URL, BallBtn);
+			fairygui.UIObjectFactory.setPackageItemExtension(Component1.URL, Component1);
+			fairygui.UIObjectFactory.setPackageItemExtension(ResultCom.URL, ResultCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(CardCom.URL, CardCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(HX_Item.URL, HX_Item);
+			fairygui.UIObjectFactory.setPackageItemExtension(CardResultCom.URL, CardResultCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(ClockCom.URL, ClockCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(BetPlayerCom.URL, BetPlayerCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(BossCom.URL, BossCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(WLPointItem.URL, WLPointItem);
 			fairygui.UIObjectFactory.setPackageItemExtension(RegionCom.URL, RegionCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(YellowBoxCom.URL, YellowBoxCom);
 		}
 	}
 }

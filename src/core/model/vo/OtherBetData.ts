@@ -14,7 +14,10 @@ module game
 		/**所有玩家投注【0方块，1梅花，2红桃，3黑桃】 */
 		allBet: number[];
 		/**总共增加的下注数值 */
-		totalBetNum: number;
+		public get totalBetNum(): number
+		{
+			return this.allBet[0] + this.allBet[1] + this.allBet[2] + this.allBet[3];
+		}
 
 		public constructor()
 		{

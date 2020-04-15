@@ -12,12 +12,12 @@ module TipsUtils {
     export function showTipsDownToUp(str:string = "",isWarning:boolean = false):void{
         var effectTips = new fgui.GTextField();
 
-        // effectTips.size = 24;
+        effectTips.fontSize = 24;
         effectTips.y = GameConfig.curHeight()/2;
         if(isWarning){
             effectTips.color = GameConfig.TextColors.red;
         }else{
-            effectTips.color = GameConfig.TextColors.green;
+            effectTips.color = GameConfig.TextColors.white;
         }
         effectTips.alpha = 0;
         
@@ -49,12 +49,12 @@ module TipsUtils {
     export function showTipsLeftOrRight(str:string = "",isWarning:boolean = false,isFromeLeft:boolean = true):void{
         var effectTips = new fgui.GTextField();
 
-        // effectTips.size = 24;
+        effectTips.fontSize = 24;
         effectTips.y = GameConfig.curHeight()/2;
         if(isWarning){
             effectTips.color = GameConfig.TextColors.red;
         }else{
-            effectTips.color = GameConfig.TextColors.green;
+            effectTips.color = GameConfig.TextColors.white;
         }
         effectTips.alpha = 0;
         
@@ -108,12 +108,12 @@ module TipsUtils {
     export function showTipsFromCenter(str:string = "",isWarning:boolean = false):void{
         var effectTips = new fgui.GTextField();
 
-        // effectTips.size = 24;
+        effectTips.fontSize = 24;
         effectTips.y = GameConfig.curHeight()/2;
         if(isWarning){
             effectTips.color = GameConfig.TextColors.red;
         }else{
-            effectTips.color = GameConfig.TextColors.green;
+            effectTips.color = GameConfig.TextColors.white;
         }
         effectTips.alpha = 0;
         
@@ -128,8 +128,7 @@ module TipsUtils {
             GameLayerManager.gameLayer().effectLayer.addChild( effectTips );
         }        
 
-        // effectTips.anchorOffsetX = effectTips.width/2;
-        // effectTips.anchorOffsetY = effectTips.height/2;
+        effectTips.setPivot(0.5, 0.5);
         effectTips.scaleX = 0;
         effectTips.scaleY = 0;
         
@@ -150,12 +149,12 @@ module TipsUtils {
     export function showTipsBigToSmall(str:string = "",isWarning:boolean = false):void{
         var effectTips = new fgui.GTextField();
 
-        // effectTips.size = 24;
+        effectTips.fontSize = 24;
         effectTips.y = GameConfig.curHeight()/2;
         if(isWarning){
             effectTips.color = GameConfig.TextColors.red;
         }else{
-            effectTips.color = GameConfig.TextColors.green;
+            effectTips.color = GameConfig.TextColors.white;
         }
         effectTips.alpha = 0;
         
@@ -170,8 +169,7 @@ module TipsUtils {
             GameLayerManager.gameLayer().effectLayer.addChild( effectTips );
         }        
 
-        // effectTips.anchorOffsetX = effectTips.width / 2;
-        // effectTips.anchorOffsetY = effectTips.height / 2;
+        effectTips.setPivot(0.5, 0.5);
         effectTips.scaleX = 4;
         effectTips.scaleY = 4;
         

@@ -21,5 +21,13 @@ module game
 		bossRecord: EnumerationType.WinOrLose[];
 		/**各区域胜负 */
 		regionRecord: EnumerationType.WinOrLose[][];
+		public constructor()
+		{
+			this.myMoney = 0;
+			this.myBetMoney = 0;
+			this.myAntes = 0;
+			this.bossMoney = 0;
+			this.peopleInRoom = 0;
+		}
 	}
 }

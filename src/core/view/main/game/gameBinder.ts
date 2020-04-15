@@ -13,6 +13,9 @@ module game {
 			fairygui.UIObjectFactory.setPackageItemExtension(BossCom.URL, BossCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(WLPointItem.URL, WLPointItem);
 			fairygui.UIObjectFactory.setPackageItemExtension(RegionCom.URL, RegionCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(CardCom.URL, CardCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(YellowBoxCom.URL, YellowBoxCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(ResultCom.URL, ResultCom);
 		}
 	}
 }

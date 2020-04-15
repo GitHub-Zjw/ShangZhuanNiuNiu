@@ -19,4 +19,35 @@ module EnumerationType
 		/**败 */
 		lose
 	}
+
+	export enum CardResult
+	{
+		/**没牛 */
+		meiNiu = 0,
+		niu1 = 1,
+		niu2 = 2,
+		niu3 = 3,
+		niu4 = 4,
+		niu5 = 5,
+		niu6 = 6,
+		niu7 = 7,
+		niu8 = 8,
+		niu9 = 9,
+		/**牛牛 */
+		niuNiu = 10,
+		/**同花顺 */
+		tongHuaShun = 11,
+		/**顺子牛 */
+		shunZiNiu = 12,
+		/**五小牛 */
+		wuXiaoNiu = 13,
+		/**葫芦牛 */
+		huLuNiu = 14,
+		/**同花牛 */
+		tongHuaNiu = 15,
+		/**五花牛 */
+		wuHuaNiu = 16,
+		/**炸弹牛 */
+		zhaDanNiu = 17
+	}
 }
