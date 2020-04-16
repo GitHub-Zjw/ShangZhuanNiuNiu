@@ -42,6 +42,8 @@ module game
 		public joinSucceedBtn: fairygui.GButton;
 		public cardResultBtn: fairygui.GButton;
 		public resultCom: ResultCom;
+		public bigWinnerCom: BigWinnerCom;
+		public bigWinnerTran: fairygui.Transition;
 
 		public static URL: string = "ui://v1h0uw6cfjnq0";
 
@@ -95,6 +97,8 @@ module game
 			this.resultCom = <ResultCom><any>(this.getChild("resultCom"));
 			this.joinSucceedBtn = <fairygui.GButton><any>(this.getChild("joinSucceedBtn"));
 			this.cardResultBtn = <fairygui.GButton><any>(this.getChild("cardResult"));
+			this.bigWinnerCom = <BigWinnerCom><any>(this.getChild("bigWinnerCom"));
+			this.bigWinnerTran = this.getTransition("bigWinnerTran");
 		}
 
 		private _otherRegionBalls: BetBallCom[][];
@@ -120,7 +124,7 @@ module game
 			this.region1.addClickListener(this.onRegionClick, this);
 			this.region2.addClickListener(this.onRegionClick, this);
 			this.region3.addClickListener(this.onRegionClick, this);
-			this.addEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
+			AllData.instance.addEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
 		}
 
 		protected removeEvent(): void
@@ -131,7 +135,7 @@ module game
 			{
 				this._regionComs[i].removeClickListener(this.onRegionClick, this);
 			}
-			this.removeEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
+			AllData.instance.removeEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
 		}
 
 		protected onButtonClick(btnName: string): void
@@ -167,14 +171,15 @@ module game
 					break;
 				/********************************* 以下是测试按钮 **********************************/
 				case "homePageDataBtn":
-					AllData.instance.setTestHomePageData();
-					this.onGetHomePageData();
+					// AllData.instance.setTestHomePageData();
+					// this.onGetHomePageData();
+					HomePageRequest.sendHomePageData();
 					break;
 				case "betDetailDataBtn":
-					// AllData.instance.setTestOtherBetData();
-					// this.onGetOtherBetData();
-					let testLoad = <fairygui.GLoader><any>(this.getChild("testLoad"));
-					testLoad.url="ui://game/card0_0";
+					AllData.instance.setTestOtherBetData();
+					this.onGetOtherBetData();
+					// let testLoad = <fairygui.GLoader><any>(this.getChild("testLoad"));
+					// testLoad.url="ui://game/card0_0";
 					break;
 				case "joinSucceedBtn":
 					AllData.instance.setPlayerBetSucceed();
@@ -239,11 +244,17 @@ module game
 			this.playerMoneyTxt.text = homePageData.myMoney.toString();
 			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
 			this.updateAllBetBar();
-			this.region0.setResults(homePageData.regionRecord[0]);
-			this.region1.setResults(homePageData.regionRecord[1]);
-			this.region2.setResults(homePageData.regionRecord[2]);
-			this.region3.setResults(homePageData.regionRecord[3]);
 			this.playBiginAmi();
+		}
+
+		/**获取区域数据 */
+		public onGetRegionData(): void
+		{
+
+			// this.region0.setResults(homePageData.regionRecord[0]);
+			// this.region1.setResults(homePageData.regionRecord[1]);
+			// this.region2.setResults(homePageData.regionRecord[2]);
+			// this.region3.setResults(homePageData.regionRecord[3]);
 		}
 
 		/**
@@ -302,6 +313,8 @@ module game
 		public onStopBet(): void
 		{
 			this.changeBetBtn(false);
+			this.ballSelect.setSelectedIndex(0);
+			this._selectBallIndex = 0;
 			this.playStopBetAmi();
 		}
 
@@ -321,13 +334,18 @@ module game
 
 		private redo(): void
 		{
-			this.removeAllBall();
-			this.region0.resetting();
-			this.region1.resetting();
-			this.region2.resetting();
-			this.region3.resetting();
+			this.redoRegion();
 			this.changeBetBtn(true);
 			this.resultCom.visible = false;
+		}
+
+		private redoRegion(): void
+		{
+			this.removeAllBall();
+			this.region0.redo();
+			this.region1.redo();
+			this.region2.redo();
+			this.region3.redo();
 		}
 
 		private updateAllBetBar(): void
@@ -361,37 +379,83 @@ module game
 		//哈希选牌发牌
 		private playResultAmi(): void
 		{
-			this.resultCom.playResultAmi(this._regionComs, this.playAddResultAmi, this);
+			this.resultCom.playResultAmi(this._regionComs, this.playHdagChange, this);
+		}
+
+		//资金更改动画
+		private playHdagChange(): void
+		{
+			let resultData = AllData.instance.ResultData;
+			if (resultData.myHdagChange >= 0)
+			{
+				this.playerChangeTxt.text = "[color=#F7DE6C]+" + resultData.myHdagChange + "[/color]";
+			}
+			else
+			{
+				this.playerChangeTxt.text = "[color=#FFFFFF]-" + resultData.myHdagChange + "[/color]";
+			}
+			if (resultData.bossChange >= 0)
+			{
+				this.bossChangeTxt.text = "[color=#F7DE6C]+" + resultData.bossChange + "[/color]";
+			}
+			else
+			{
+				this.bossChangeTxt.text = "[color=#FFFFFF]-" + resultData.bossChange + "[/color]";
+			}
+			let self = this;
+			let temp = setTimeout(function ()
+			{
+				self.redoRegion();
+				self.resultCom.visible = false;
+				clearTimeout(temp);
+				self.playerResultTran.play();
+				self.bossResultTran.play(self.playAddResultAmi, self);
+			}, 1000);
 		}
 		//记录结果动画
 		private playAddResultAmi(): void
 		{
 			let self = this;
 			let resultData = AllData.instance.ResultData;
-			TipsUtils.showTipsDownToUp(AllData.instance.ResultData.bossChange + " HDAG");
-			let temp = setTimeout(function() {
-				clearTimeout(temp);
-				for(let i = 0; i < 4; i++)
+			for (let i = 0; i < 4; i++)
+			{
+				let isWin: EnumerationType.WinOrLose;
+				if (i < resultData.bossPosition)
 				{
-					let isWin: EnumerationType.WinOrLose;
-					if (i < resultData.bossPosition)
-					{
-						isWin = resultData.isWins[i];
-					}
-					else
-					{
-						isWin = resultData.isWins[i+1];
-					}
-					self._regionComs[i].addResult(isWin);
+					isWin = resultData.isWins[i];
 				}
-				self.bossCom.addResult(resultData.isWins[resultData.bossPosition]);
-				self.playBigWinnerAmi();
-			}, 300);
+				else
+				{
+					isWin = resultData.isWins[i + 1];
+				}
+				self._regionComs[i].addResult(isWin);
+			}
+			self.bossCom.addResult(resultData.isWins[resultData.bossPosition]);
+			self.playBigWinnerAmi();
 		}
+
 		//大赢家动画
 		private playBigWinnerAmi(): void
 		{
-			
+			if (AllData.instance.ResultData.bigWinnerData.length > 0)
+			{
+				this.bigWinnerCom.refreshView();
+				this.bigWinnerTran.play();
+			}
+			this.getNextData();
+		}
+
+		//获取下局数据
+		private getNextData(): void
+		{
+			let temp = setInterval(function ()
+			{
+				if (AllData.instance.getCurrentSecond() < 25)
+				{
+					clearInterval(temp);
+					//fix获取下一局数据
+				}
+			}, 1000);
 		}
 
 		/****************************************** 以上是动画流程 ******************************************/

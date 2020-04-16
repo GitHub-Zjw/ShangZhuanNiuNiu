@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "game_atlas0,game",
+			"keys": "game_atlas0,game,game_atlas0_1",
 			"name": "preload"
 		},
 		{
@@ -44,6 +44,11 @@
 			"url": "assets/image/loading/loading_atlas0.png",
 			"type": "image",
 			"name": "loading_atlas0"
+		},
+		{
+			"url": "assets/image/game/game_atlas0_1.png",
+			"type": "image",
+			"name": "game_atlas0_1"
 		}
 	]
 }

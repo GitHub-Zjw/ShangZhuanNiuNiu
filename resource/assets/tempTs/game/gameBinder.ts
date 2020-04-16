@@ -6,6 +6,8 @@ module game {
 		public static bindAll():void {
 			fgui.UIPackage.addPackage("game")
 			fairygui.UIObjectFactory.setPackageItemExtension(BetBallCom.URL, BetBallCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(BigWinnerCom.URL, BigWinnerCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(BigWinnerItem.URL, BigWinnerItem);
 			fairygui.UIObjectFactory.setPackageItemExtension(MainUI.URL, MainUI);
 			fairygui.UIObjectFactory.setPackageItemExtension(BallBtn.URL, BallBtn);
 			fairygui.UIObjectFactory.setPackageItemExtension(Component1.URL, Component1);

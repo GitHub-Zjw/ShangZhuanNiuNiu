@@ -63,6 +63,9 @@ class Main extends egret.DisplayObjectContainer
             GameLayerManager.gameLayer().loadLayer.addChild(loadingView);
             await RES.loadGroup("preload", 0, loadingView);
             GameLayerManager.gameLayer().loadLayer.removeChild(loadingView);
+            let urlData = AllData.instance.parseUrl();
+            AllData.instance.Sunlight = urlData["sunlight"];
+            AllData.instance.Language = urlData["language"];
             this.createGameScene();
         }
         catch (e)

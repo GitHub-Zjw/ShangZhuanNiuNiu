@@ -9,6 +9,9 @@ module game
 		public state: fairygui.Controller;
 		public resultList: fairygui.GList;
 		public betValueTxt: fairygui.GTextField;
+		public winImg: fairygui.GImage;
+		public lostImg: fairygui.GImage;
+		public hkImg: fairygui.GImage;
 		public winTran: fairygui.Transition;
 		public loseTran: fairygui.Transition;
 
@@ -33,10 +36,13 @@ module game
 			this.betValueTxt = <fairygui.GTextField><any>(this.getChild("betValueTxt"));
 			this.winTran = this.getTransition("winTran");
 			this.loseTran = this.getTransition("loseTran");
+			this.winImg = <fairygui.GImage><any>(this.getChild("winImg"));
+			this.lostImg = <fairygui.GImage><any>(this.getChild("lostImg"));
+			this.hkImg = <fairygui.GImage><any>(this.getChild("hkImg"));
 		}
 
 
-		private _results: EnumerationType.WinOrLose[];
+		private _records: EnumerationType.WinOrLose[];
 		private _betValue: number;
 
 		protected initView(): void
@@ -45,6 +51,7 @@ module game
 			this.resultList.itemRenderer = this.resultListItemRenderer;
 			this.resultList.callbackThisObj = this;
 			this._betValue = 0;
+			this._records = []
 		}
 
 		/**
@@ -53,8 +60,8 @@ module game
 		 */
 		public setResults(results: EnumerationType.WinOrLose[]): void
 		{
-			this._results = results;
-			this.resultList.numItems = this._results.length;
+			this._records = results;
+			this.resultList.numItems = this._records.length;
 		}
 
 		/**
@@ -62,15 +69,21 @@ module game
 		 */
 		public addResult(isWin: EnumerationType.WinOrLose)
 		{
-			if (this._results.length == 10)
+			let newresults: EnumerationType.WinOrLose[] = [];
+			if (this._records.length >= 10)
 			{
-				for (let i = 0; i < 9; i++)
+				for (let i = 1; i < 10; i++)
 				{
-					this._results[i] = this._results[i + 1];
+					newresults.push(this._records[i]);
 				}
-				this._results[9] = isWin;
+				newresults[10] = isWin;
+				this._records = newresults;
 			}
-			this.resultList.numItems = this._results.length;
+			else
+			{
+				this._records.push(isWin);
+			}
+			this.resultList.numItems = this._records.length;
 		}
 
 		/**
@@ -84,7 +97,7 @@ module game
 			}
 			else
 			{
-				this.winTran.play(call, objThi);
+				this.loseTran.play(call, objThi);
 			}
 		}
 
@@ -104,15 +117,16 @@ module game
 		/**
 		 * 重置
 		 */
-		public resetting(): void
+		public redo(): void
 		{
 			this._betValue = 0;
+			this.winImg.visible = this.lostImg.visible = this.hkImg.visible = false;
 			this.setBetValue(this._betValue.toString());
 		}
 
 		private resultListItemRenderer(index: number, obj: WLPointItem): void
 		{
-			obj.setData(this._results[index]);
+			obj.setData(this._records[index]);
 		}
 	}
 }

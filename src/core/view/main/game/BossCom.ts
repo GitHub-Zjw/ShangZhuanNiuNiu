@@ -33,12 +33,6 @@ module game
 			this.resultList = <fairygui.GList><any>(this.getChild("resultList"));
 		}
 
-		protected initView(): void
-		{
-			super.initView();
-			this.resultList.itemRenderer = this.resultListItemRenderer;
-			this.resultList.callbackThisObj = this;
-		}
 
 		private _money: string;
 		private _people: string;
@@ -46,6 +40,14 @@ module game
 		private _records: EnumerationType.WinOrLose[];
 		private _timer: egret.Timer;
 		private _surplusTime: number;
+
+		protected initView(): void
+		{
+			super.initView();
+			this.resultList.itemRenderer = this.resultListItemRenderer;
+			this.resultList.callbackThisObj = this;
+			this._records = [];
+		}
 
 		/**
 		 * @param money 庄家钱
@@ -68,13 +70,19 @@ module game
 		 */
 		public addResult(isWin: EnumerationType.WinOrLose)
 		{
-			if (this._records.length == 10)
+			let newresults: EnumerationType.WinOrLose[] = [];
+			if (this._records.length >= 12)
 			{
-				for(let i = 0; i < 9; i ++)
+				for (let i = 1; i < 12; i++)
 				{
-					this._records[i] = this._records[i + 1];
+					newresults.push(this._records[i]);
 				}
-				this._records[9] = isWin;
+				newresults[10] = isWin;
+				this._records = newresults;
+			}
+			else
+			{
+				this._records.push(isWin);
 			}
 			this.resultList.numItems = this._records.length;
 		}

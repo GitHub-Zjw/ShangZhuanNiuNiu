@@ -54,6 +54,10 @@
     {
       "name": "fairygui",
       "path": "../modules/fgui/fairygui"
-    }
+    },
+		{
+			"name": "jsencrypt",
+			"path":"../modules/jsencrypt"
+		}
   ]
 }

@@ -28,6 +28,10 @@ module game
 		bossChange: number;
 		/**飘动的字符 */
 		moveStr: string;
+		/**本人游戏币增减 */
+		myHdagChange: number;
+		/**本轮大赢家数据 */
+		bigWinnerData: string[][];
 		public constructor()
 		{
 			this.cardResultTypes = [];
@@ -35,6 +39,7 @@ module game
 			this.cardTypes = [];
 			this.cardValue = [];
 			this.luckCardIndexs = [];
+			this.bigWinnerData = []
 		}
 	}
 

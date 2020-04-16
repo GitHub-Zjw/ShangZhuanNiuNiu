@@ -19,8 +19,6 @@ module game
 		maxBet: number;
 		/**庄家胜负 */
 		bossRecord: EnumerationType.WinOrLose[];
-		/**各区域胜负 */
-		regionRecord: EnumerationType.WinOrLose[][];
 		public constructor()
 		{
 			this.myMoney = 0;
@@ -28,6 +26,8 @@ module game
 			this.myAntes = 0;
 			this.bossMoney = 0;
 			this.peopleInRoom = 0;
+			this.maxBet = 0;
+			this.bossRecord = [];
 		}
 	}
 }

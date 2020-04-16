@@ -141,6 +141,7 @@ module game
 		private _resultData: ResultData;
 		private _timer: egret.Timer
 		private _listItemNumber: number;
+		private _hxListTempDatas: HXItemData[];
 		private _centerXs: number[][];
 		private _centerX1 = 27;
 		private _centerX2 = 233;
@@ -194,6 +195,7 @@ module game
 			this.hxList.itemRenderer = this.HXItemRenderer;
 			this.hxList.callbackThisObj = this;
 			this._luckTxts = [this.luckTxt0, this.luckTxt1, this.luckTxt2, this.luckTxt3, this.luckTxt4];
+			this._listItemNumber = 0;
 		}
 
 		protected removeEvent(): void
@@ -221,10 +223,12 @@ module game
 			this._listItemNumber = 0;
 			this.visible = true;
 			this.txtGroup.visible = true;
+			this.hxList.numItems = 0;
 			for (let i = 0; i < 5; i++)
 			{
 				this._cardResultCom[i].visible = false;
 				this._luckTxts[i].text = AllData.instance.BossStrs[i];
+				this._yellowBoxImgs[i].visible = false;
 				for (let k = 0; k < 5; k++)
 				{
 					let card: CardCom = this._cards[i][k];
@@ -263,13 +267,20 @@ module game
 				for (let k = 0; k < 5; k++)
 				{
 					let tw = egret.Tween.get(cards[k]);
-					let sourceName = "card" + this.getRESNumberByCardType(this._resultData.cardTypes[i][k]) + this._resultData.cardValue[i][k];
+					let sourceName = "card" + this.getRESNumberByCardType(this._resultData.cardTypes[i][k]) + "_" + this._resultData.cardValue[i][k];
 					tw.to({ x: cards[2].x }, 100)
 						.call(function ()
 						{
 							cards[k].SourceName = sourceName;
 						})
-						.to({ x: this._centerXs[i][k] }, 100);
+						.to({ x: this._centerXs[i][k] }, 100)
+						.call(function ()
+						{
+							if (i == 4 && k == 4)
+							{
+								self.playHXListAmi();
+							}
+						}, self);
 				}
 			}
 		}
@@ -277,7 +288,7 @@ module game
 		//哈希列表动画
 		private playHXListAmi(): void
 		{
-			this.startTimer(100);
+			this.startTimer(500);
 		}
 
 		//飘字动画
@@ -292,8 +303,14 @@ module game
 			this.moveTxt.visible = true;
 			this.moveTxt.text = this._resultData.moveStr;
 			let tw = egret.Tween.get(this.moveTxt);
-			tw.to({ x: endX, y: endY }, 200)
-				.call(this.playerBossLight, this);
+			tw.to({ x: endX, y: endY }, 700)
+				.call(function ()
+				{
+					self.moveTxt.x = starX;
+					self.moveTxt.y = starY;
+					self.moveTxt.visible = false;
+					self.playerBossLight();
+				}, this);
 		}
 
 		//播放发光动画
@@ -301,7 +318,8 @@ module game
 		{
 			let bossIndex = this._resultData.bossPosition;
 			this._yellowBoxImgs[bossIndex].visible = true;
-			this._lightTrans[bossIndex].play(this.backCard);
+			this._luckTxts[bossIndex].text = this._resultData.bossStr;
+			this._lightTrans[bossIndex].play(this.backCard, this);
 		}
 
 		//卡牌归位
@@ -324,7 +342,7 @@ module game
 					}
 					else if (i == this._resultData.bossPosition)
 					{ //庄家位置
-						endPositionX = this.bossEndCard.x + k * this._centerX1;
+						endPositionX = this.bossEndCard.x + k * 53;
 						endPositionY = this.bossEndCard.y;
 						endHeight = this.bossEndCard.height;
 						endWidht = this.bossEndCard.width;
@@ -334,7 +352,7 @@ module game
 						endPositionX = this._endXs[i - 1][k];
 					}
 					let tw = egret.Tween.get(cards[k]);
-					tw.to({ x: endPositionX, y: endPositionY, height: endHeight, width: endWidht }, 200)
+					tw.to({ x: endPositionX, y: endPositionY, height: endHeight, width: endWidht }, 500)
 						.call(function ()
 						{
 							if (i == 4 && k == 4)
@@ -377,7 +395,7 @@ module game
 				index++;
 			}
 			let self = this;
-			this.showCardTypeAmi(index, this.cardResultCom1, function ()
+			this.showCardTypeAmi(index, this.cardResultCom2, function ()
 			{
 				self._regionComs[1].playAmiByIsWin(self._resultData.isWins[index], self.playShowRegionCard3, self);
 			}, this);
@@ -391,7 +409,7 @@ module game
 				index++;
 			}
 			let self = this;
-			this.showCardTypeAmi(index, this.cardResultCom1, function ()
+			this.showCardTypeAmi(index, this.cardResultCom3, function ()
 			{
 				self._regionComs[2].playAmiByIsWin(self._resultData.isWins[index], self.playShowRegionCard4, self);
 			}, this);
@@ -405,80 +423,95 @@ module game
 				index++;
 			}
 			let self = this;
-			this.showCardTypeAmi(index, this.cardResultCom1, function ()
+			this.showCardTypeAmi(index, this.cardResultCom4, function ()
 			{
 				self._regionComs[3].playAmiByIsWin(self._resultData.isWins[index], self._call, self._callThis);
 			}, this);
 		}
 
 
+		/**
+		 * @param index 索引
+		 * @param cardResultCom 卡牌结果显示组件
+		 * @param call 
+		 * @param callThis
+		 */
 		private showCardTypeAmi(index: number, cardResultCom: CardResultCom, call: Function, callThis: any): void
 		{
+			let self = this;
 			let cards = this._cards[index];
 			let resultType = this._resultData.cardResultTypes[index];
 			let luckIndexs = this._resultData.luckCardIndexs[index];
-			let time = 200;
+			let moveTime = 400;
+			let upTime = 200;
 			for (let i = 0; i < 5; i++)
 			{
 				let tw: egret.Tween;
 				tw = egret.Tween.get(cards[i]);
 				let oX = cards[i].x;
 				let oY = cards[i].y
-				tw.to({ x: cards[2].x, y: cards[2].y }, time)
-					.to({ x: oX, y: oY }, time)
+				tw.to({ x: cards[2].x, y: cards[2].y }, moveTime)
+					.to({ x: oX, y: oY }, moveTime)
 			}
 			let len = luckIndexs.length;
 			if (len == 0)
 			{
-				let tw: egret.Tween;
-				tw = egret.Tween.get(cards[0]);
-				tw.wait(time * 2)
-					.call(function ()
-					{
-						cardResultCom.setState(resultType);
-						cardResultCom.visible = true;
-						call.apply(callThis);
-					}, this)
+				let temp = setTimeout(function ()
+				{
+					clearTimeout(temp);
+					cardResultCom.setState(resultType);
+					cardResultCom.visible = true;
+					call.apply(callThis);
+				}, moveTime * 2.5);
 			}
 			else if (len == 5)
 			{
 				for (let i = 0; i < 5; i++)
 				{
-					let tw: egret.Tween;
-					tw = egret.Tween.get(cards[0]);
-					tw.wait(time * 2)
-					tw.to({ y: cards[i].y - cards[i].width / 3 }, 100)
+					let temp = setTimeout(function ()
+					{
+						clearTimeout(temp);
+						egret.Tween.removeTweens(cards[i]);
+						let tw: egret.Tween;
+						tw = egret.Tween.get(cards[i]);
+						tw.to({ y: cards[i].y - cards[i].width / 3 }, upTime)
+							.call(function ()
+							{
+								if (i == 4)
+								{
+									cardResultCom.setState(resultType);
+									cardResultCom.visible = true;
+									call.apply(callThis);
+								}
+							}, self)
+					}, moveTime * 2.5);
+				}
+			}
+			else if (len == 2)
+			{
+				let temp = setTimeout(function ()
+				{
+					clearTimeout(temp);
+					egret.Tween.removeTweens(cards[3]);
+					egret.Tween.removeTweens(cards[4]);
+					let tw1 = egret.Tween.get(cards[3]);
+					let tw2 = egret.Tween.get(cards[4]);
+					tw1.to({ y: cards[3].y - cards[3].width / 3 }, upTime)
+					tw2.to({ y: cards[4].y - cards[4].width / 3 }, upTime)
 						.call(function ()
 						{
 							cardResultCom.setState(resultType);
 							cardResultCom.visible = true;
 							call.apply(callThis);
-						}, this)
-				}
-			}
-			else if (len == 2)
-			{
-				let tw1 = egret.Tween.get(cards[3]);
-				let tw2 = egret.Tween.get(cards[4]);
-				tw1.wait(time * 2)
-					.to({ y: cards[3].y - cards[3].width / 3 }, 100)
-				tw2.wait(time * 2)
-					.to({ y: cards[4].y - cards[4].width / 3 }, 100)
-					.call(function ()
-					{
-						cardResultCom.setState(resultType);
-						cardResultCom.visible = true;
-						call.apply(callThis);
-					}, this);
+						}, self);
+				}, moveTime * 2.5);
 			}
 		}
 
-		private showResultBy
 
 		private HXItemRenderer(index: number, obj: HX_Item): void
 		{
-			index = this._resultData.hxItemDatas.length - index - 1;
-			obj.setData(this._resultData.hxItemDatas[index]);
+			obj.setData(this._hxListTempDatas[index]);
 		}
 
 		private getRESNumberByCardType(value: EnumerationType.CardsType): number
@@ -521,12 +554,19 @@ module game
 		private onTimer(e: egret.TimerEvent): void
 		{
 			this._listItemNumber++;
-			if (this._listItemNumber < this._resultData.hxItemDatas.length)
+			let len = this._resultData.hxItemDatas.length;
+			if (this._listItemNumber <= len)
 			{
+				this._hxListTempDatas = [];
+				for (let i = len - this._listItemNumber; i < len; i++)
+				{
+					this._hxListTempDatas.push(this._resultData.hxItemDatas[i]);
+				}
 				this.hxList.numItems = this._listItemNumber;
 			}
 			else
 			{
+				this._listItemNumber = 0;
 				this.removeTimer();
 				this.playeMoveTxtAmi();
 			}

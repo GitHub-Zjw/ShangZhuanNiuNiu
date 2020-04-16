@@ -37,11 +37,12 @@ module game {
 		public betDetailDataBtn:fairygui.GButton;
 		public joinSucceedBtn:fairygui.GButton;
 		public cardResultBtn:fairygui.GButton;
-		public testLoad:fairygui.GLoader;
+		public bigWinnerCom:BigWinnerCom;
 		public bossResultTran:fairygui.Transition;
 		public playerResultTran:fairygui.Transition;
 		public beginTran:fairygui.Transition;
 		public stopBetTran:fairygui.Transition;
+		public bigWinnerTran:fairygui.Transition;
 
 		public static URL:string = "ui://v1h0uw6cfjnq0";
 
@@ -89,11 +90,12 @@ module game {
 			this.betDetailDataBtn = <fairygui.GButton><any>(this.getChild("betDetailDataBtn"));
 			this.joinSucceedBtn = <fairygui.GButton><any>(this.getChild("joinSucceedBtn"));
 			this.cardResultBtn = <fairygui.GButton><any>(this.getChild("cardResultBtn"));
-			this.testLoad = <fairygui.GLoader><any>(this.getChild("testLoad"));
+			this.bigWinnerCom = <BigWinnerCom><any>(this.getChild("bigWinnerCom"));
 			this.bossResultTran = this.getTransition("bossResultTran");
 			this.playerResultTran = this.getTransition("playerResultTran");
 			this.beginTran = this.getTransition("beginTran");
 			this.stopBetTran = this.getTransition("stopBetTran");
+			this.bigWinnerTran = this.getTransition("bigWinnerTran");
 		}
 	}
 }

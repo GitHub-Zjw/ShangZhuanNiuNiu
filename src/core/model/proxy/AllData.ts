@@ -3,7 +3,9 @@ class AllData extends egret.EventDispatcher
 	/**game包路径前缀 */
 	public URL_Str: string = "ui://game/";
 	/**庄家字符串数组 */
-	public BossStrs: string[] = ["[1,6,b]", "[2,7,c]", "[3,8,d]", "[4,9,e]", "[0,5,a]"];
+	public BossStrs: string[] = ["『1,6,b』", "『2,7,c』", "『3,8,d』", "『4,9,e』", "『0,5,a』"];
+	public Sunlight: string;
+	public Language: string;
 
 	private static _info: AllData;
 	private _homePageData: game.HomePageData;
@@ -31,6 +33,30 @@ class AllData extends egret.EventDispatcher
 		this._myBetNums = [0, 0, 0, 0];
 		this._allBetMoneyNum = 0;
 	}
+
+	/**
+	 * 设置首页数据
+	 */
+	public setHomePageData(data: game.NuserData): void
+	{
+		this._homePageData = new game.HomePageData();
+		let s = data.Data;
+		let cData = this._homePageData;
+		cData.myMoney = parseFloat(s.hdag);
+		cData.myBetMoney = s.bm;
+		//fix cData.myAntes = sData.
+		cData.bossMoney = s.nest;
+		cData.peopleInRoom = s.pe;
+		cData.bossTime = s.time;
+		cData.maxBet = parseFloat(s.ca);
+		//fix cData.bossRecord
+	}
+
+	/**
+	 * 设置游戏结果数据
+	 */
+	public setResultData(data: game.ServerResultData): void
+	{}
 
 	/**游戏首页信息 */
 	public get HomePageData(): game.HomePageData
@@ -231,6 +257,59 @@ class AllData extends egret.EventDispatcher
 		}
 	}
 
+
+	/**
+	 * 解析url
+	 */
+	public parseUrl(): any
+	{
+		if (this.IsTestServer)
+		{//测试服
+			return { sunlight: "HD30d4c42d31283b52f175f83400865e5102a35fd0c54ad864602dd9dfdca", language: "cn" };//本机
+			// return {sunlight:"HD9ae9bca5bcac2ac8f759b44c387ba282ffbb0a7faf042ce56da97c2b611",language:"cn"};//测试服
+
+		}
+		var searchHref = window.location.search.replace('?', '');
+		var params = searchHref.split('&');
+		var returnParam = {};
+		params.forEach(function (param)
+		{
+			var paramSplit = param.split('=');
+			returnParam[paramSplit[0]] = paramSplit[1];
+		});
+		return returnParam;
+	}
+
+	/**
+	 * 是否测试服
+	 */
+	public get IsTestServer(): boolean
+	{
+		if (location.port == "5927")
+		{//测试服
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * 获取请求网址
+	 */
+	public getWebsite(): string
+	{
+		if (this.IsTestServer)
+		{//测试服
+			return "www.libraw.io";
+		}
+		else
+		{
+			return "www.harmonydag.com";
+		}
+	}
+
 	/**
 	 * 测试首页数据
 	 */
@@ -245,7 +324,7 @@ class AllData extends egret.EventDispatcher
 		this._homePageData.myBetMoney = this.getRandomF(1, 500);
 		this._homePageData.myMoney = this.getRandomF(100, 500);
 		this._homePageData.peopleInRoom = this.getRandomInt(2, 999);
-		this._homePageData.regionRecord = [this._homePageData.bossRecord, this._homePageData.bossRecord, this._homePageData.bossRecord, this._homePageData.bossRecord];
+		// this._homePageData.regionRecord = [this._homePageData.bossRecord, this._homePageData.bossRecord, this._homePageData.bossRecord, this._homePageData.bossRecord];
 	}
 
 	/**
@@ -294,7 +373,7 @@ class AllData extends egret.EventDispatcher
 			for (let k = 0; k < 5; k++)
 			{
 				this._resultData.cardTypes[i][k] = this.getRandomInt(0, 4);
-				this._resultData.cardValue[i][k] = this.getRandomInt(0, 14);
+				this._resultData.cardValue[i][k] = this.getRandomInt(1, 14);
 			}
 		}
 		this._resultData.luckCardIndexs.push([this.getRandomInt(0, 6), this.getRandomInt(0, 6)]);
@@ -302,9 +381,12 @@ class AllData extends egret.EventDispatcher
 		this._resultData.luckCardIndexs.push([]);
 		this._resultData.luckCardIndexs.push([this.getRandomInt(0, 6), this.getRandomInt(0, 6), this.getRandomInt(0, 6), this.getRandomInt(0, 6), this.getRandomInt(0, 6)]);
 		this._resultData.luckCardIndexs.push([this.getRandomInt(0, 6), this.getRandomInt(0, 6)]);
-		this._resultData.bossStr = "[0,[color=#FFA03B]5[/color],a]";
-		this._resultData.bossPosition = this.getRandomInt(0, 6);
+		this._resultData.bossStr = "『0,[color=#FFA03B]5[/color],a』";
+		this._resultData.bossPosition = this.getRandomInt(0, 5);
 		this._resultData.bossChange = this.getRandomInt(-10000, 100000);
+		this._resultData.myHdagChange = this.getRandomInt(-10000, 100000);
 		this._resultData.moveStr = "5";
+		this._resultData.bigWinnerData = [["是省会", this.getRandomInt(-10000, 100000).toString()], ["是省会", this.getRandomInt(-10000, 100000).toString()], ["是省会", this.getRandomInt(-10000, 100000).toString()]];
+		console.log(this._resultData);
 	}
 }

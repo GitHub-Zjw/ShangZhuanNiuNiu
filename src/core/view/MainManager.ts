@@ -27,6 +27,7 @@ module game
         {
             this.facade.registerCommand(MainNotify.OPEN_MAIN, MainManager);
             this.facade.registerCommand(MainNotify.CLOSE_MAIN, MainManager);
+            this.facade.registerCommand(GameNotify.HOME_PAGE_DATA, MainManager);
         }
         private _mainUI: MainUI;
         public execute(notification: puremvc.INotification): void
@@ -51,6 +52,9 @@ module game
                         this._mainUI = null;
                         game.MainManager.mainUI = null;
                     }
+                    break;
+                case GameNotify.HOME_PAGE_DATA:
+                    MainManager.mainUI.onGetHomePageData();
                     break;
             }
         }

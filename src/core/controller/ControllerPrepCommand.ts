@@ -19,6 +19,8 @@ module game {
             
             //服务器返回command
             (new Processor_100_1()).register();
+            (new HomePageCommand()).register();
+            (new GameResultCommand()).register();
         }
 	}
 }

@@ -16,6 +16,10 @@ module game {
 			fairygui.UIObjectFactory.setPackageItemExtension(CardCom.URL, CardCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(YellowBoxCom.URL, YellowBoxCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(ResultCom.URL, ResultCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(HX_Item.URL, HX_Item);
+			fairygui.UIObjectFactory.setPackageItemExtension(CardResultCom.URL, CardResultCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(BigWinnerItem.URL, BigWinnerItem);
+			fairygui.UIObjectFactory.setPackageItemExtension(BigWinnerCom.URL, BigWinnerCom);
 		}
 	}
 }
