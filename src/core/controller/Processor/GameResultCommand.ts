@@ -28,7 +28,69 @@ module game
 	{
 		Data:
 		{
-			//todo
+
+			"pe": {
+				"l1": {
+					"pe": [
+						"fk3"
+					],
+					"niu": number
+					"ten": [
+						"mh10"
+					]
+				},
+				"l2": {
+
+					"pe": [
+						"mh3"
+					],
+					"niu": number
+					"ten": string[],
+					"win": number
+				},
+				"l3": {
+
+					"pe": [
+						"fk8"
+					],
+					"niu": number
+					"win": number
+					"ten": [
+						"fk8"
+					]
+				},
+				"l4": {
+
+					"pe": [
+						"ht12"
+					],
+					"niu": number
+					"win": number
+					"ten": [
+						"ht12"
+					]
+				},
+				"l5": {
+
+					"pe": [
+						"mh1"
+					],
+					"niu": number
+					"win": number
+					"ten": [
+						"mh1"
+					]
+				}
+			},
+			"inc": number
+			"kj": {
+
+				"ht": number
+				"hx": number
+				"mh": number
+				"fk": number
+			},
+			"vill": number
 		}
 	}
 }

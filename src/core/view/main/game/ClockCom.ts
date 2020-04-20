@@ -37,9 +37,9 @@ module game
 		 */
 		public starTiming(timeNum: number = 25, call: Function, thisObj: Object): void
 		{
-			if (timeNum < 0)
+			if (timeNum <= 0)
 			{
-				console.warn("开始时间过小");
+				GameResultRequest.sendRequest();
 				return;
 			}
 			this.visible = true;
@@ -82,6 +82,7 @@ module game
 				{
 					this._call.apply(this._thisObj);
 				}
+				GameResultRequest.sendRequest();
 				this.removeTimer();
 			}
 			else

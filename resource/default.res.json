@@ -1,12 +1,32 @@
 {
 	"groups": [
 		{
-			"keys": "game_atlas0,game,game_atlas0_1",
+			"keys": "game_atlas0,game,game_atlas0_1,config_zip",
 			"name": "preload"
 		},
 		{
 			"keys": "loading,loading_atlas0",
 			"name": "loading"
+		},
+		{
+			"keys": "gameRule,gameRule_atlas0",
+			"name": "gameRule"
+		},
+		{
+			"keys": "boosResult,boosResult_atlas0",
+			"name": "boosResult"
+		},
+		{
+			"keys": "setting,setting_atlas0",
+			"name": "setting"
+		},
+		{
+			"keys": "backg_mp3,background1_mp3,baozi_mp3,button_mp3,cmxz_mp3,daojishi_mp3,dgcmxz1_mp3,dgcmxz2_mp3,duizi_mp3,dyjtc_mp3,fdzpyx_mp3,fpyx_mp3,jinhua_mp3,kjpkdp_mp3,ksxz_mp3,main_bgm_mp3,sanpai_mp3,shunjin_mp3,shunzi_mp3,tzxz_mp3",
+			"name": "sound"
+		},
+		{
+			"keys": "betInfo,betInfo_atlas0",
+			"name": "betInfo"
 		}
 	],
 	"resources": [
@@ -49,6 +69,151 @@
 			"url": "assets/image/game/game_atlas0_1.png",
 			"type": "image",
 			"name": "game_atlas0_1"
+		},
+		{
+			"url": "assets/image/gameRule/gameRule.fui",
+			"type": "bin",
+			"name": "gameRule"
+		},
+		{
+			"url": "assets/image/gameRule/gameRule_atlas0.png",
+			"type": "image",
+			"name": "gameRule_atlas0"
+		},
+		{
+			"url": "assets/image/boosResult/boosResult.fui",
+			"type": "bin",
+			"name": "boosResult"
+		},
+		{
+			"url": "assets/image/boosResult/boosResult_atlas0.png",
+			"type": "image",
+			"name": "boosResult_atlas0"
+		},
+		{
+			"url": "assets/image/setting/setting.fui",
+			"type": "bin",
+			"name": "setting"
+		},
+		{
+			"url": "assets/image/setting/setting_atlas0.png",
+			"type": "image",
+			"name": "setting_atlas0"
+		},
+		{
+			"url": "assets/config/config.zip",
+			"type": "bin",
+			"name": "config_zip"
+		},
+		{
+			"url": "assets/sound/backg.mp3",
+			"type": "sound",
+			"name": "backg_mp3"
+		},
+		{
+			"url": "assets/sound/background1.mp3",
+			"type": "sound",
+			"name": "background1_mp3"
+		},
+		{
+			"url": "assets/sound/baozi.mp3",
+			"type": "sound",
+			"name": "baozi_mp3"
+		},
+		{
+			"url": "assets/sound/button.mp3",
+			"type": "sound",
+			"name": "button_mp3"
+		},
+		{
+			"url": "assets/sound/cmxz.mp3",
+			"type": "sound",
+			"name": "cmxz_mp3"
+		},
+		{
+			"url": "assets/sound/daojishi.mp3",
+			"type": "sound",
+			"name": "daojishi_mp3"
+		},
+		{
+			"url": "assets/sound/dgcmxz1.mp3",
+			"type": "sound",
+			"name": "dgcmxz1_mp3"
+		},
+		{
+			"url": "assets/sound/dgcmxz2.mp3",
+			"type": "sound",
+			"name": "dgcmxz2_mp3"
+		},
+		{
+			"url": "assets/sound/duizi.mp3",
+			"type": "sound",
+			"name": "duizi_mp3"
+		},
+		{
+			"url": "assets/sound/dyjtc.mp3",
+			"type": "sound",
+			"name": "dyjtc_mp3"
+		},
+		{
+			"url": "assets/sound/fdzpyx.mp3",
+			"type": "sound",
+			"name": "fdzpyx_mp3"
+		},
+		{
+			"url": "assets/sound/fpyx.mp3",
+			"type": "sound",
+			"name": "fpyx_mp3"
+		},
+		{
+			"url": "assets/sound/jinhua.mp3",
+			"type": "sound",
+			"name": "jinhua_mp3"
+		},
+		{
+			"url": "assets/sound/kjpkdp.mp3",
+			"type": "sound",
+			"name": "kjpkdp_mp3"
+		},
+		{
+			"url": "assets/sound/ksxz.mp3",
+			"type": "sound",
+			"name": "ksxz_mp3"
+		},
+		{
+			"url": "assets/sound/main_bgm.mp3",
+			"type": "sound",
+			"name": "main_bgm_mp3"
+		},
+		{
+			"url": "assets/sound/sanpai.mp3",
+			"type": "sound",
+			"name": "sanpai_mp3"
+		},
+		{
+			"url": "assets/sound/shunjin.mp3",
+			"type": "sound",
+			"name": "shunjin_mp3"
+		},
+		{
+			"url": "assets/sound/shunzi.mp3",
+			"type": "sound",
+			"name": "shunzi_mp3"
+		},
+		{
+			"url": "assets/sound/tzxz.mp3",
+			"type": "sound",
+			"name": "tzxz_mp3"
+		},
+		{
+			"url": "assets/image/betInfo/betInfo.fui",
+			"type": "bin",
+			"name": "betInfo"
+		},
+		{
+			"url": "assets/image/betInfo/betInfo_atlas0.png",
+			"type": "image",
+			"name": "betInfo_atlas0"
 		}
 	]
 }

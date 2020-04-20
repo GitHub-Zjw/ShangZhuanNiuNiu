@@ -52,6 +52,16 @@ module game
 			this._cardImgs = [this.fkImg, this.chImg, this.hongtaoImg, this.heitaoImg];
 		}
 
+		protected onButtonClick(name: string): void
+		{
+			switch (name)
+			{
+				case "prizeBtn":
+					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_BET_INFO);
+					break;
+			}
+		}
+
 		/**
 		 * @param level 钻石显示等级
 		 * @param betMoney 下注金额
@@ -70,15 +80,16 @@ module game
 				let index = region[i];
 				this._cardImgs[index].visible = true;
 			}
-			this.betTran.play(); 
+			this.betTran.play();
 		}
 
 		private redo(): void
 		{
-			for(let i = 0; i < 4; i++)
+			for (let i = 0; i < 4; i++)
 			{
 				this._cardImgs[i].visible = false;
 			}
 		}
+
 	}
 }

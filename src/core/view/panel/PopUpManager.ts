@@ -29,20 +29,20 @@ module PopUpManager {
         panel.alpha = 1;
         
 		if(dark){
-			this.darkSprite = new egret.Sprite();
-	        this.darkSprite.graphics.clear();
-	        this.darkSprite.graphics.beginFill(0x000000, 0.3);
-	        this.darkSprite.graphics.drawRect(0, 0, GameConfig.curWidth(), GameConfig.curHeight());
-	        this.darkSprite.graphics.endFill();
-	        this.darkSprite.width = GameConfig.curWidth();
-	        this.darkSprite.height = GameConfig.curHeight();
-	        if(!GameLayerManager.gameLayer().panelLayer.contains(this.darkSprite)){
-				GameLayerManager.gameLayer().panelLayer.addChild( this.darkSprite );
-	        }
-	        this.darkSprite.touchEnabled = true;
+			// this.darkSprite = new egret.Sprite();
+	        // this.darkSprite.graphics.clear();
+	        // this.darkSprite.graphics.beginFill(0x000000, 0.3);
+	        // this.darkSprite.graphics.drawRect(0, 0, GameConfig.curWidth(), GameConfig.curHeight());
+	        // this.darkSprite.graphics.endFill();
+	        // this.darkSprite.width = GameConfig.curWidth();
+	        // this.darkSprite.height = GameConfig.curHeight();
+	        // if(!GameLayerManager.gameLayer().panelLayer.contains(this.darkSprite)){
+			// 	GameLayerManager.gameLayer().panelLayer.addChild( this.darkSprite );
+	        // }
+	        // this.darkSprite.touchEnabled = true;
 
-	        egret.Tween.get(this.darkSprite).to({alpha:1},150);        
-	        this.darkSprite.visible = true;    
+	        // egret.Tween.get(this.darkSprite).to({alpha:1},150);        
+	        // this.darkSprite.visible = true;    
 		}
 
 		GameLayerManager.gameLayer().panelLayer.addChild(panel);

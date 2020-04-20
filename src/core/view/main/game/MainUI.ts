@@ -169,11 +169,16 @@ module game
 					}
 					this.withdrawBall();
 					break;
+				case "methodBtn":
+					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_RULE);
+					break;
+				case "settingBtn":
+					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_SETTING);
+					break;
 				/********************************* 以下是测试按钮 **********************************/
 				case "homePageDataBtn":
-					// AllData.instance.setTestHomePageData();
-					// this.onGetHomePageData();
 					HomePageRequest.sendHomePageData();
+					// this.createGameScene();
 					break;
 				case "betDetailDataBtn":
 					AllData.instance.setTestOtherBetData();
@@ -188,6 +193,7 @@ module game
 				case "cardResultBtn":
 					AllData.instance.setTestResultData();
 					this.onGetResultData();
+					// game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_BOSS_RESULT);
 					break;
 			}
 		}
@@ -244,7 +250,14 @@ module game
 			this.playerMoneyTxt.text = homePageData.myMoney.toString();
 			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
 			this.updateAllBetBar();
-			this.playBiginAmi();
+			if (AllData.instance.getCurrentSecond() < 28)
+			{
+				this.playBiginAmi();
+			}
+			else
+			{
+				GameResultRequest.sendRequest();
+			}
 		}
 
 		/**获取区域数据 */
@@ -594,6 +607,36 @@ module game
 					this._myRegionBalls[i] = [];
 				}
 			}
+		}
+
+		/**********************************************以下测试用*******************************************************/
+		zipFileStartLoadTime = -1;
+		protected createGameScene(): void
+		{
+			this.zipFileStartLoadTime = new Date().valueOf();
+			let data = RES.getRes("sound_zip");
+			var zip = new JSZip(data);
+			let audioArrayBuffer = zip.file("background1.mp3").asArrayBuffer();
+			this.visualize(audioArrayBuffer);
+			console.log('ok');
+
+		}
+		visualize(buffer: ArrayBuffer)
+		{
+			let audioContext = new AudioContext();
+			audioContext.decodeAudioData(buffer, (buffer) =>
+			{
+				var audioBufferSouceNode: AudioBufferSourceNode = audioContext.createBufferSource();
+				audioBufferSouceNode.connect(audioContext.destination);
+				audioBufferSouceNode.buffer = buffer;
+				audioBufferSouceNode.start(0);
+				// this.tip();
+			}, (error) =>
+				{
+					console.log(`解码错误:`, error);
+				})
+
+
 		}
 	}
 }

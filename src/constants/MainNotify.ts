@@ -21,6 +21,7 @@
 
 		/**庄家时间到 */
 		public static BOSS_TIME_OVER: string = "BOSS_TIME_OVER";
+		
 	}	
 
 

@@ -61,11 +61,12 @@ class Main extends egret.DisplayObjectContainer
             loading.Binder.bindAll();
             const loadingView = loading.LoadingUI.createInstance();
             GameLayerManager.gameLayer().loadLayer.addChild(loadingView);
-            await RES.loadGroup("preload", 0, loadingView);
+            await  RES.loadGroup("preload", 0, loadingView);
             GameLayerManager.gameLayer().loadLayer.removeChild(loadingView);
             let urlData = AllData.instance.parseUrl();
             AllData.instance.Sunlight = urlData["sunlight"];
             AllData.instance.Language = urlData["language"];
+		    RES.loadGroup("sound");
             this.createGameScene();
         }
         catch (e)
@@ -80,9 +81,8 @@ class Main extends egret.DisplayObjectContainer
     private createGameScene(): void
     {
         // this.testEnJson();
-
+        core.Config.init(RES.getRes('config_zip'));
         game.AppFacade.getInstance().startUp(GameLayerManager.gameLayer());
-        // game.AppFacade.getInstance().sendNotification(SceneNotify.OPEN_HOME);
         game.AppFacade.getInstance().sendNotification(MainNotify.OPEN_MAIN);
 
     }
