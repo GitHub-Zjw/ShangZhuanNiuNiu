@@ -19,6 +19,14 @@ module game
 		maxBet: number;
 		/**庄家胜负 */
 		bossRecord: EnumerationType.WinOrLose[];
+		/**
+		 * 1：普通；				显示按钮：预约上庄
+		 * 2：预约上庄;				显示按钮：取消预约
+		 * 3：庄家；				显示按钮：预约调仓，预约下庄
+		 * 4：庄家，已预约下庄；		显示按钮：取消下庄
+		 * 5：庄加，已预约调仓；		显示按钮：取消调仓
+		 */
+		state: number;
 		public constructor()
 		{
 			this.myMoney = 0;

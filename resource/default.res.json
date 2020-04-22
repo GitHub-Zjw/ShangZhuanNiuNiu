@@ -27,6 +27,10 @@
 		{
 			"keys": "betInfo,betInfo_atlas0",
 			"name": "betInfo"
+		},
+		{
+			"keys": "becomeBoss,becomeBoss_atlas0",
+			"name": "becomeBoss"
 		}
 	],
 	"resources": [
@@ -214,6 +218,16 @@
 			"url": "assets/image/betInfo/betInfo_atlas0.png",
 			"type": "image",
 			"name": "betInfo_atlas0"
+		},
+		{
+			"url": "assets/image/becomeBoss/becomeBoss.fui",
+			"type": "bin",
+			"name": "becomeBoss"
+		},
+		{
+			"url": "assets/image/becomeBoss/becomeBoss_atlas0.png",
+			"type": "image",
+			"name": "becomeBoss_atlas0"
 		}
 	]
 }

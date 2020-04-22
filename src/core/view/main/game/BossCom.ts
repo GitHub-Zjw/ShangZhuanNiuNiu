@@ -49,6 +49,17 @@ module game
 			this._records = [];
 		}
 
+		protected onButtonClick(name: string): void
+		{
+			switch (name)
+			{
+				case "becomeBossBtn":
+					AllData.instance.setTestBecomeBossData();
+					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_BECOME_BOSS);
+					break;
+			}
+		}
+
 		/**
 		 * @param money 庄家钱
 		 * @param people 人数

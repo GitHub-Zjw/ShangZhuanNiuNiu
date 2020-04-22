@@ -21,6 +21,7 @@ module game
 			this.facade.registerMediator(new boosResult.BoosResultMediator());
 			this.facade.registerMediator(new setting.SettingMediator());
 			this.facade.registerMediator(new betInfo.BetInfoMediator());
+			this.facade.registerMediator(new becomeBoss.BecomeBossMediator());
 		}
 	}
 }

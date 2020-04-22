@@ -21,6 +21,9 @@ module game {
             (new Processor_100_1()).register();
             (new HomePageCommand()).register();
             (new GameResultCommand()).register();
+            (new becomeBoss.BecomeBossCommand()).register();
+            (new becomeBoss.BossChangeCommand()).register();
+            (new becomeBoss.ChangeStateCommand()).register();
         }
 	}
 }

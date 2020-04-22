@@ -115,6 +115,7 @@ module game
 			this._regionComs = [this.region0, this.region1, this.region2, this.region3];
 			this._allBallBtns = [null, this.ball1_btn, this.ball2_btn, this.ball3_btn, this.ball4_btn, this.ball5_btn, this.ball6_btn];
 			this._selectBallIndex = 0;
+			HomePageRequest.sendHomePageData();
 		}
 
 		protected addEvent(): void

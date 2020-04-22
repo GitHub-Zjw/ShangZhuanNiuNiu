@@ -6,6 +6,34 @@ class RequestsNotify
 	/**投注区域数据 */
 	public static getbetm: string = "Sideline/getbetm";
 
+	/**当前庄家数据 */
+	public static sideline_cbookmaker = "Sideline/cbookmaker";
+
+	/**庄家亏盈数据 */
+	public static sideline_bincome = "Sideline/bincome";
+
+	/**我的收益 */
+	public static sideline_mincome = "Sideline/mincome";
+
+	/**预约上庄 */
+	public static wrte_myon = "Wrte/myon";
+
+	/**预约下庄 */
+	public static wrte_myunder = "Wrte/myunder";
+
+	/**预约调仓 */
+	public static wrte_myadj = "Wrte/myadj";
+
+	/**取消预约上庄 */
+	public static sideline_cancelvillage = "Sideline/cancelvillage"
+
+	/**取消预约调仓 */
+	public static sideline_canceltune = "Sideline/canceltune"
+
+	/**取消预约下庄 */
+	public static sideline_cancelunder = "Sideline/cancelunder";
+
+	
 	/**下注 */
 	public static porder: string = "betl/porder";
 

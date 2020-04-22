@@ -6,11 +6,7 @@
 */
 class PanelNotify
 {
-    public constructor()
-    {
-
-    }
-
+    
     /**打开玩法规则界面 */
     public static OPEN_RULE: string = "MainNotify_OPEN_RULE";
     
@@ -34,6 +30,30 @@ class PanelNotify
 
     /**关闭投注详情界面 */
     public static CLOSE_BET_INFO: string = "CLOSE_BET_INFO";
+
+    /**打开预约上庄界面 */
+    public static OPEN_LINE_UP: string = "OPEN_LINE_UP";
+
+    /**打开上庄界面 */
+    public static OPEN_BECOME_BOSS: string = "OPEN_BECOME_BOSS";
+
+    /**打开上庄规则界面 */
+    public static OPEN_BECOME_BOSS_RULE: string = "OPEN_BECOME_BOSS_RULE";
+
+    /**打开预约变仓界面 */
+    public static OPEN_WANT_TO_CHANGE: string = "OPEN_WANT_TO_CHANGE";
+
+    /**关闭预约上庄界面 */
+    public static CLOSE_LINE_UP: string = "CLOSE_LINE_UP";
+
+    /**关闭上庄界面 */
+    public static CLOSE_BECOME_BOSS: string = "CLOSE_BECOME_BOSS";
+
+    /**关闭上庄规则界面 */
+    public static CLOSE_BECOME_BOSS_RULE: string = "CLOSE_BECOME_BOSS_RULE";
+
+    /**关闭预约变仓界面 */
+    public static CLOSE_WANT_TO_CHANGE: string = "CLOSE_WANT_TO_CHANGE";
 }
 
 

@@ -50,4 +50,19 @@ module EnumerationType
 		/**炸弹牛 */
 		zhaDanNiu = 17
 	}
+
+	export enum PlayerState
+	{
+		None,
+		/**普通 */
+		normal= 1,
+		/**预约上庄 */
+		wallBoss = 2,
+		/**庄家 */
+		alreadyBoss = 3,
+		/**庄家，已预约下庄 */
+		wallDown = 4,
+		/**庄家，已预约调仓 */
+		wallChange = 5
+	}
 }

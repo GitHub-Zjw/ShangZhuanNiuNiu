@@ -8,6 +8,7 @@ module game {
 		public playerNumTxt:fairygui.GTextField;
 		public countDownTxt:fairygui.GTextField;
 		public resultList:fairygui.GList;
+		public becomeBossBtn:fairygui.GButton;
 
 		public static URL:string = "ui://v1h0uw6csrv91l";
 
@@ -26,6 +27,7 @@ module game {
 			this.playerNumTxt = <fairygui.GTextField><any>(this.getChild("playerNumTxt"));
 			this.countDownTxt = <fairygui.GTextField><any>(this.getChild("countDownTxt"));
 			this.resultList = <fairygui.GList><any>(this.getChild("resultList"));
+			this.becomeBossBtn = <fairygui.GButton><any>(this.getChild("becomeBossBtn"));
 		}
 	}
 }

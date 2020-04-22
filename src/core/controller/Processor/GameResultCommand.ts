@@ -16,7 +16,7 @@ module game
 			let data: ServerResultData = notification.getBody();
 			if (data.Code == 400)
 			{
-				TipsUtils.showTipsFromCenter(data.Msg);
+				TipsUtils.showTipsFromCenter(data.Msg+"");
 				return;
 			}
 			AllData.instance.setResultData(data);

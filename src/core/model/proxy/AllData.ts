@@ -11,6 +11,8 @@ class AllData extends egret.EventDispatcher
 	private _homePageData: game.HomePageData;
 	private _otherBetData: game.OtherBetData;
 	private _resultData: game.ResultData;
+	private _becomeBossData: becomeBoss.BecomeBossData;
+	private _bossChangeData: becomeBoss.BossChangeData;
 	private _beginTimeStamp: number;				//游戏开始时间戳
 	private _myBetNums: number[];					//本人下注，未投注
 	private _allBetMoneyNum: number;				//所有人下注总金额
@@ -30,6 +32,8 @@ class AllData extends egret.EventDispatcher
 		this._beginTimeStamp = 1575302400;
 		this._homePageData = new game.HomePageData();
 		this._otherBetData = new game.OtherBetData();
+		this._becomeBossData = new becomeBoss.BecomeBossData();
+		this._bossChangeData = new becomeBoss.BossChangeData();
 		this._myBetNums = [0, 0, 0, 0];
 		this._allBetMoneyNum = 0;
 	}
@@ -49,19 +53,123 @@ class AllData extends egret.EventDispatcher
 		cData.peopleInRoom = s.pe;
 		cData.bossTime = s.time;
 		cData.maxBet = parseFloat(s.ca);
+		cData.state = data.Data.st;
 		//fix cData.bossRecord
 	}
 
 	/**
+	 * 设置上庄界面数据
+	 */
+	public setBecomeBossData(data: becomeBoss.CbookmakerData): void
+	{
+		this._becomeBossData.alreadyBosses = [];
+		let len = data.Data.shang.length;
+		for (let i = 0; i < len; i++)
+		{
+			let shang = data.Data.shang[i];
+			this._becomeBossData.alreadyBosses[i] = [shang.name, shang.tr.toString(), shang.ye, shang.pro];
+		}
+		let yuyLen = data.Data.yuy.length;
+		for (let i = 0; i < yuyLen; i++)
+		{
+			let yuy = data.Data.yuy[i];
+			this._becomeBossData.doingPlayers[i] = [yuy.name, yuy.money, yuy.type];
+		}
+		this._becomeBossData.myzmoney = parseFloat(data.Data.myzmoney);
+		this._becomeBossData.myume = parseFloat(data.Data.myume);
+		this._becomeBossData.prizeMoney = data.Data.money;
+		this._becomeBossData.surplueTime = data.Data.dtime;
+
+		switch (this.HomePageData.state)
+		{
+			case 1:
+				this._becomeBossData.isBoss = false;
+				this._becomeBossData.isSoonBoss = false;
+				break;
+			case 2:
+				this._becomeBossData.isBoss = false;
+				this._becomeBossData.isSoonChange = false;
+				this._becomeBossData.isSoonDown = false;
+				this._becomeBossData.isSoonBoss = true;
+				break;
+			case 3:
+				this._becomeBossData.isBoss = true;
+				this._becomeBossData.isSoonChange = false;
+				this._becomeBossData.isSoonDown = false;
+				this._becomeBossData.isSoonBoss = false;
+				break;
+			case 4:
+				this._becomeBossData.isBoss = true;
+				this._becomeBossData.isSoonChange = false;
+				this._becomeBossData.isSoonDown = true;
+				this._becomeBossData.isSoonBoss = false;
+				break;
+			case 5:
+				this._becomeBossData.isBoss = true;
+				this._becomeBossData.isSoonChange = true;
+				this._becomeBossData.isSoonDown = false;
+				this._becomeBossData.isSoonBoss = false;
+				break;
+		}
+	}
+
+	/**
+	 * 上庄亏盈数据
+	 */
+	public setBossChangeData(data: becomeBoss.BincomeData): void
+	{
+		let len = data.Data.list.length;
+		this._bossChangeData.changeLists = []
+		for (let i = 0; i < len; i++)
+		{
+			let temp = data.Data.list[i];
+			let winStr = temp.win.toString();
+			if (temp.win > 0)
+			{
+				winStr = "[color=#CF984A]" + temp.win + "[/color]";
+			}
+			this._bossChangeData.changeLists[i] = [temp.issue.toString(), temp.time, winStr, temp.yue];
+		}
+		let changeStr = data.Data.sum.toString();
+		if (data.Data.sum > 0)
+		{
+			changeStr = "[color=#CF984A]" + data.Data.sum + "[/color]"
+		}
+		this._bossChangeData.moneyChanges = changeStr;
+	}
+	/**
 	 * 设置游戏结果数据
 	 */
 	public setResultData(data: game.ServerResultData): void
-	{}
+	{ }
 
 	/**游戏首页信息 */
 	public get HomePageData(): game.HomePageData
 	{
 		return this._homePageData;
+	}
+
+	/**庄家列表数据 */
+	public get BecomeBossData(): becomeBoss.BecomeBossData
+	{
+		return this._becomeBossData;
+	}
+	/**庄家列表数据 */
+	public getBecomeBossData(): becomeBoss.BecomeBossData
+	{
+		return this._becomeBossData;
+	}
+
+	/**庄家亏盈数据 */
+	public get BossChangeData(): becomeBoss.BossChangeData
+	{
+		return this._bossChangeData;
+	}
+
+	/**当前庄家余额余额 */
+	public get BossSurplueMoney(): string
+	{
+		return this._becomeBossData.prizeMoney;
 	}
 
 	/**游戏投注总金额 */
@@ -114,6 +222,17 @@ class AllData extends egret.EventDispatcher
 		let j = Math.floor((w - s) / 45);
 		let n = j + 1;
 		return n;
+	}
+
+	/**
+	 * 根据天数差获取时间
+	 */
+	public getDateStrByCount(count: number): string
+	{
+		let now = Date.parse((new Date()).toString());
+		let need = now + (count * 3600 * 24 * 1000);
+		let date = new Date(need);
+		return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 	}
 
 	/**
@@ -265,7 +384,7 @@ class AllData extends egret.EventDispatcher
 	{
 		if (this.IsTestServer)
 		{//测试服
-			return { sunlight: "HD30d4c42d31283b52f175f83400865e5102a35fd0c54ad864602dd9dfdca", language: "cn" };//本机
+			return { sunlight: "HD5d1dbc25fd8b0b18ab3aa7bd59a727f526672101366ddeec09ef0cf59ca", language: "cn" };//本机
 			// return {sunlight:"HD9ae9bca5bcac2ac8f759b44c387ba282ffbb0a7faf042ce56da97c2b611",language:"cn"};//测试服
 
 		}
@@ -341,6 +460,35 @@ class AllData extends egret.EventDispatcher
 		this._otherBetData.betRegions.push(this.getRandomInt(0, 4));
 		this._otherBetData.playerLevel = this.getRandomInt(0, 99).toString();
 		this._otherBetData.playerName = "" + this.getRandomInt(0, 10) + this.getRandomInt(0, 10) + this.getRandomInt(0, 10) + "...";
+	}
+
+	/**
+	 * 写入测试预约上庄数据
+	 */
+	public setTestBecomeBossData(): void
+	{
+		// this._becomeBossData = new becomeBoss.BecomeBossData();
+		// this._bossChangeData = new becomeBoss.BossChangeData();
+		// this._becomeBossData.alreadyBosses = [];
+		// this._bossChangeData.changeLists = []
+		// let len = this.getRandomInt(10, 25);
+		// for (let i = 0; i < len; i++)
+		// {
+		// 	this._becomeBossData.alreadyBosses[i] = ["是省会", "" + this.getRandomInt(996, 9960), "" + this.getRandomInt(996, 9960), this.getRandomInt(0, 101) + ""];
+		// 	this._becomeBossData.doingPlayers[i] = ["十七项", "" + this.getRandomInt(996, 9960), "" + this.getRandomInt(996, 9960), this.getRandomInt(0, 101) + ""];
+		// 	this._bossChangeData.changeLists[i] = [];
+		// 	for (let k = 0; k < len; k++)
+		// 	{
+		// 		this._bossChangeData.changeLists[i][k] = [this.getRandomInt(996, 9960) + "", this.getRandomInt(0, 60) + ":" + this.getRandomInt(0, 60), this.getRandomInt(0, 60) + "", this.getRandomInt(0, 60) + ""];
+		// 	}
+		// 	this._bossChangeData.moneyChanges[i] = this.getRandomInt(-996, 9960).toString();
+		// 	this._bossChangeData.times[i] = this.getRandomInt(0, 60) + ":" + this.getRandomInt(0, 60);
+		// }
+		// this._becomeBossData.isBoss = this.getRandomInt(0, 2) == 1;
+		// this._becomeBossData.isSoonChange = this.getRandomInt(0, 2) == 1;
+		// this._becomeBossData.isSoonDown = this.getRandomInt(0, 2) == 1;;
+		// this._becomeBossData.prizeMoney = this.BossSurplueMoney;
+		// this._becomeBossData.surplueTime = this.getRandomInt(60, 600);
 	}
 
 	public setTestResultData(): void

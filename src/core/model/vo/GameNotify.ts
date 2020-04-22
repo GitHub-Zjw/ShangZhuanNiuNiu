@@ -15,6 +15,14 @@ class GameNotify
 	 */
 	public static GAME_STAR: string = "GameNotify_GAME_STAR";
 
+	/**获取上庄列表数据 */
+	public static GET_BECOME_DATA: string = "GET_BECOME_DATA";
+
+	/**获取上庄盈亏 */
+	public static GET_BOSS_CHANGE_DATA: string = "GET_BOSS_CHANGE_DATA";
+
+	/**本人上庄状态改变 */
+	public static MY_STATE_CHANGE: string = "MY_STATE_CHANGE";
 	/**
 	 * 下注时间到
 	 */
@@ -63,4 +71,7 @@ class GameNotify
 
 	/**交易信息 */
 	public static AG_DATA: string = "AG_DATA";
+
+	/**上庄数据 */
+	public static BECOME_BOSS_DATA: string = "BECOME_BOSS_DATA";
 }

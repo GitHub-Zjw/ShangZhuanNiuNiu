@@ -16,7 +16,7 @@ module game
 			let data: NuserData = notification.getBody();
 			if (data.Code == 400)
 			{
-				TipsUtils.showTipsFromCenter(data.Msg);
+				TipsUtils.showTipsFromCenter(data.Msg+"");
 				return;
 			}
 			AllData.instance.setHomePageData(data);
