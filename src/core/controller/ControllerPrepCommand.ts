@@ -24,6 +24,7 @@ module game {
             (new becomeBoss.BecomeBossCommand()).register();
             (new becomeBoss.BossChangeCommand()).register();
             (new becomeBoss.ChangeStateCommand()).register();
+            (new RegionDataCommand()).register();
         }
 	}
 }

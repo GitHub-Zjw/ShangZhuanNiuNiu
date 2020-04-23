@@ -46,10 +46,12 @@ module game
 			bm: number,
 			/**用户状态 */
 			st: number,
-			/**种子MD5 */
-			m5: string,
-			/**区块 */
-			cl: number
+			// /**种子MD5 */
+			// m5: string,
+			// /**区块 */
+			// cl: number
+			/**庄家的赢钱记录   5代表输钱  8代表赢钱 */
+			zjw: number[]
 		}
 	}
 }

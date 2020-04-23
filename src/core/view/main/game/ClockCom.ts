@@ -92,10 +92,10 @@ module game
 				// {
 				// 	core.SoundUtils.getInstance().playSound(5);
 				// }
-				// if (this._surplusTime && this._surplusTime % 5 == 0)
-				// {
-				// 	BetMoneyRequest.sendBetMoneyRequest();
-				// }
+				if (this._surplusTime && this._surplusTime % 5 == 0)
+				{
+					RegionDataRequest.sendRequest();
+				}
 			}
 		}
 	}

@@ -51,7 +51,7 @@ module game
 			this.resultList.itemRenderer = this.resultListItemRenderer;
 			this.resultList.callbackThisObj = this;
 			this._betValue = 0;
-			this._records = []
+			this._records = [];
 		}
 
 		/**
@@ -60,6 +60,10 @@ module game
 		 */
 		public setResults(results: EnumerationType.WinOrLose[]): void
 		{
+			if (this._records.length > 0)
+			{
+				return;
+			}
 			this._records = results;
 			this.resultList.numItems = this._records.length;
 		}

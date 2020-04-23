@@ -115,6 +115,7 @@ module game
 			this._regionComs = [this.region0, this.region1, this.region2, this.region3];
 			this._allBallBtns = [null, this.ball1_btn, this.ball2_btn, this.ball3_btn, this.ball4_btn, this.ball5_btn, this.ball6_btn];
 			this._selectBallIndex = 0;
+			RegionDataRequest.sendRequest();
 			HomePageRequest.sendHomePageData();
 		}
 
@@ -251,7 +252,7 @@ module game
 			this.playerMoneyTxt.text = homePageData.myMoney.toString();
 			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
 			this.updateAllBetBar();
-			if (AllData.instance.getCurrentSecond() < 28)
+			if (AllData.instance.getCurrentSecond() < 30)
 			{
 				this.playBiginAmi();
 			}
@@ -262,13 +263,24 @@ module game
 		}
 
 		/**获取区域数据 */
-		public onGetRegionData(): void
+		public onGetRegionData(data: RegionData): void
 		{
+			this.region0.setResults(AllData.instance.getRegionRecord(data.Data.ht));
+			this.region1.setResults(AllData.instance.getRegionRecord(data.Data.hx));
+			this.region2.setResults(AllData.instance.getRegionRecord(data.Data.mh));
+			this.region3.setResults(AllData.instance.getRegionRecord(data.Data.fk));
 
-			// this.region0.setResults(homePageData.regionRecord[0]);
-			// this.region1.setResults(homePageData.regionRecord[1]);
-			// this.region2.setResults(homePageData.regionRecord[2]);
-			// this.region3.setResults(homePageData.regionRecord[3]);
+			this.region0.setBetValue(data.Data.ht.he.toString());
+			this.region1.setBetValue(data.Data.hx.he.toString());
+			this.region2.setBetValue(data.Data.mh.he.toString());
+			this.region3.setBetValue(data.Data.fk.he.toString());
+
+			let ballIndexs: number[][] = [];
+			ballIndexs[0] = AllData.instance.getBetIndexByValue(data.Data.ht.he);
+			ballIndexs[1] = AllData.instance.getBetIndexByValue(data.Data.hx.he);
+			ballIndexs[2] = AllData.instance.getBetIndexByValue(data.Data.mh.he);
+			ballIndexs[3] = AllData.instance.getBetIndexByValue(data.Data.fk.he);
+			this.addBall(ballIndexs, false, false);
 		}
 
 		/**
@@ -277,7 +289,10 @@ module game
 		public onGetOtherBetData(): void
 		{
 			let otherBetData = AllData.instance.OtherBetData;
-			this.betPlayerCom.refreshView(otherBetData.playerLevel, otherBetData.betMoney, otherBetData.playerName, otherBetData.betRegions);
+			if (otherBetData.playerName)
+			{
+				this.betPlayerCom.refreshView(otherBetData.playerLevel, otherBetData.betMoney, otherBetData.playerName, otherBetData.betRegions);
+			}
 			let ballIndexs: number[][] = [];
 			for (let i = 0; i < 4; i++)
 			{
@@ -290,6 +305,12 @@ module game
 				}
 			}
 			this.addBall(ballIndexs, false);
+
+			this.region0.setResults(otherBetData.winOrLoses[0]);
+			this.region1.setResults(otherBetData.winOrLoses[1]);
+			this.region2.setResults(otherBetData.winOrLoses[2]);
+			this.region3.setResults(otherBetData.winOrLoses[3]);
+
 			this.updateAllBetBar();
 		}
 
@@ -365,7 +386,7 @@ module game
 		private updateAllBetBar(): void
 		{
 			let max = AllData.instance.HomePageData.maxBet;
-			let value = AllData.instance.AllBetMoneyNum;
+			let value = AllData.instance.HomePageData.allBetMoney;
 			this.maxBetBar.max = max;
 			this.maxBetBar.value = value;
 			this.pgValueTxt.text = value + "/" + max + "HDAG";
@@ -379,7 +400,7 @@ module game
 		//开始倒计时
 		private starTimerAmi(): void
 		{
-			let starTime: number = 28 - AllData.instance.getCurrentSecond();
+			let starTime: number = 30 - AllData.instance.getCurrentSecond();
 			this.clockCom.starTiming(starTime, null, this);
 		}
 		//停止下注
@@ -408,9 +429,13 @@ module game
 			{
 				this.playerChangeTxt.text = "[color=#FFFFFF]-" + resultData.myHdagChange + "[/color]";
 			}
-			if (resultData.bossChange >= 0)
+			if (resultData.bossChange > 0)
 			{
 				this.bossChangeTxt.text = "[color=#F7DE6C]+" + resultData.bossChange + "[/color]";
+			}
+			else if (resultData.bossChange == 0)
+			{
+				this.bossChangeTxt.text = "";
 			}
 			else
 			{
@@ -462,25 +487,26 @@ module game
 		//获取下局数据
 		private getNextData(): void
 		{
-			let temp = setInterval(function ()
-			{
-				if (AllData.instance.getCurrentSecond() < 25)
-				{
-					clearInterval(temp);
-					//fix获取下一局数据
-				}
-			}, 1000);
+			// let temp = setInterval(function ()
+			// {
+			// 	if (AllData.instance.getCurrentSecond() < 25)
+			// 	{
+			// 		clearInterval(temp);
+					HomePageRequest.sendHomePageData();
+			// 	}
+			// }, 1000);
 		}
 
 		/****************************************** 以上是动画流程 ******************************************/
 
 
 		/**
-		 * 增加小球
+		 * 增加小球 有动画
 		 * @param indexs 小球类型数组
-		 * @param boolean 是否是玩家本人
+		 * @param isSelf 是否是玩家本人
+		 * @param isNeedAmi 是否需要播放动画
 		 */
-		public addBall(indexs: number[][], isSelf: boolean = false): void
+		public addBall(indexs: number[][], isSelf: boolean = false, isNeedAmi: boolean = true): void
 		{
 			if (indexs && indexs.length > 0)
 			{
@@ -523,7 +549,15 @@ module game
 						this._otherRegionBalls[k].push(ball);
 					}
 					let pEnd = this.getBollEndPByIndex(k);
-					ball.showJoinAmi(pEnd.x, pEnd.y, indexs[k][i]);
+					if (isNeedAmi)
+					{
+						ball.showJoinAmi(pEnd.x, pEnd.y, indexs[k][i]);
+					}
+					else
+					{
+						ball.x = pEnd.x;
+						ball.y = pEnd.y;
+					}
 				}
 			}
 		}

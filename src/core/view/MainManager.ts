@@ -28,33 +28,49 @@ module game
             this.facade.registerCommand(MainNotify.OPEN_MAIN, MainManager);
             this.facade.registerCommand(MainNotify.CLOSE_MAIN, MainManager);
             this.facade.registerCommand(GameNotify.HOME_PAGE_DATA, MainManager);
+            this.facade.registerCommand(GameNotify.BET_MONEY, MainManager);
+            this.facade.registerCommand(GameNotify.GAME_RESULT, MainManager);
         }
-        private _mainUI: MainUI;
+        
         public execute(notification: puremvc.INotification): void
         {
             var data: any = notification.getBody();//携带数据
             var panelCon = GameLayerManager.gameLayer().mainLayer;
+            let mainUI = game.MainManager.mainUI;
             switch (notification.getName())
             {
                 case MainNotify.OPEN_MAIN:
                     Binder.bindAll();
-                    if (this._mainUI == null)
+                    if (mainUI == null)
                     {
-                        this._mainUI = MainUI.createInstance();
-                        panelCon.addChild(this._mainUI);
-                        game.MainManager.mainUI = this._mainUI;
+                        mainUI = MainUI.createInstance();
+                        panelCon.addChild(mainUI);
+                        game.MainManager.mainUI = mainUI;
                     }
                     break;
                 case MainNotify.CLOSE_MAIN:
-                    if (this._mainUI != null)
+                    if (mainUI != null)
                     {
-                        panelCon.removeChild(this._mainUI);
-                        this._mainUI = null;
+                        panelCon.removeChild(mainUI);
+                        mainUI = null;
                         game.MainManager.mainUI = null;
                     }
                     break;
                 case GameNotify.HOME_PAGE_DATA:
                     MainManager.mainUI.onGetHomePageData();
+                    break;
+                case GameNotify.BET_MONEY:
+                    if (mainUI)
+                    {
+                        // mainUI.onGetRegionData(data);
+                        mainUI.onGetOtherBetData();
+                    }
+                    break;
+                case GameNotify.GAME_RESULT:
+                    if (mainUI)
+                    {
+                        mainUI.onGetResultData();
+                    }
                     break;
             }
         }

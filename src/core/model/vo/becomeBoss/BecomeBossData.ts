@@ -11,13 +11,13 @@ module becomeBoss
 		}
 
 		/**是否庄家 */
-		isBoss: boolean;
+		isBoss: boolean = false;
 		/**是否预约上庄 */
-		isSoonBoss: boolean;
+		isSoonBoss: boolean = false;
 		/**是否预约调仓 */
-		isSoonChange: boolean;
+		isSoonChange: boolean = false;
 		/**是否预约下庄 */
-		isSoonDown: boolean;
+		isSoonDown: boolean = false;
 		/**奖池余额 */
 		prizeMoney: string;
 		/**本轮倒计时（秒） */

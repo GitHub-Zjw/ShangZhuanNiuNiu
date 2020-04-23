@@ -18,6 +18,8 @@ module game
 		{
 			return this.allBet[0] + this.allBet[1] + this.allBet[2] + this.allBet[3];
 		}
+		/**胜败记录 */
+		winOrLoses: EnumerationType.WinOrLose[][];
 
 		public constructor()
 		{

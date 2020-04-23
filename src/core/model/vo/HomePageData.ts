@@ -9,12 +9,17 @@ module game
 		myBetMoney: number;
 		/**我的底注 */
 		myAntes: number;
+
+		/**总下注金额 */
+		allBetMoney: number;
 		/**庄家 HDAG */
 		bossMoney: number;
 		/**房间人数 */
 		peopleInRoom: number;
 		/**庄家剩余时间 （秒） */
 		bossTime: number;
+		/**本局倒计时 */
+		gameTime: number;
 		/**最大下注金额 */
 		maxBet: number;
 		/**庄家胜负 */
@@ -27,6 +32,8 @@ module game
 		 * 5：庄加，已预约调仓；		显示按钮：取消调仓
 		 */
 		state: number;
+		/**本局轮数 */
+		ju: string;
 		public constructor()
 		{
 			this.myMoney = 0;

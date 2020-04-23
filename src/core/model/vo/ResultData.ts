@@ -41,6 +41,8 @@ module game
 			this.luckCardIndexs = [];
 			this.bigWinnerData = []
 		}
+		/**1：既不是通赔，也不是通杀 4：庄家通赔 6：庄家通杀 */
+		vill: number;
 	}
 
 	export class HXItemData

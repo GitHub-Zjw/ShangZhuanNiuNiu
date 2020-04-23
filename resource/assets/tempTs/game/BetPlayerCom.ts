@@ -4,13 +4,14 @@ module game {
 
 	export class BetPlayerCom extends UIComponent {
 
+		public ballValueTxt:fairygui.GTextField;
 		public fkImg:fairygui.GImage;
 		public hongtaoImg:fairygui.GImage;
 		public heitaoImg:fairygui.GImage;
 		public chImg:fairygui.GImage;
 		public playerNameTxt:fairygui.GTextField;
-		public ballValueTxt:fairygui.GTextField;
 		public batValueTxt:fairygui.GTextField;
+		public noBodyTxt:fairygui.GTextField;
 		public detailBtn:fairygui.GButton;
 		public prizeBtn:fairygui.GButton;
 		public betTran:fairygui.Transition;
@@ -28,13 +29,14 @@ module game {
 		protected constructFromXML(xml: any): void {
 			super.constructFromXML(xml);
 
+			this.ballValueTxt = <fairygui.GTextField><any>(this.getChild("ballValueTxt"));
 			this.fkImg = <fairygui.GImage><any>(this.getChild("fkImg"));
 			this.hongtaoImg = <fairygui.GImage><any>(this.getChild("hongtaoImg"));
 			this.heitaoImg = <fairygui.GImage><any>(this.getChild("heitaoImg"));
 			this.chImg = <fairygui.GImage><any>(this.getChild("chImg"));
 			this.playerNameTxt = <fairygui.GTextField><any>(this.getChild("playerNameTxt"));
-			this.ballValueTxt = <fairygui.GTextField><any>(this.getChild("ballValueTxt"));
 			this.batValueTxt = <fairygui.GTextField><any>(this.getChild("batValueTxt"));
+			this.noBodyTxt = <fairygui.GTextField><any>(this.getChild("noBodyTxt"));
 			this.detailBtn = <fairygui.GButton><any>(this.getChild("detailBtn"));
 			this.prizeBtn = <fairygui.GButton><any>(this.getChild("prizeBtn"));
 			this.betTran = this.getTransition("betTran");

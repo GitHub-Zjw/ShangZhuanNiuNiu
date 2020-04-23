@@ -47,18 +47,35 @@ class AllData extends egret.EventDispatcher
 		let s = data.Data;
 		let cData = this._homePageData;
 		cData.myMoney = parseFloat(s.hdag);
-		cData.myBetMoney = s.bm;
+		//fix cData.myBetMoney = 
 		//fix cData.myAntes = sData.
+		cData.allBetMoney = s.bm;
+		this._allBetMoneyNum = s.bm;
 		cData.bossMoney = s.nest;
 		cData.peopleInRoom = s.pe;
 		cData.bossTime = s.time;
 		cData.maxBet = parseFloat(s.ca);
-		cData.state = data.Data.st;
-		//fix cData.bossRecord
+		cData.state = s.st;
+		cData.bossRecord = [];
+		cData.ju = s.ju;
+		let len = s.zjw.length;
+		for (let i = 0; i < len; i++)
+		{
+			if (s.zjw[i] == 5)
+			{
+				cData.bossRecord.push(EnumerationType.WinOrLose.lose);
+			}
+			else if (s.zjw[i] == 8)
+			{
+				cData.bossRecord.push(EnumerationType.WinOrLose.win);
+			}
+		}
+		cData.gameTime = s.jtime;
 	}
 
+
 	/**
-	 * 设置上庄界面数据
+	 * 设置玩家上庄界面数据
 	 */
 	public setBecomeBossData(data: becomeBoss.CbookmakerData): void
 	{
@@ -141,7 +158,156 @@ class AllData extends egret.EventDispatcher
 	 * 设置游戏结果数据
 	 */
 	public setResultData(data: game.ServerResultData): void
-	{ }
+	{
+		this._resultData = new game.ResultData();
+
+		//哈希列表
+		this._resultData.hxItemDatas = [];
+		let hashLen = 10;
+		for (let i = 0; i < hashLen; i++)
+		{
+			let key = "k_" + (hashLen - i);
+			let serverHx = data.Data.hash[key];
+			let clHx = this._resultData.hxItemDatas;
+
+			let hxItem = new game.HXItemData();
+			hxItem.hxStr1 = serverHx.ar.toString();
+			hxItem.hxStr2 = serverHx.hr;
+			hxItem.hxStr3 = serverHx.tr;
+			hxItem.isLuck = false;
+			clHx.push(hxItem);
+			if (key == data.Data.lucky)
+			{
+				this._resultData.moveStr = hxItem.hxStr2.charAt(hxItem.hxStr2.length - 1);
+				hxItem.hxStr2 = hxItem.hxStr2.substring(0,hxItem.hxStr2.length - 2)+"[color=#FFA03B]" + this._resultData.moveStr + "[/color]";
+				hxItem.isLuck = true;
+				break;
+			}
+		}
+
+		//手牌信息
+		this._resultData.cardTypes = [];
+		this._resultData.cardValue = [];
+		this._resultData.cardResultTypes = [];
+		this._resultData.isWins = [];
+		this._resultData.luckCardIndexs = [];
+		for (let i = 0; i < 5; i++)
+		{
+			this._resultData.cardTypes[i] = [];
+			this._resultData.cardValue[i] = [];
+			this._resultData.luckCardIndexs[i] = [];
+			let serverHand = data.Data.hand[i];
+			for (let k = 0; k < 5; k++)
+			{
+				this._resultData.cardTypes[i][k] = this.getCardTypeByStr(serverHand.pe[k]);
+				this._resultData.cardValue[i][k] = this.getCardValueByStr(serverHand.pe[k]);
+				if (serverHand.ten && serverHand.ten.length > k)
+				{
+					this._resultData.luckCardIndexs[i][k] = serverHand.ten[k];
+				}
+			}
+			this._resultData.cardResultTypes[i] = this.getCardResultByNumber(serverHand.niu);
+			if (serverHand.win == 5)
+			{
+				this._resultData.isWins[i] = EnumerationType.WinOrLose.lose;
+			}
+			else if (serverHand.win == 8)
+			{
+				this._resultData.isWins[i] = EnumerationType.WinOrLose.win;
+			}
+		}
+
+
+		this._resultData.bossPosition = this.getBossPositionByStr(this._resultData.moveStr);
+		this._resultData.bossStr = this.BossStrs[this._resultData.bossPosition].replace(this._resultData.moveStr, "[color=#FFA03B]" + this._resultData.moveStr + "[/color]")
+		this._resultData.bossChange = data.Data.inc;
+
+		this._resultData.bigWinnerData = [];
+		let len = data.Data.dyj.length;
+		for (let i = 0; i < len; i++)
+		{
+			this._resultData.bigWinnerData[i] = [data.Data.dyj[i].name, data.Data.dyj[i].bonus];
+		}
+	}
+
+	private getBossPositionByStr(str: string): number
+	{
+		for (let i = 0; i < 5; i++)
+		{
+			if (this.BossStrs[i].indexOf(str) != -1)
+			{
+				return i;
+			}
+		}
+	}
+	private getCardTypeByStr(str: string): EnumerationType.CardsType
+	{
+		if (str.indexOf("ht") != -1)
+		{
+			return EnumerationType.CardsType.SPADE;
+		}
+		if (str.indexOf("hx") != -1)
+		{
+			return EnumerationType.CardsType.HEART;
+		}
+		if (str.indexOf("mh") != -1)
+		{
+			return EnumerationType.CardsType.CLUB;
+		}
+		if (str.indexOf("fk") != -1)
+		{
+			return EnumerationType.CardsType.DIAMOND;
+		}
+	}
+
+	private getCardValueByStr(str: string): number
+	{
+		if (str.length == 3)
+		{
+			return parseInt(str.charAt(str.length - 1));
+		}
+		else if (str.length == 4)
+		{
+			return parseInt(str.charAt(str.length - 2) + str.charAt(str.length - 1));
+		}
+	}
+
+	private getCardResultByNumber(num: number): EnumerationType.CardResult
+	{
+		let returnValue: EnumerationType.CardResult;
+		if (num <= 10)
+		{
+			returnValue = num;
+		}
+		else
+		{
+			switch (num)
+			{
+				case 11:
+					returnValue = EnumerationType.CardResult.shunZiNiu;
+					break;
+				case 12:
+					returnValue = EnumerationType.CardResult.wuHuaNiu;
+					break;
+				case 13:
+					returnValue = EnumerationType.CardResult.tongHuaNiu;
+					break;
+				case 14:
+					returnValue = EnumerationType.CardResult.huLuNiu;
+					break;
+				case 15:
+					returnValue = EnumerationType.CardResult.zhaDanNiu;
+					break;
+				case 16:
+					returnValue = EnumerationType.CardResult.wuXiaoNiu;
+					break;
+				case 17:
+					returnValue = EnumerationType.CardResult.tongHuaShun;
+					break;
+			}
+		}
+		return returnValue;
+	}
 
 	/**游戏首页信息 */
 	public get HomePageData(): game.HomePageData
@@ -172,12 +338,6 @@ class AllData extends egret.EventDispatcher
 		return this._becomeBossData.prizeMoney;
 	}
 
-	/**游戏投注总金额 */
-	public get AllBetMoneyNum(): number
-	{
-		return this._allBetMoneyNum;
-	}
-
 	/**其他玩家投注信息 */
 	public get OtherBetData(): game.OtherBetData
 	{
@@ -205,11 +365,12 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getCurrentSecond(): number
 	{
-		let w = Math.floor(Date.parse((new Date()).toString()) / 1000);
-		let s = this._beginTimeStamp;
-		let j = Math.floor((w - s) / 45);
-		let t = w - (s + j * 45);
-		return t;
+		// let w = Math.floor(Date.parse((new Date()).toString()) / 1000);
+		// let s = this._beginTimeStamp;
+		// let j = Math.floor((w - s) / 45);
+		// let t = w - (s + j * 45);
+		// return t;
+		return 30 - this._homePageData.gameTime;
 	}
 
 	/**
@@ -252,6 +413,27 @@ class AllData extends egret.EventDispatcher
 	}
 
 	/**
+	 * 根据后端区域数据获取输赢
+	 */
+	public getRegionRecord(data: game.RegionItemData): EnumerationType.WinOrLose[]
+	{
+		let len = data.re.length;
+		let returnValue: EnumerationType.WinOrLose[] = [];
+		for (let i = 0; i < len; i++)
+		{
+			if (data.re[i] == 5)
+			{
+				returnValue.push(EnumerationType.WinOrLose.lose);
+			}
+			else if (data.re[i] == 8)
+			{
+				returnValue.push(EnumerationType.WinOrLose.win);
+			}
+		}
+		return returnValue;
+	}
+
+	/**
 	 * 根据下注数值
 	 * 获取筹码数组
 	 */
@@ -288,9 +470,29 @@ class AllData extends egret.EventDispatcher
 	/**
 	 * 设置其他玩家下注
 	 */
-	public setOtherBet(): void
+	public setOtherBet(data: game.RegionData): void
 	{
-		//todo
+		this._otherBetData = new game.OtherBetData();
+		if (data.Data.bet)
+		{
+			this._otherBetData.playerName = data.Data.bet.name;
+			this._otherBetData.playerLevel = data.Data.bet.id.toString();
+			this._otherBetData.betRegions = [this.getCardTypeByStr(data.Data.bet.wz)];
+			this._otherBetData.betMoney = data.Data.bet.money;
+		}
+
+		this._otherBetData.allBet = [];
+		this._otherBetData.allBet[0] = data.Data.ht.he;
+		this._otherBetData.allBet[1] = data.Data.hx.he;
+		this._otherBetData.allBet[2] = data.Data.mh.he;
+		this._otherBetData.allBet[3] = data.Data.fk.he;
+
+		this._otherBetData.winOrLoses = [];
+		this._otherBetData.winOrLoses[0] = this.getRegionRecord(data.Data.ht);
+		this._otherBetData.winOrLoses[1] = this.getRegionRecord(data.Data.hx);
+		this._otherBetData.winOrLoses[2] = this.getRegionRecord(data.Data.mh);
+		this._otherBetData.winOrLoses[3] = this.getRegionRecord(data.Data.fk);
+
 		this._allBetMoneyNum += this._otherBetData.totalBetNum;
 	}
 
@@ -404,14 +606,14 @@ class AllData extends egret.EventDispatcher
 	 */
 	public get IsTestServer(): boolean
 	{
-		if (location.port == "5927")
-		{//测试服
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		// if (location.port == "5927")
+		// {//测试服
+		return true;
+		// }
+		// else
+		// {
+		// 	return false;
+		// }
 	}
 
 	/**

@@ -39,7 +39,7 @@ class GameNotify
 	/**游戏首页信息获取*/
 	public static HOME_PAGE_DATA: string = "HOME_PAGE_DATA";
 
-	/**本局投注金额消息 */
+	/**本局投注区域金额消息 */
 	public static BET_MONEY: string = "BET_MONEY";
 
 	/**玩家下注消息 */

@@ -558,11 +558,11 @@ module game
 			if (this._listItemNumber <= len)
 			{
 				this._hxListTempDatas = [];
-				for (let i = len - this._listItemNumber; i < len; i++)
+				for (let i = 0; i < this._listItemNumber; i++)
 				{
-					this._hxListTempDatas.push(this._resultData.hxItemDatas[i]);
+					this._hxListTempDatas.push(this._resultData.hxItemDatas[this._listItemNumber-1-i]);
 				}
-				this.hxList.numItems = this._listItemNumber;
+ 				this.hxList.numItems = this._listItemNumber;
 			}
 			else
 			{

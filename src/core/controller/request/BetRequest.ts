@@ -8,6 +8,6 @@ module BetRequest
 				type: ""
 			}
 		};
-		game.AppFacade.getInstance().HttpManager.request(RequestsNotify.getresult, content);
+		game.AppFacade.getInstance().HttpManager.request(RequestsNotify.showcattle_getresult, content);
 	}
 }
