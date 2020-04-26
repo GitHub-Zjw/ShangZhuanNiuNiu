@@ -27,9 +27,14 @@ module game
 			this.state = this.getController("state");
 		}
 		
+		/**
+		 * 设置牌型类型
+		 * 并播放声音
+		 */
 		public setState(cardType: EnumerationType.CardResult): void
 		{
 			this.state.setSelectedIndex(cardType);
+			core.SoundUtils.getInstance().playSound(cardType + 1);
 		}
 	}
 }

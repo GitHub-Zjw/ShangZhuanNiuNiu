@@ -46,12 +46,13 @@ module betInfo
 			super.initView();
 			this.currentBetList.itemRenderer = this.currentBetListRenderer;
 			this.currentBetList.callbackThisObj = this;
-			this.currentBetList.setVirtual();
-			this.currentBetList.numItems = 1;//fix
+			// this.currentBetList.setVirtual();
 
 			this.todayWinnerList.itemRenderer = this.todayWinnerListRenderer;
 			this.todayWinnerList.callbackThisObj = this;
-			this.todayWinnerList.setVirtual();
+			// this.todayWinnerList.setVirtual();
+			BetDetaileRequest.sendBetDetaileRequest();
+			TodayBigWinnerRequest.sendTodayBigWinnerRequest();
 		}
 
 		protected addEvent(): void
@@ -89,7 +90,10 @@ module betInfo
 				this.currentBetList.scrollPane.lockFooter(0);
 			}
 			this._currentListData = currentListData;
-			this.currentBetList.numItems = this._currentListData.length;
+			if (currentListData)
+			{
+				this.currentBetList.numItems = this._currentListData.length;
+			}
 		}
 
 		/**
@@ -103,7 +107,10 @@ module betInfo
 				this.todayWinnerList.scrollPane.lockFooter(0);
 			}
 			this._todayWinnerData = todayWinnerData;
-			this.todayWinnerList.numItems = this._todayWinnerData.length;
+			if (todayWinnerData)
+			{
+				this.todayWinnerList.numItems = this._todayWinnerData.length;
+			}
 		}
 
 		private onCurrentBetListRefresh(evt: egret.Event): void
@@ -139,9 +146,13 @@ module betInfo
 		}
 
 		private currentBetListRenderer(index: number, obj: CurrentBetItem): void
-		{ }
+		{
+			obj.setData(this._currentListData[index]);
+		}
 
 		private todayWinnerListRenderer(index: number, obj: TodayWinnerItem): void
-		{ }
+		{
+			obj.setData(index, this._todayWinnerData[index]);
+		}
 	}
 }

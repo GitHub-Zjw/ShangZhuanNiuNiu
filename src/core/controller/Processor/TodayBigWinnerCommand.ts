@@ -7,7 +7,7 @@ module betInfo
          */
 		public register(): void
 		{
-			this.facade.registerCommand(RequestsNotify.bigwin, TodayBigWinnerCommand);
+			this.facade.registerCommand(RequestsNotify.showcattle_winner, TodayBigWinnerCommand);
 		}
 
 		public execute(notification: puremvc.INotification): void
@@ -28,8 +28,9 @@ module betInfo
 	{
 		"name": string,
 		/**牌型 */
-		"fr": string,
-		"money": string
+		"niu": number,
+		"money": string,
+		"wz": string//,投注区域 =ht 黑桃 =hx红心 =mh梅花 =fk方块  string
 	}
 
 	export interface BigWinnerData extends AllResponseData

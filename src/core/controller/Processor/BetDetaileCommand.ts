@@ -7,7 +7,7 @@ module betInfo
          */
 		public register(): void
 		{
-			this.facade.registerCommand(RequestsNotify.betdetails, BetDetaileCommand);
+			this.facade.registerCommand(RequestsNotify.showcattle_Betting, BetDetaileCommand);
 		}
 
 		public execute(notification: puremvc.INotification): void
@@ -27,7 +27,7 @@ module betInfo
 	export interface betDetailItemData
 	{
 		"name": string,
-		"qy": string[],
+		"wz": string,
 		"money": string
 	}
 

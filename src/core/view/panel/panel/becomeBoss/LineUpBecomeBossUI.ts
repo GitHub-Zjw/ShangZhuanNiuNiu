@@ -98,7 +98,7 @@ module becomeBoss
 						{
 							if (this.isEnough())
 							{
-								becomeBoss.wantUpBoss(moneyNum.toString());
+								becomeBoss.wantUpBossRequest(moneyNum.toString());
 							}
 							else
 							{
@@ -120,14 +120,7 @@ module becomeBoss
 		private isEnough(): boolean
 		{
 			let moneyNum = parseInt(this.useMoneyInTxt.text);
-			if (moneyNum >= AllData.instance.HomePageData.myMoney)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return AllData.instance.getBetMoneyIsEnough(moneyNum);
 		}
 	}
 }

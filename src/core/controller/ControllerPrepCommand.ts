@@ -25,6 +25,8 @@ module game {
             (new becomeBoss.BossChangeCommand()).register();
             (new becomeBoss.ChangeStateCommand()).register();
             (new RegionDataCommand()).register();
+            (new betInfo.TodayBigWinnerCommand()).register();
+            (new betInfo.BetDetaileCommand()).register();
         }
 	}
 }

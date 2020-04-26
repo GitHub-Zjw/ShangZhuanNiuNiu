@@ -44,6 +44,8 @@ module game
 		public resultCom: ResultCom;
 		public bigWinnerCom: BigWinnerCom;
 		public bigWinnerTran: fairygui.Transition;
+		public bossAllLoseTran: fairygui.Transition;
+		public bossAllWinTran: fairygui.Transition;
 
 		public static URL: string = "ui://v1h0uw6cfjnq0";
 
@@ -99,6 +101,8 @@ module game
 			this.cardResultBtn = <fairygui.GButton><any>(this.getChild("cardResult"));
 			this.bigWinnerCom = <BigWinnerCom><any>(this.getChild("bigWinnerCom"));
 			this.bigWinnerTran = this.getTransition("bigWinnerTran");
+			this.bossAllLoseTran = this.getTransition("bossAllLoseTran");
+			this.bossAllWinTran = this.getTransition("bossAllWinTran");
 		}
 
 		private _otherRegionBalls: BetBallCom[][];
@@ -106,6 +110,7 @@ module game
 		private _regionComs: RegionCom[];
 		private _allBallBtns: BallBtn[];
 		private _selectBallIndex: number;								//选中的筹码索引，0表示未选中
+		private _myTz: number = 0;										//本局本人已投住金额
 
 		protected initView(): void
 		{
@@ -170,12 +175,19 @@ module game
 						return;
 					}
 					this.withdrawBall();
+					this.updateOnMyBet();
 					break;
 				case "methodBtn":
 					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_RULE);
 					break;
 				case "settingBtn":
 					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_SETTING);
+					break;
+				case "betBtn":
+					HomePageRequest.myBetRequest(this._myRegionBalls);
+					break;
+				case "closeBtn":
+					this.onCloseAllBtnClick();
 					break;
 				/********************************* 以下是测试按钮 **********************************/
 				case "homePageDataBtn":
@@ -207,7 +219,7 @@ module game
 				return;
 			}
 			let sourceIndex = this._selectBallIndex - 1;
-			let selectMoney = AllData.instance.BallValues[sourceIndex];
+			let selectMoney = AllData.instance.BallValues[sourceIndex] * 3;
 			if (!AllData.instance.getBetMoneyIsEnough(selectMoney))
 			{
 				TipsUtils.showTipsFromCenter("您的金额不足");
@@ -224,21 +236,23 @@ module game
 			{
 				case "region0":
 					AllData.instance.addMyBet(selectMoney, 0);
-					addBallNum[0] = [sourceIndex];
+					addBallNum[0] = [sourceIndex, sourceIndex, sourceIndex];
 					break;
 				case "region1":
 					AllData.instance.addMyBet(selectMoney, 1);
-					addBallNum[1] = [sourceIndex];
+					addBallNum[1] = [sourceIndex, sourceIndex, sourceIndex];
 					break;
 				case "region2":
 					AllData.instance.addMyBet(selectMoney, 2);
-					addBallNum[2] = [sourceIndex];
+					addBallNum[2] = [sourceIndex, sourceIndex, sourceIndex];
 					break;
 				case "region3":
 					AllData.instance.addMyBet(selectMoney, 3);
-					addBallNum[3] = [sourceIndex];
+					addBallNum[3] = [sourceIndex, sourceIndex, sourceIndex];
 					break;
 			}
+			core.SoundUtils.getInstance().playSound(18);
+			this.updateOnMyBet();
 			this.addBall(addBallNum, true);
 		}
 
@@ -252,7 +266,7 @@ module game
 			this.playerMoneyTxt.text = homePageData.myMoney.toString();
 			this.bossCom.setData(homePageData.bossMoney.toString(), homePageData.peopleInRoom.toString(), homePageData.bossTime, homePageData.bossRecord);
 			this.updateAllBetBar();
-			if (AllData.instance.getCurrentSecond() < 30)
+			if (AllData.instance.getCurrentSecond() < AllData.instance.OneGaemSurplueTime)
 			{
 				this.playBiginAmi();
 			}
@@ -260,28 +274,31 @@ module game
 			{
 				GameResultRequest.sendRequest();
 			}
+			this._myTz = homePageData.bem;
+			this.tzValueTxt.text = this._myTz.toString();
+			this.dzValueTxt.text = (this._myTz / 3).toString();
 		}
 
-		/**获取区域数据 */
-		public onGetRegionData(data: RegionData): void
-		{
-			this.region0.setResults(AllData.instance.getRegionRecord(data.Data.ht));
-			this.region1.setResults(AllData.instance.getRegionRecord(data.Data.hx));
-			this.region2.setResults(AllData.instance.getRegionRecord(data.Data.mh));
-			this.region3.setResults(AllData.instance.getRegionRecord(data.Data.fk));
+		// /**获取区域数据 */
+		// public onGetRegionData(data: RegionData): void
+		// {
+		// 	this.region0.setResults(AllData.instance.getRegionRecord(data.Data.ht));
+		// 	this.region1.setResults(AllData.instance.getRegionRecord(data.Data.hx));
+		// 	this.region2.setResults(AllData.instance.getRegionRecord(data.Data.mh));
+		// 	this.region3.setResults(AllData.instance.getRegionRecord(data.Data.fk));
 
-			this.region0.setBetValue(data.Data.ht.he.toString());
-			this.region1.setBetValue(data.Data.hx.he.toString());
-			this.region2.setBetValue(data.Data.mh.he.toString());
-			this.region3.setBetValue(data.Data.fk.he.toString());
+		// 	this.region0.setBetValue(data.Data.ht.he.toString());
+		// 	this.region1.setBetValue(data.Data.hx.he.toString());
+		// 	this.region2.setBetValue(data.Data.mh.he.toString());
+		// 	this.region3.setBetValue(data.Data.fk.he.toString());
 
-			let ballIndexs: number[][] = [];
-			ballIndexs[0] = AllData.instance.getBetIndexByValue(data.Data.ht.he);
-			ballIndexs[1] = AllData.instance.getBetIndexByValue(data.Data.hx.he);
-			ballIndexs[2] = AllData.instance.getBetIndexByValue(data.Data.mh.he);
-			ballIndexs[3] = AllData.instance.getBetIndexByValue(data.Data.fk.he);
-			this.addBall(ballIndexs, false, false);
-		}
+		// 	let ballIndexs: number[][] = [];
+		// 	ballIndexs[0] = AllData.instance.getBetIndexByValue(data.Data.ht.he);
+		// 	ballIndexs[1] = AllData.instance.getBetIndexByValue(data.Data.hx.he);
+		// 	ballIndexs[2] = AllData.instance.getBetIndexByValue(data.Data.mh.he);
+		// 	ballIndexs[3] = AllData.instance.getBetIndexByValue(data.Data.fk.he);
+		// 	this.addBall(ballIndexs, false, false);
+		// }
 
 		/**
 		 * 收到投注信息
@@ -294,18 +311,23 @@ module game
 				this.betPlayerCom.refreshView(otherBetData.playerLevel, otherBetData.betMoney, otherBetData.playerName, otherBetData.betRegions);
 			}
 			let ballIndexs: number[][] = [];
+			let isHaveChange: boolean = false;
 			for (let i = 0; i < 4; i++)
 			{
 				ballIndexs[i] = [];
-				let betValue = otherBetData.allBet[i];
-				if (betValue)
+				ballIndexs[i] = AllData.instance.getBetIndexByValue(otherBetData.allBet[i]);
+				if (ballIndexs[i].length > 0)
 				{
-					ballIndexs[i] = AllData.instance.getBetIndexByValue(betValue);
-					this._regionComs[i].addBetValue(betValue);
+					isHaveChange = true;
 				}
+			}
+			if (isHaveChange)
+			{
+				core.SoundUtils.getInstance().playSound(13);
 			}
 			this.addBall(ballIndexs, false);
 
+			this.updateRegionValue();
 			this.region0.setResults(otherBetData.winOrLoses[0]);
 			this.region1.setResults(otherBetData.winOrLoses[1]);
 			this.region2.setResults(otherBetData.winOrLoses[2]);
@@ -326,12 +348,15 @@ module game
 				this._regionComs[i].addBetValue(myBetNums[i]);
 			}
 			let homePageData = AllData.instance.HomePageData;
-			this.dzValueTxt.text = homePageData.myAntes.toString();
-			this.tzValueTxt.text = homePageData.myBetMoney.toString();
-			this.playerMoneyTxt.text = homePageData.myMoney.toString();
+
+			this._myTz += AllData.instance.getMyAllBet();
+			this.tzValueTxt.text = "" + this._myTz;
+			this.dzValueTxt.text = (this._myTz / 3).toString();
+
+			this.playerMoneyTxt.text = (homePageData.myMoney - this._myTz).toString();
 			this.updateAllBetBar();
 			this.onBetSucceed();
-			AllData.instance.cleanMyBet();//fix
+			AllData.instance.cleanMyBet();
 		}
 
 		/**
@@ -342,16 +367,7 @@ module game
 			this.playResultAmi();
 		}
 
-		/**
-		 * 停止下注
-		 */
-		public onStopBet(): void
-		{
-			this.changeBetBtn(false);
-			this.ballSelect.setSelectedIndex(0);
-			this._selectBallIndex = 0;
-			this.playStopBetAmi();
-		}
+
 
 		private changeBetBtn(enabled: boolean): void
 		{
@@ -369,6 +385,7 @@ module game
 
 		private redo(): void
 		{
+			this._myTz = 0;
 			this.redoRegion();
 			this.changeBetBtn(true);
 			this.resultCom.visible = false;
@@ -386,31 +403,61 @@ module game
 		private updateAllBetBar(): void
 		{
 			let max = AllData.instance.HomePageData.maxBet;
-			let value = AllData.instance.HomePageData.allBetMoney;
+			let value = AllData.instance.getAllRegionMoney();
 			this.maxBetBar.max = max;
 			this.maxBetBar.value = value;
 			this.pgValueTxt.text = value + "/" + max + "HDAG";
+		}
+
+		private updateOnMyBet(): void
+		{
+			let tzValue = AllData.instance.getMyAllBet() + this._myTz;
+			this.tzValueTxt.text = tzValue.toString();
+			this.dzValueTxt.text = (tzValue / 3).toString();
+			this.playerMoneyTxt.text = (AllData.instance.HomePageData.myMoney - AllData.instance.getMyAllBet() - this._myTz).toString();
+
+			this.updateRegionValue();
+		}
+
+		private updateRegionValue(): void
+		{
+			let otherRegionBets = AllData.instance.FourRegionMoney;
+			let myRegionBets = AllData.instance.MyBetNums;
+			this.region0.setBetValue((otherRegionBets[0] + myRegionBets[0]).toString());
+			this.region1.setBetValue((otherRegionBets[1] + myRegionBets[1]).toString());
+			this.region2.setBetValue((otherRegionBets[2] + myRegionBets[2]).toString());
+			this.region3.setBetValue((otherRegionBets[3] + myRegionBets[3]).toString());
 		}
 		/****************************************** 以下是动画流程 ******************************************/
 		//开局动画
 		private playBiginAmi(): void
 		{
 			this.beginTran.play(this.starTimerAmi, this);
+			core.SoundUtils.getInstance().playSound(15);
 		}
 		//开始倒计时
 		private starTimerAmi(): void
 		{
-			let starTime: number = 30 - AllData.instance.getCurrentSecond();
+			let starTime: number = AllData.instance.OneGaemSurplueTime - AllData.instance.getCurrentSecond();
 			this.clockCom.starTiming(starTime, null, this);
+			core.SoundUtils.getInstance().playSound(16);
 		}
-		//停止下注
-		private playStopBetAmi(): void
+
+		/**
+		 * 停止下注
+		 */
+		public onStopBet(): void
 		{
+			this.changeBetBtn(false);
+			this.ballSelect.setSelectedIndex(0);
+			this._selectBallIndex = 0;
+			core.SoundUtils.getInstance().playSound(17);
 			this.stopBetTran.play(function ()
 			{
-				//请求结果数据 todo
+				GameResultRequest.sendRequest();
 			});
 		}
+
 		//哈希选牌发牌
 		private playResultAmi(): void
 		{
@@ -421,13 +468,17 @@ module game
 		private playHdagChange(): void
 		{
 			let resultData = AllData.instance.ResultData;
-			if (resultData.myHdagChange >= 0)
+			if (resultData.myHdagChange > 0)
 			{
 				this.playerChangeTxt.text = "[color=#F7DE6C]+" + resultData.myHdagChange + "[/color]";
 			}
+			else if (resultData.myHdagChange == 0)
+			{
+				this.playerChangeTxt.text = "";
+			}
 			else
 			{
-				this.playerChangeTxt.text = "[color=#FFFFFF]-" + resultData.myHdagChange + "[/color]";
+				this.playerChangeTxt.text = "[color=#FFFFFF]" + resultData.myHdagChange + "[/color]";
 			}
 			if (resultData.bossChange > 0)
 			{
@@ -439,7 +490,7 @@ module game
 			}
 			else
 			{
-				this.bossChangeTxt.text = "[color=#FFFFFF]-" + resultData.bossChange + "[/color]";
+				this.bossChangeTxt.text = "[color=#FFFFFF]" + resultData.bossChange + "[/color]";
 			}
 			let self = this;
 			let temp = setTimeout(function ()
@@ -470,7 +521,26 @@ module game
 				self._regionComs[i].addResult(isWin);
 			}
 			self.bossCom.addResult(resultData.isWins[resultData.bossPosition]);
-			self.playBigWinnerAmi();
+			self.playBossAllWinOrLoseAmi();
+		}
+
+		/**庄家通赔通杀动画 */
+		private playBossAllWinOrLoseAmi(): void
+		{
+			if (AllData.instance.ResultData.vill == 6)
+			{
+				this.bossAllWinTran.play(this.playBigWinnerAmi, this);
+				core.SoundUtils.getInstance().playSound(20);
+			}
+			else if (AllData.instance.ResultData.vill == 4)
+			{
+				this.bossAllLoseTran.play(this.playBigWinnerAmi, this);
+				core.SoundUtils.getInstance().playSound(19);
+			}
+			else
+			{
+				this.playBigWinnerAmi();
+			}
 		}
 
 		//大赢家动画
@@ -479,26 +549,49 @@ module game
 			if (AllData.instance.ResultData.bigWinnerData.length > 0)
 			{
 				this.bigWinnerCom.refreshView();
-				this.bigWinnerTran.play();
+				this.bigWinnerTran.play(this.getNextData, this);
 			}
-			this.getNextData();
+			else
+			{
+				this.getNextData();
+			}
 		}
 
 		//获取下局数据
 		private getNextData(): void
 		{
-			// let temp = setInterval(function ()
-			// {
-			// 	if (AllData.instance.getCurrentSecond() < 25)
-			// 	{
-			// 		clearInterval(temp);
+			let temp = setInterval(function ()
+			{
+				if (AllData.instance.getCurrentSecond() < AllData.instance.OneGaemSurplueTime)
+				{
+					clearInterval(temp);
 					HomePageRequest.sendHomePageData();
-			// 	}
-			// }, 1000);
+				}
+			}, 1000);
 		}
 
 		/****************************************** 以上是动画流程 ******************************************/
 
+		private onCloseAllBtnClick(): void
+		{
+			let str = GameConfig.systemType();
+			core.SoundUtils.getInstance().stopAllSound();
+			setTimeout(function ()
+			{
+				if (str == "windows")
+				{
+					window.close();
+				}
+				else if (str == "ios")
+				{
+					eval("finishPage()");
+				}
+				else if (str == "android")
+				{
+					eval("javaInterface.finishPage()");
+				}
+			}, 500);
+		}
 
 		/**
 		 * 增加小球 有动画
@@ -595,8 +688,8 @@ module game
 					this.ballGroupCom.removeChild(this._otherRegionBalls[k][i]);
 				}
 				this._otherRegionBalls[k] = [];
-				this.withdrawBall();
 			}
+			this.withdrawBall();
 		}
 
 		/**
@@ -636,7 +729,7 @@ module game
 				{
 					this._otherRegionBalls[i] = [];
 				}
-				if (this._myRegionBalls[i])
+				if (this._myRegionBalls[i] && this._myRegionBalls.length > 0)
 				{
 					this._otherRegionBalls[i].push.apply(this._otherRegionBalls[i], this._myRegionBalls[i]);
 					this._myRegionBalls[i] = [];

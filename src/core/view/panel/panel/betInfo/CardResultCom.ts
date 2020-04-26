@@ -21,5 +21,10 @@ module betInfo {
 
 			this.state = this.getController("state");
 		}
+
+		public setData(type: EnumerationType.CardResult): void
+		{
+			this.state.setSelectedIndex(type);
+		}
 	}
 }

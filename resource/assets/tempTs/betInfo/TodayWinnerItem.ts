@@ -7,6 +7,7 @@ module betInfo {
 		public c1:fairygui.Controller;
 		public nameTxt:fairygui.GTextField;
 		public hdagTxt:fairygui.GTextField;
+		public rankTxt:fairygui.GTextField;
 		public cardResultCom:CardResultCom;
 		public htImage:fairygui.GImage;
 		public hxImage:fairygui.GImage;
@@ -29,6 +30,7 @@ module betInfo {
 			this.c1 = this.getController("c1");
 			this.nameTxt = <fairygui.GTextField><any>(this.getChild("nameTxt"));
 			this.hdagTxt = <fairygui.GTextField><any>(this.getChild("hdagTxt"));
+			this.rankTxt = <fairygui.GTextField><any>(this.getChild("rankTxt"));
 			this.cardResultCom = <CardResultCom><any>(this.getChild("cardResultCom"));
 			this.htImage = <fairygui.GImage><any>(this.getChild("htImage"));
 			this.hxImage = <fairygui.GImage><any>(this.getChild("hxImage"));

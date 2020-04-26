@@ -6,6 +6,8 @@ class AllData extends egret.EventDispatcher
 	public BossStrs: string[] = ["『1,6,b』", "『2,7,c』", "『3,8,d』", "『4,9,e』", "『0,5,a』"];
 	public Sunlight: string;
 	public Language: string;
+	/**一局游戏的倒计时时长 */
+	public OneGaemSurplueTime: number = 43;
 
 	private static _info: AllData;
 	private _homePageData: game.HomePageData;
@@ -13,9 +15,13 @@ class AllData extends egret.EventDispatcher
 	private _resultData: game.ResultData;
 	private _becomeBossData: becomeBoss.BecomeBossData;
 	private _bossChangeData: becomeBoss.BossChangeData;
+
 	private _beginTimeStamp: number;				//游戏开始时间戳
+	private _oneIssueTime: number;					//一期游戏时长
+	private _oneGameTime: number;					//一局游戏时长
+
 	private _myBetNums: number[];					//本人下注，未投注
-	private _allBetMoneyNum: number;				//所有人下注总金额
+	private _fourRegionMoney: number[];				//四个区域投注金额
 	public static get instance(): AllData
 	{
 		if (AllData._info == null)
@@ -30,12 +36,14 @@ class AllData extends egret.EventDispatcher
 	{
 		super();
 		this._beginTimeStamp = 1575302400;
+		this._oneIssueTime = 1200;
+		this._oneGameTime = 60;
 		this._homePageData = new game.HomePageData();
 		this._otherBetData = new game.OtherBetData();
 		this._becomeBossData = new becomeBoss.BecomeBossData();
 		this._bossChangeData = new becomeBoss.BossChangeData();
 		this._myBetNums = [0, 0, 0, 0];
-		this._allBetMoneyNum = 0;
+		this._fourRegionMoney = [0, 0, 0, 0];
 	}
 
 	/**
@@ -50,7 +58,6 @@ class AllData extends egret.EventDispatcher
 		//fix cData.myBetMoney = 
 		//fix cData.myAntes = sData.
 		cData.allBetMoney = s.bm;
-		this._allBetMoneyNum = s.bm;
 		cData.bossMoney = s.nest;
 		cData.peopleInRoom = s.pe;
 		cData.bossTime = s.time;
@@ -71,6 +78,7 @@ class AllData extends egret.EventDispatcher
 			}
 		}
 		cData.gameTime = s.jtime;
+		cData.bem = s.bem;
 	}
 
 
@@ -79,6 +87,7 @@ class AllData extends egret.EventDispatcher
 	 */
 	public setBecomeBossData(data: becomeBoss.CbookmakerData): void
 	{
+		this.redoData();
 		this._becomeBossData.alreadyBosses = [];
 		let len = data.Data.shang.length;
 		for (let i = 0; i < len; i++)
@@ -179,7 +188,7 @@ class AllData extends egret.EventDispatcher
 			if (key == data.Data.lucky)
 			{
 				this._resultData.moveStr = hxItem.hxStr2.charAt(hxItem.hxStr2.length - 1);
-				hxItem.hxStr2 = hxItem.hxStr2.substring(0,hxItem.hxStr2.length - 2)+"[color=#FFA03B]" + this._resultData.moveStr + "[/color]";
+				hxItem.hxStr2 = hxItem.hxStr2.substring(0, hxItem.hxStr2.length - 2) + "[color=#FFA03B]" + this._resultData.moveStr + "[/color]";
 				hxItem.isLuck = true;
 				break;
 			}
@@ -215,12 +224,24 @@ class AllData extends egret.EventDispatcher
 			{
 				this._resultData.isWins[i] = EnumerationType.WinOrLose.win;
 			}
+			else
+			{//没有win字段，此位置是庄家
+				if (data.Data.kj.zj == 5)
+				{
+					this._resultData.isWins[i] = EnumerationType.WinOrLose.lose;
+				}
+				else if (data.Data.kj.zj == 8)
+				{
+					this._resultData.isWins[i] = EnumerationType.WinOrLose.win;
+				}
+			}
 		}
 
 
 		this._resultData.bossPosition = this.getBossPositionByStr(this._resultData.moveStr);
 		this._resultData.bossStr = this.BossStrs[this._resultData.bossPosition].replace(this._resultData.moveStr, "[color=#FFA03B]" + this._resultData.moveStr + "[/color]")
 		this._resultData.bossChange = data.Data.inc;
+		this._resultData.myHdagChange = data.Data.unc;
 
 		this._resultData.bigWinnerData = [];
 		let len = data.Data.dyj.length;
@@ -228,6 +249,7 @@ class AllData extends egret.EventDispatcher
 		{
 			this._resultData.bigWinnerData[i] = [data.Data.dyj[i].name, data.Data.dyj[i].bonus];
 		}
+		//fix this._resultData.myHdagChange
 	}
 
 	private getBossPositionByStr(str: string): number
@@ -272,7 +294,10 @@ class AllData extends egret.EventDispatcher
 		}
 	}
 
-	private getCardResultByNumber(num: number): EnumerationType.CardResult
+	/**
+	 * 根据后端数字返回牌型
+	 */
+	public getCardResultByNumber(num: number): EnumerationType.CardResult
 	{
 		let returnValue: EnumerationType.CardResult;
 		if (num <= 10)
@@ -365,12 +390,22 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getCurrentSecond(): number
 	{
-		// let w = Math.floor(Date.parse((new Date()).toString()) / 1000);
-		// let s = this._beginTimeStamp;
-		// let j = Math.floor((w - s) / 45);
-		// let t = w - (s + j * 45);
-		// return t;
-		return 30 - this._homePageData.gameTime;
+		let nowSecond = Math.floor(Date.parse((new Date()).toString()) / 1000);
+		let issueNumber = this.getCurrentIssueNumber();
+		let issueSecond = nowSecond - (this._beginTimeStamp + (issueNumber - 1) * this._oneIssueTime);
+		let oneGameTime = issueSecond % this._oneGameTime;
+		return oneGameTime;
+	}
+
+	/**
+	 * 获取本庄剩余时间
+	 */
+	public getBossSurplueTime(): number
+	{
+		let nowSecond = Math.floor(Date.parse((new Date()).toString()) / 1000);
+		let issueNumber = this.getCurrentIssueNumber();
+		let surplueTime = this._oneIssueTime - (nowSecond - (this._beginTimeStamp + (issueNumber - 1) * this._oneIssueTime));
+		return surplueTime;
 	}
 
 	/**
@@ -378,15 +413,13 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getCurrentIssueNumber(): number
 	{
-		let w = Math.floor(Date.parse((new Date()).toString()) / 1000);
-		let s = this._beginTimeStamp;
-		let j = Math.floor((w - s) / 45);
-		let n = j + 1;
-		return n;
+		let nowSecond = Math.floor(Date.parse((new Date()).toString()) / 1000);
+		let issueNumber = Math.ceil((nowSecond - this._beginTimeStamp) / this._oneIssueTime);
+		return issueNumber;
 	}
 
 	/**
-	 * 根据天数差获取时间
+	 * 根据天数 换算 时间
 	 */
 	public getDateStrByCount(count: number): string
 	{
@@ -464,7 +497,26 @@ class AllData extends egret.EventDispatcher
 	 */
 	public setPlayerBetSucceed(): void
 	{
-		this._allBetMoneyNum += this.getMyAllBet();
+		this._fourRegionMoney[0] += this._myBetNums[0];
+		this._fourRegionMoney[1] += this._myBetNums[1];
+		this._fourRegionMoney[2] += this._myBetNums[2];
+		this._fourRegionMoney[3] += this._myBetNums[3];
+	}
+
+	/**
+	 * 四个区域投注金额
+	 */
+	public get FourRegionMoney(): number[]
+	{
+		return this._fourRegionMoney;
+	}
+
+	/**
+	 * 四个区域投注金额总和
+	 */
+	public getAllRegionMoney(): number
+	{
+		return this._fourRegionMoney[0] + this._fourRegionMoney[1] + this._fourRegionMoney[2] + this._fourRegionMoney[3];
 	}
 
 	/**
@@ -482,10 +534,15 @@ class AllData extends egret.EventDispatcher
 		}
 
 		this._otherBetData.allBet = [];
-		this._otherBetData.allBet[0] = data.Data.ht.he;
-		this._otherBetData.allBet[1] = data.Data.hx.he;
-		this._otherBetData.allBet[2] = data.Data.mh.he;
-		this._otherBetData.allBet[3] = data.Data.fk.he;
+		this._otherBetData.allBet[0] = data.Data.ht.he - this._fourRegionMoney[0];
+		this._otherBetData.allBet[1] = data.Data.hx.he - this._fourRegionMoney[1];
+		this._otherBetData.allBet[2] = data.Data.mh.he - this._fourRegionMoney[2];
+		this._otherBetData.allBet[3] = data.Data.fk.he - this._fourRegionMoney[3];
+
+		this._fourRegionMoney[0] = data.Data.ht.he;
+		this._fourRegionMoney[1] = data.Data.hx.he;
+		this._fourRegionMoney[2] = data.Data.mh.he;
+		this._fourRegionMoney[3] = data.Data.fk.he;
 
 		this._otherBetData.winOrLoses = [];
 		this._otherBetData.winOrLoses[0] = this.getRegionRecord(data.Data.ht);
@@ -493,7 +550,6 @@ class AllData extends egret.EventDispatcher
 		this._otherBetData.winOrLoses[2] = this.getRegionRecord(data.Data.mh);
 		this._otherBetData.winOrLoses[3] = this.getRegionRecord(data.Data.fk);
 
-		this._allBetMoneyNum += this._otherBetData.totalBetNum;
 	}
 
 	/**
@@ -501,7 +557,7 @@ class AllData extends egret.EventDispatcher
 	 */
 	public redoData(): void
 	{
-		this._allBetMoneyNum = 0;
+		this._fourRegionMoney = [0, 0, 0, 0];
 	}
 
 	/**
@@ -567,7 +623,7 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getIsCapByBetMoney(moneyNum: number): boolean
 	{
-		let allBetMoney = this.getMyAllBet() + this._allBetMoneyNum + moneyNum;
+		let allBetMoney = this.getMyAllBet() + this.getAllRegionMoney() + moneyNum;
 		if (allBetMoney > this._homePageData.maxBet)
 		{
 			return true;
@@ -606,14 +662,14 @@ class AllData extends egret.EventDispatcher
 	 */
 	public get IsTestServer(): boolean
 	{
-		// if (location.port == "5927")
-		// {//测试服
-		return true;
-		// }
-		// else
-		// {
-		// 	return false;
-		// }
+		if (location.port == "5927")
+		{//测试服
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -621,14 +677,14 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getWebsite(): string
 	{
-		if (this.IsTestServer)
-		{//测试服
+		// if (this.IsTestServer)
+		// {//测试服
 			return "www.libraw.io";
-		}
-		else
-		{
-			return "www.harmonydag.com";
-		}
+		// }
+		// else
+		// {
+		// 	return "www.harmonydag.com";
+		// }
 	}
 
 	/**

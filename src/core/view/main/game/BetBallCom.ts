@@ -34,6 +34,13 @@ module game
 		private _endY: number;
 
 		/**
+		 * 筹码值索引
+		 */
+		public get SourceIndex(): number
+		{
+			return this._sourceIndex;
+		}
+		/**
 		 * 显示投注动画
 		 * @param x 目标点x
 		 * @param y 目标点y

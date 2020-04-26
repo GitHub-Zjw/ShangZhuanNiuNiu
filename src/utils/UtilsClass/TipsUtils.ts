@@ -106,36 +106,39 @@ module TipsUtils {
 
     //从里到外
     export function showTipsFromCenter(str:string = "",isWarning:boolean = false):void{
-        var effectTips = new fgui.GTextField();
+        var effectTips = game.TipCom.createInstance();
 
-        effectTips.fontSize = 24;
+        // effectTips.fontSize = 24;
         effectTips.y = GameConfig.curHeight()/2;
-        if(isWarning){
-            effectTips.color = GameConfig.TextColors.red;
-        }else{
-            effectTips.color = GameConfig.TextColors.white;
-        }
+        // if(isWarning){
+        //     effectTips.color = GameConfig.TextColors.red;
+        // }else{
+        //     effectTips.color = GameConfig.TextColors.white;
+        // }
         effectTips.alpha = 0;
         
+        effectTips.setPivot(0.5, 0.5, true);
         effectTips.text = str;
-        effectTips.strokeColor = 0x000000;
+        // effectTips.strokeColor = 0x000000;
         effectTips.x = GameConfig.curWidth()/2;        
-        effectTips.stroke  = 2;
-        effectTips.bold = true;
-        effectTips.align = fgui.AlignType.Center;
+        // effectTips.stroke  = 2;
+        // effectTips.bold = true;
 
         if(!GameLayerManager.gameLayer().effectLayer.contains(effectTips)){
             GameLayerManager.gameLayer().effectLayer.addChild( effectTips );
         }        
 
-        effectTips.setPivot(0.5, 0.5);
         effectTips.scaleX = 0;
         effectTips.scaleY = 0;
         
         var onComplete2:Function = function(){
             if(GameLayerManager.gameLayer().effectLayer.contains(effectTips)){
                 GameLayerManager.gameLayer().effectLayer.removeChild( effectTips );
-                effectTips = null;
+                if (effectTips)
+                {
+                    effectTips.dispose();
+                    effectTips = null;   
+                }
             }
         };
         egret.Tween.get(effectTips).to({scaleX:1,scaleY:1,alpha:1},200); 

@@ -43,6 +43,8 @@ module game {
 		public beginTran:fairygui.Transition;
 		public stopBetTran:fairygui.Transition;
 		public bigWinnerTran:fairygui.Transition;
+		public bossAllLoseTran:fairygui.Transition;
+		public bossAllWinTran:fairygui.Transition;
 
 		public static URL:string = "ui://v1h0uw6cfjnq0";
 
@@ -96,6 +98,8 @@ module game {
 			this.beginTran = this.getTransition("beginTran");
 			this.stopBetTran = this.getTransition("stopBetTran");
 			this.bigWinnerTran = this.getTransition("bigWinnerTran");
+			this.bossAllLoseTran = this.getTransition("bossAllLoseTran");
+			this.bossAllWinTran = this.getTransition("bossAllWinTran");
 		}
 	}
 }

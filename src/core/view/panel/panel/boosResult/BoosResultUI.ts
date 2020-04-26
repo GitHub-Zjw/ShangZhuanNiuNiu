@@ -45,6 +45,15 @@ module boosResult
 			}
 		}
 
+		public refreshView(data: game.BossTimeOverData): void
+		{
+			let isWin = data.Data.money >= 0;
+			this.setData(isWin, data.Data.money.toString(), data.Data.winmoney.toString(), data.Data.betmoney.toString());
+			let temp = setTimeout(function() {
+				game.AppFacade.getInstance().sendNotification(PanelNotify.CLOSE_BOSS_RESULT);
+			}, 1500);
+		}
+
 		/**
 		 * 设置界面
 		 * @param isWin 是否获胜

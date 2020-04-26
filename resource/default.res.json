@@ -21,7 +21,7 @@
 			"name": "setting"
 		},
 		{
-			"keys": "backg_mp3,background1_mp3,baozi_mp3,button_mp3,cmxz_mp3,daojishi_mp3,dgcmxz1_mp3,dgcmxz2_mp3,duizi_mp3,dyjtc_mp3,fdzpyx_mp3,fpyx_mp3,jinhua_mp3,kjpkdp_mp3,ksxz_mp3,main_bgm_mp3,sanpai_mp3,shunjin_mp3,shunzi_mp3,tzxz_mp3",
+			"keys": "aniu0_mp3,aniu1_mp3,aniu10_mp3,aniu2_mp3,aniu3_mp3,aniu4_mp3,aniu5_mp3,aniu6_mp3,aniu7_mp3,aniu8_mp3,aniu9_mp3,backg_mp3,chouma_mp3,daojishi_mp3,kaiahixiazhuqian_mp3,kaishixiazhu_mp3,tingzhixiazhu_mp3,yigechouma_mp3,zhangtongpei_mp3,zhangtongsha_mp3,fdzpyx_mp3",
 			"name": "sound"
 		},
 		{
@@ -110,106 +110,6 @@
 			"name": "config_zip"
 		},
 		{
-			"url": "assets/sound/backg.mp3",
-			"type": "sound",
-			"name": "backg_mp3"
-		},
-		{
-			"url": "assets/sound/background1.mp3",
-			"type": "sound",
-			"name": "background1_mp3"
-		},
-		{
-			"url": "assets/sound/baozi.mp3",
-			"type": "sound",
-			"name": "baozi_mp3"
-		},
-		{
-			"url": "assets/sound/button.mp3",
-			"type": "sound",
-			"name": "button_mp3"
-		},
-		{
-			"url": "assets/sound/cmxz.mp3",
-			"type": "sound",
-			"name": "cmxz_mp3"
-		},
-		{
-			"url": "assets/sound/daojishi.mp3",
-			"type": "sound",
-			"name": "daojishi_mp3"
-		},
-		{
-			"url": "assets/sound/dgcmxz1.mp3",
-			"type": "sound",
-			"name": "dgcmxz1_mp3"
-		},
-		{
-			"url": "assets/sound/dgcmxz2.mp3",
-			"type": "sound",
-			"name": "dgcmxz2_mp3"
-		},
-		{
-			"url": "assets/sound/duizi.mp3",
-			"type": "sound",
-			"name": "duizi_mp3"
-		},
-		{
-			"url": "assets/sound/dyjtc.mp3",
-			"type": "sound",
-			"name": "dyjtc_mp3"
-		},
-		{
-			"url": "assets/sound/fdzpyx.mp3",
-			"type": "sound",
-			"name": "fdzpyx_mp3"
-		},
-		{
-			"url": "assets/sound/fpyx.mp3",
-			"type": "sound",
-			"name": "fpyx_mp3"
-		},
-		{
-			"url": "assets/sound/jinhua.mp3",
-			"type": "sound",
-			"name": "jinhua_mp3"
-		},
-		{
-			"url": "assets/sound/kjpkdp.mp3",
-			"type": "sound",
-			"name": "kjpkdp_mp3"
-		},
-		{
-			"url": "assets/sound/ksxz.mp3",
-			"type": "sound",
-			"name": "ksxz_mp3"
-		},
-		{
-			"url": "assets/sound/main_bgm.mp3",
-			"type": "sound",
-			"name": "main_bgm_mp3"
-		},
-		{
-			"url": "assets/sound/sanpai.mp3",
-			"type": "sound",
-			"name": "sanpai_mp3"
-		},
-		{
-			"url": "assets/sound/shunjin.mp3",
-			"type": "sound",
-			"name": "shunjin_mp3"
-		},
-		{
-			"url": "assets/sound/shunzi.mp3",
-			"type": "sound",
-			"name": "shunzi_mp3"
-		},
-		{
-			"url": "assets/sound/tzxz.mp3",
-			"type": "sound",
-			"name": "tzxz_mp3"
-		},
-		{
 			"url": "assets/image/betInfo/betInfo.fui",
 			"type": "bin",
 			"name": "betInfo"
@@ -228,6 +128,111 @@
 			"url": "assets/image/becomeBoss/becomeBoss_atlas0.png",
 			"type": "image",
 			"name": "becomeBoss_atlas0"
+		},
+		{
+			"url": "assets/sound/aniu0.mp3",
+			"type": "sound",
+			"name": "aniu0_mp3"
+		},
+		{
+			"url": "assets/sound/aniu1.mp3",
+			"type": "sound",
+			"name": "aniu1_mp3"
+		},
+		{
+			"url": "assets/sound/aniu10.mp3",
+			"type": "sound",
+			"name": "aniu10_mp3"
+		},
+		{
+			"url": "assets/sound/aniu2.mp3",
+			"type": "sound",
+			"name": "aniu2_mp3"
+		},
+		{
+			"url": "assets/sound/aniu3.mp3",
+			"type": "sound",
+			"name": "aniu3_mp3"
+		},
+		{
+			"url": "assets/sound/aniu4.mp3",
+			"type": "sound",
+			"name": "aniu4_mp3"
+		},
+		{
+			"url": "assets/sound/aniu5.mp3",
+			"type": "sound",
+			"name": "aniu5_mp3"
+		},
+		{
+			"url": "assets/sound/aniu6.mp3",
+			"type": "sound",
+			"name": "aniu6_mp3"
+		},
+		{
+			"url": "assets/sound/aniu7.mp3",
+			"type": "sound",
+			"name": "aniu7_mp3"
+		},
+		{
+			"url": "assets/sound/aniu8.mp3",
+			"type": "sound",
+			"name": "aniu8_mp3"
+		},
+		{
+			"url": "assets/sound/aniu9.mp3",
+			"type": "sound",
+			"name": "aniu9_mp3"
+		},
+		{
+			"url": "assets/sound/backg.mp3",
+			"type": "sound",
+			"name": "backg_mp3"
+		},
+		{
+			"url": "assets/sound/chouma.mp3",
+			"type": "sound",
+			"name": "chouma_mp3"
+		},
+		{
+			"url": "assets/sound/daojishi.mp3",
+			"type": "sound",
+			"name": "daojishi_mp3"
+		},
+		{
+			"url": "assets/sound/kaiahixiazhuqian.mp3",
+			"type": "sound",
+			"name": "kaiahixiazhuqian_mp3"
+		},
+		{
+			"url": "assets/sound/kaishixiazhu.mp3",
+			"type": "sound",
+			"name": "kaishixiazhu_mp3"
+		},
+		{
+			"url": "assets/sound/tingzhixiazhu.mp3",
+			"type": "sound",
+			"name": "tingzhixiazhu_mp3"
+		},
+		{
+			"url": "assets/sound/yigechouma.mp3",
+			"type": "sound",
+			"name": "yigechouma_mp3"
+		},
+		{
+			"url": "assets/sound/zhangtongpei.mp3",
+			"type": "sound",
+			"name": "zhangtongpei_mp3"
+		},
+		{
+			"url": "assets/sound/zhangtongsha.mp3",
+			"type": "sound",
+			"name": "zhangtongsha_mp3"
+		},
+		{
+			"url": "assets/sound/fdzpyx.mp3",
+			"type": "sound",
+			"name": "fdzpyx_mp3"
 		}
 	]
 }

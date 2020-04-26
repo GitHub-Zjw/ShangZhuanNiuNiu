@@ -76,11 +76,11 @@ module game
 			let newresults: EnumerationType.WinOrLose[] = [];
 			if (this._records.length >= 10)
 			{
-				for (let i = 1; i < 10; i++)
+				for (let i = 0; i < 9; i++)
 				{
-					newresults.push(this._records[i]);
+					newresults[i] = this._records[i + 1];
 				}
-				newresults[10] = isWin;
+				newresults[9] = isWin;
 				this._records = newresults;
 			}
 			else

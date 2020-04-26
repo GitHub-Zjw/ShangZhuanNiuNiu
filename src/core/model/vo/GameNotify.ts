@@ -42,7 +42,7 @@ class GameNotify
 	/**本局投注区域金额消息 */
 	public static BET_MONEY: string = "BET_MONEY";
 
-	/**玩家下注消息 */
+	/**玩家下注成功消息 */
 	public static BET: string = "BET";
 
 	/**游戏结果消息 */

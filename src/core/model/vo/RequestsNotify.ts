@@ -16,13 +16,13 @@ class RequestsNotify
 	public static sideline_mincome = "movecattle/mincome";
 
 	/**预约上庄 */
-	public static wrte_myon = "Wrte/myon";
+	public static wrte_myon = "movecattle/myon";
 
 	/**预约下庄 */
-	public static wrte_myunder = "Wrte/myunder";
+	public static wrte_myunder = "movecattle/myunder";
 
 	/**预约调仓 */
-	public static wrte_myadj = "Wrte/myadj";
+	public static wrte_myadj = "movecattle/myadj";
 
 	/**取消预约上庄 */
 	public static sideline_cancelvillage = "movecattle/cancelvillage"
@@ -34,22 +34,25 @@ class RequestsNotify
 	public static sideline_cancelunder = "movecattle/cancelunder";
 	
 	/**下注 */
-	public static porder: string = "betl/porder";
+	public static movecattle_calculation: string = "movecattle/porder";
 
 	/**游戏结果获取 */
 	public static showcattle_getresult: string = "Showcattle/getresult";
+
+	/**一轮游戏结算 */
+	public static showcattle_calculation: string = "Showcattle/calculation";
 
 	/**投注详情 */
 	public static betdetails: string = "betdetails";
 
 	/**投注记录 */
-	public static userbet: string = "userbet";
+	public static showcattle_Betting: string = "Showcattle/Betting";
 
 	/**密码验证 */
 	public static checkpwd: string = "checkpwd";
 
 	/**今日大赢家 */
-	public static bigwin: string = "bigwin";
+	public static showcattle_winner: string = "Showcattle/winner";
 
 	/**交易信息 */
 	public static trainfo: string = "trainfo";

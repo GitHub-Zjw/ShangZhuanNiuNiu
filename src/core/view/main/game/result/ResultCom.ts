@@ -251,6 +251,10 @@ module game
 
 				let tw = egret.Tween.get(this._cards[p2][p1]);
 				tw.wait(i * 100)
+					.call(function ()
+					{
+						core.SoundUtils.getInstance().playSound(21);
+					})
 					.to({ x: this._centerXs[p2][p1], y: this.centerCard.y }, 200)
 			}
 			egret.Tween.get(this.card24).wait(24 * 100)
@@ -370,6 +374,7 @@ module game
 		private playShowBossCardTypeAmi(): void
 		{
 			this.showCardTypeAmi(this._resultData.bossPosition, this.cardResultCom0, this.playShowRegionCard1, this);
+			MainManager.mainUI.removeAllBall();
 		}
 
 		//显示区域1牌型
@@ -444,6 +449,7 @@ module game
 			let luckIndexs = this._resultData.luckCardIndexs[index];
 			let moveTime = 400;
 			let upTime = 200;
+			let len = luckIndexs.length;
 			for (let i = 0; i < 5; i++)
 			{
 				let tw: egret.Tween;
@@ -451,9 +457,21 @@ module game
 				let oX = cards[i].x;
 				let oY = cards[i].y
 				tw.to({ x: cards[2].x, y: cards[2].y }, moveTime)
+					.call(function ()
+					{
+						if (len == 2)
+						{
+							let tempRes1 = cards[luckIndexs[0]].SourceName;
+							cards[luckIndexs[0]].SourceName = cards[3].SourceName;
+							cards[3].SourceName = tempRes1;
+
+							let tempRes2 = cards[luckIndexs[1]].SourceName;
+							cards[luckIndexs[1]].SourceName = cards[4].SourceName;
+							cards[4].SourceName = tempRes2;
+						}
+					}, this)
 					.to({ x: oX, y: oY }, moveTime)
 			}
-			let len = luckIndexs.length;
 			if (len == 0)
 			{
 				let temp = setTimeout(function ()
@@ -560,9 +578,9 @@ module game
 				this._hxListTempDatas = [];
 				for (let i = 0; i < this._listItemNumber; i++)
 				{
-					this._hxListTempDatas.push(this._resultData.hxItemDatas[this._listItemNumber-1-i]);
+					this._hxListTempDatas.push(this._resultData.hxItemDatas[this._listItemNumber - 1 - i]);
 				}
- 				this.hxList.numItems = this._listItemNumber;
+				this.hxList.numItems = this._listItemNumber;
 			}
 			else
 			{

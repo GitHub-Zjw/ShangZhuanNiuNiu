@@ -21,6 +21,7 @@ module game {
 			fairygui.UIObjectFactory.setPackageItemExtension(WLPointItem.URL, WLPointItem);
 			fairygui.UIObjectFactory.setPackageItemExtension(RegionCom.URL, RegionCom);
 			fairygui.UIObjectFactory.setPackageItemExtension(YellowBoxCom.URL, YellowBoxCom);
+			fairygui.UIObjectFactory.setPackageItemExtension(TipCom.URL, TipCom);
 		}
 	}
 }

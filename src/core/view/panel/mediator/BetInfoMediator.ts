@@ -39,7 +39,7 @@ module betInfo {
 					if (this._betInfoUI)
 					{
 						this.addDetailItemData(data);
-						this._betInfoUI.onGetCurrentBetData(this._betDetailItemData, false);
+						this._betInfoUI.onGetCurrentBetData(data.Data, false);
 					}
 					break;
 				case GameNotify.BET_DETAILE_OVER:
@@ -49,7 +49,11 @@ module betInfo {
 						this._betInfoUI.onGetCurrentBetData(this._betDetailItemData, true);
 					}
 					break;
-				case GameNotify.BIG_WINNER://fix
+				case GameNotify.BIG_WINNER:
+					if (this._betInfoUI)
+					{
+						this._betInfoUI.onGetTodayWinnerData(data.Data, true);
+					}
 					break;
 				case GameNotify.BET_DETAILE_OVER://fix
 					break;

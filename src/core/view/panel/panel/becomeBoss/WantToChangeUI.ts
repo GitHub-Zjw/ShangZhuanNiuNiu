@@ -73,7 +73,7 @@ module becomeBoss
 						let addNum = parseInt(strAdd);
 						if (addNum < 1000)
 						{
-							TipsUtils.showTipsFromCenter("加仓金额不得少于1000HDAG");
+							TipsUtils.showTipsFromCenter("加仓金额不得低于1000HDAG");
 							return;
 						}
 						else
@@ -94,12 +94,12 @@ module becomeBoss
 						let reduceNum = parseInt(strReduce);
 						if (reduceNum < 100)
 						{
-							TipsUtils.showTipsFromCenter("减仓金额不得少于100HDAG");
+							TipsUtils.showTipsFromCenter("减仓金额不得低于100HDAG");
 							return;
 						}
 						else if (reduceNum > AllData.instance.BecomeBossData.myzmoney)
 						{
-							TipsUtils.showTipsFromCenter("减仓金额不得大于仓库余额");
+							TipsUtils.showTipsFromCenter("减仓金额不得高于上庄余额");
 							return;
 						}
 						else
@@ -120,14 +120,7 @@ module becomeBoss
 		private isEnough(): boolean
 		{
 			let moneyNum = parseInt(this.addInTxt.text);
-			if (moneyNum <= AllData.instance.BecomeBossData.myume)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return AllData.instance.getBetMoneyIsEnough(moneyNum);
 		}
 	}
 }

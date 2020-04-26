@@ -64,6 +64,7 @@ module game
 			},
 			"lucky": string,//,被选中的区块索引 <string>
 			"inc": number, // 1970,本局庄家收益 如果是0则不显示，其他状态要显示 <number>
+			"unc": number;
 			"kj": {//谁输谁赢数据
 				"ht": number, //8,黑桃 =5：输 =8赢 <number>
 				"hx": number, //5,红心 =5：输 =8赢 <number>

@@ -71,7 +71,10 @@ module game
 			this._money = money;
 			this._people = people;
 			this._second = second;
-			this._records = records;
+			if (this._records.length == 0)
+			{
+				this._records = records;
+			}
 			this._surplusTime = this._second;
 			this.updateView();
 		}
@@ -84,11 +87,11 @@ module game
 			let newresults: EnumerationType.WinOrLose[] = [];
 			if (this._records.length >= 12)
 			{
-				for (let i = 1; i < 12; i++)
+				for (let i = 0; i < 11; i++)
 				{
-					newresults.push(this._records[i]);
+					newresults[i] = this._records[i + 1];
 				}
-				newresults[10] = isWin;
+				newresults[11] = isWin;
 				this._records = newresults;
 			}
 			else
@@ -140,6 +143,7 @@ module game
 			if (this._surplusTime < 0)
 			{
 				AllData.instance.dispatchEventWith(MainNotify.BOSS_TIME_OVER);
+				HomePageRequest.todayBigWinnerRequest();
 				this.removeTimer();
 			}
 			else

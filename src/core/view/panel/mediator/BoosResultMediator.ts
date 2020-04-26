@@ -25,6 +25,7 @@ module boosResult
 			switch (notification.getName())
 			{
 				case PanelNotify.OPEN_BOSS_RESULT:
+					this._data = data;
 					this.addRES(this.moduleName);
 					break;
 				case PanelNotify.CLOSE_BOSS_RESULT:
@@ -32,6 +33,8 @@ module boosResult
 					break;
 			}
 		}
+
+		private _data: game.BossTimeOverData;
 
 		protected onResIsReady(isFirst: boolean): void
 		{
@@ -41,6 +44,7 @@ module boosResult
 			}
 			let ui = BoosResultUI.createInstance();
 			this.showUI(ui, true);
+			ui.refreshView(this._data);
 		}
 	}
 }

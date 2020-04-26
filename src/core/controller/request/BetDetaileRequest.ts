@@ -1,8 +1,8 @@
 module BetDetaileRequest
 {
-	export function sendBetDetaileRequest(page: number): void
+	export function sendBetDetaileRequest(page?: number): void
 	{
-		let content = { page: page };
-		game.AppFacade.getInstance().HttpManager.request(RequestsNotify.betdetails, content);
+		let content = { whse: AllData.instance.HomePageData.ju };
+		game.AppFacade.getInstance().HttpManager.request(RequestsNotify.showcattle_Betting, content);
 	}
 }

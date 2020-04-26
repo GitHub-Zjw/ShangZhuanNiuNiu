@@ -16,7 +16,7 @@ module becomeBoss
 	}
 
 	/**预约上庄 */
-	export function wantUpBoss(money: string): void
+	export function wantUpBossRequest(money: string): void
 	{
 		let content = { money: money };
 		game.AppFacade.getInstance().HttpManager.request(RequestsNotify.wrte_myon, content);
@@ -52,4 +52,5 @@ module becomeBoss
 	{
 		game.AppFacade.getInstance().HttpManager.request(RequestsNotify.sideline_cancelunder, null);
 	}
+
 }

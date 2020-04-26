@@ -67,12 +67,12 @@ module setting
 					core.SoundUtils.getInstance().setMusicEnable(isBgOpen);
 					if (isBgOpen)
 					{
-						core.SoundUtils.getInstance().playSound(1, 0);
+						core.SoundUtils.getInstance().playSound(12, 0);
 					}
 					break;
 				case "effectBtn":
 					let isEfOpen = this.effectBtn.selected;
-					core.SoundUtils.getInstance().setEffectEnable(isBgOpen);
+					core.SoundUtils.getInstance().setEffectEnable(isEfOpen);
 					break;
 			}
 		}

@@ -34,6 +34,8 @@ module game
 		state: number;
 		/**本局轮数 */
 		ju: string;
+		/**用户投注金额，底注为三分之一 */
+		bem: number;
 		public constructor()
 		{
 			this.myMoney = 0;
