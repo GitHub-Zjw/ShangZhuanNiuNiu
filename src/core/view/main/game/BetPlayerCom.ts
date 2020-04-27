@@ -45,6 +45,7 @@ module game
 			this.betTran = this.getTransition("betTran");
 		}
 
+		private _showInId: number;
 		private _cardImgs: fairygui.GImage[];
 		protected initView(): void
 		{
@@ -68,9 +69,17 @@ module game
 		 * @param name 玩家名字
 		 * @param region 下注花色数组
 		 */
-		public refreshView(level: string, betMoney: string, name: string, region: EnumerationType.CardsType[]): void
+		public refreshView(level: string, betMoney: string, name: string, region: EnumerationType.CardsType[],id: number): void
 		{
-			this.redo();
+			if (id == this._showInId)
+			{
+				return;
+			}
+			this._showInId = id;
+			for (let i = 0; i < 4; i++)
+			{
+				this._cardImgs[i].visible = false;
+			}
 			this.playerNameTxt.text = name;
 			this.ballValueTxt.text = level;
 			this.batValueTxt.text = betMoney;
@@ -83,12 +92,9 @@ module game
 			this.betTran.play();
 		}
 
-		private redo(): void
+		public redo(): void
 		{
-			for (let i = 0; i < 4; i++)
-			{
-				this._cardImgs[i].visible = false;
-			}
+			this.betTran.playReverse();
 		}
 
 	}

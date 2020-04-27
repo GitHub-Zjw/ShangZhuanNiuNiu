@@ -54,6 +54,12 @@ class PanelNotify
 
     /**关闭预约变仓界面 */
     public static CLOSE_WANT_TO_CHANGE: string = "CLOSE_WANT_TO_CHANGE";
+
+    
+    /**打开输入密码界面 */
+    public static OPEN_INPUT_PASSWORD: string = "PANELNOTIFY_OPEN_INPUT_PASSWORD";
+    /**关闭输入密码界面 */
+    public static CLOSE_INPUT_PASSWORD: string = "PANELNOTIFY_CLOSE_INPUT_PASSWORD";
 }
 
 

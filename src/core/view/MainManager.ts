@@ -31,6 +31,7 @@ module game
             this.facade.registerCommand(GameNotify.BET_MONEY, MainManager);
             this.facade.registerCommand(GameNotify.GAME_RESULT, MainManager);
             this.facade.registerCommand(GameNotify.BET, MainManager);
+            this.facade.registerCommand(GameNotify.PWD, MainManager);
         }
         
         public execute(notification: puremvc.INotification): void
@@ -77,6 +78,12 @@ module game
                     if (mainUI)
                     {
                         mainUI.onGetBetSucceedData();
+                    }
+                    break;
+                case GameNotify.PWD:
+                    if (mainUI)
+                    {
+                        mainUI.onGetPassWordTrue();
                     }
                     break;
             }

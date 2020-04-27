@@ -3,6 +3,7 @@ module game
 	/**其他玩家下注数据 */
 	export class OtherBetData
 	{
+		id: number;
 		/**玩家名称（最后一名玩家） */
 		playerName: string;
 		/**玩家等级（最后一名玩家） */

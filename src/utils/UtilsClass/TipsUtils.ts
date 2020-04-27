@@ -109,18 +109,14 @@ module TipsUtils {
         var effectTips = game.TipCom.createInstance();
 
         // effectTips.fontSize = 24;
-        effectTips.y = GameConfig.curHeight()/2;
         // if(isWarning){
         //     effectTips.color = GameConfig.TextColors.red;
         // }else{
         //     effectTips.color = GameConfig.TextColors.white;
         // }
-        effectTips.alpha = 0;
         
         effectTips.setPivot(0.5, 0.5, true);
         effectTips.text = str;
-        // effectTips.strokeColor = 0x000000;
-        effectTips.x = GameConfig.curWidth()/2;        
         // effectTips.stroke  = 2;
         // effectTips.bold = true;
 
@@ -130,6 +126,16 @@ module TipsUtils {
 
         effectTips.scaleX = 0;
         effectTips.scaleY = 0;
+        effectTips.alpha = 0;
+        if (GameConfig.systemType() == "ios")
+        {
+            effectTips.x = GameLayerManager.gameLayer().width;//很奇怪为什么这里不用除以2
+        }
+        else
+        {
+            effectTips.x =1335 / 2; //document.documentElement.clientWidth / 2;
+        }
+        effectTips.y = GameConfig.curHeight()/2;
         
         var onComplete2:Function = function(){
             if(GameLayerManager.gameLayer().effectLayer.contains(effectTips)){

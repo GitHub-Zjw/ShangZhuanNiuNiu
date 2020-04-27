@@ -26,11 +26,11 @@ module game {
 		public betPlayerCom:BetPlayerCom;
 		public clockCom:ClockCom;
 		public bossCom:BossCom;
+		public ballGroupCom:fairygui.GComponent;
 		public region0:RegionCom;
 		public region1:RegionCom;
 		public region2:RegionCom;
 		public region3:RegionCom;
-		public ballGroupCom:fairygui.GComponent;
 		public maxBetBar:fairygui.GProgressBar;
 		public resultCom:ResultCom;
 		public homePageDataBtn:fairygui.GButton;
@@ -81,11 +81,11 @@ module game {
 			this.betPlayerCom = <BetPlayerCom><any>(this.getChild("betPlayerCom"));
 			this.clockCom = <ClockCom><any>(this.getChild("clockCom"));
 			this.bossCom = <BossCom><any>(this.getChild("bossCom"));
+			this.ballGroupCom = <fairygui.GComponent><any>(this.getChild("ballGroupCom"));
 			this.region0 = <RegionCom><any>(this.getChild("region0"));
 			this.region1 = <RegionCom><any>(this.getChild("region1"));
 			this.region2 = <RegionCom><any>(this.getChild("region2"));
 			this.region3 = <RegionCom><any>(this.getChild("region3"));
-			this.ballGroupCom = <fairygui.GComponent><any>(this.getChild("ballGroupCom"));
 			this.maxBetBar = <fairygui.GProgressBar><any>(this.getChild("maxBetBar"));
 			this.resultCom = <ResultCom><any>(this.getChild("resultCom"));
 			this.homePageDataBtn = <fairygui.GButton><any>(this.getChild("homePageDataBtn"));

@@ -314,6 +314,7 @@ module game
 					self.moveTxt.y = starY;
 					self.moveTxt.visible = false;
 					self.playerBossLight();
+					core.SoundUtils.getInstance().playSound(23);
 				}, this);
 		}
 
@@ -374,7 +375,6 @@ module game
 		private playShowBossCardTypeAmi(): void
 		{
 			this.showCardTypeAmi(this._resultData.bossPosition, this.cardResultCom0, this.playShowRegionCard1, this);
-			MainManager.mainUI.removeAllBall();
 		}
 
 		//显示区域1牌型

@@ -48,6 +48,8 @@ module becomeBoss
 			super.initView();
 			this.bossMoneyTxt.text = AllData.instance.BecomeBossData.myzmoney.toString();
 			this.playerMoneyTxt.text = AllData.instance.HomePageData.myMoney.toString();
+			this.addInTxt.restrict = "0-9";
+			this.reduceInTxt.restrict = "0-9";
 		}
 
 		protected onButtonClick(name: string): void

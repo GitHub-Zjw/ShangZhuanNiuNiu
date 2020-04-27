@@ -27,6 +27,8 @@ module game {
             (new RegionDataCommand()).register();
             (new betInfo.TodayBigWinnerCommand()).register();
             (new betInfo.BetDetaileCommand()).register();
+            (new game.AgCommand()).register();
+            (new game.PassWordCommand()).register();
         }
 	}
 }

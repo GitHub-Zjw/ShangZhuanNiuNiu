@@ -55,6 +55,7 @@ module becomeBoss
 		{
 			super.initView();
 			this.playerMoneyTxt.text = AllData.instance.HomePageData.myMoney.toString();
+			this.useMoneyInTxt.restrict = "0-9";
 		}
 
 		protected onButtonClick(name: string): void

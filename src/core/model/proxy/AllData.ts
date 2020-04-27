@@ -8,6 +8,8 @@ class AllData extends egret.EventDispatcher
 	public Language: string;
 	/**一局游戏的倒计时时长 */
 	public OneGaemSurplueTime: number = 43;
+	/**是否不显示密码输入 */
+	public IsNoShowPwd: boolean = false;
 
 	private static _info: AllData;
 	private _homePageData: game.HomePageData;
@@ -51,6 +53,7 @@ class AllData extends egret.EventDispatcher
 	 */
 	public setHomePageData(data: game.NuserData): void
 	{
+		this.redoData();
 		this._homePageData = new game.HomePageData();
 		let s = data.Data;
 		let cData = this._homePageData;
@@ -87,7 +90,6 @@ class AllData extends egret.EventDispatcher
 	 */
 	public setBecomeBossData(data: becomeBoss.CbookmakerData): void
 	{
-		this.redoData();
 		this._becomeBossData.alreadyBosses = [];
 		let len = data.Data.shang.length;
 		for (let i = 0; i < len; i++)
@@ -242,6 +244,7 @@ class AllData extends egret.EventDispatcher
 		this._resultData.bossStr = this.BossStrs[this._resultData.bossPosition].replace(this._resultData.moveStr, "[color=#FFA03B]" + this._resultData.moveStr + "[/color]")
 		this._resultData.bossChange = data.Data.inc;
 		this._resultData.myHdagChange = data.Data.unc;
+		this._resultData.vill = data.Data.vill;
 
 		this._resultData.bigWinnerData = [];
 		let len = data.Data.dyj.length;
@@ -249,7 +252,6 @@ class AllData extends egret.EventDispatcher
 		{
 			this._resultData.bigWinnerData[i] = [data.Data.dyj[i].name, data.Data.dyj[i].bonus];
 		}
-		//fix this._resultData.myHdagChange
 	}
 
 	private getBossPositionByStr(str: string): number
@@ -531,6 +533,7 @@ class AllData extends egret.EventDispatcher
 			this._otherBetData.playerLevel = data.Data.bet.id.toString();
 			this._otherBetData.betRegions = [this.getCardTypeByStr(data.Data.bet.wz)];
 			this._otherBetData.betMoney = data.Data.bet.money;
+			this._otherBetData.id=  data.Data.bet.id;
 		}
 
 		this._otherBetData.allBet = [];
@@ -557,7 +560,10 @@ class AllData extends egret.EventDispatcher
 	 */
 	public redoData(): void
 	{
-		this._fourRegionMoney = [0, 0, 0, 0];
+		this._fourRegionMoney[0] = 0;
+		this._fourRegionMoney[1] = 0;
+		this._fourRegionMoney[2] = 0;
+		this._fourRegionMoney[3] = 0;
 	}
 
 	/**
@@ -642,7 +648,7 @@ class AllData extends egret.EventDispatcher
 	{
 		if (this.IsTestServer)
 		{//测试服
-			return { sunlight: "HD5d1dbc25fd8b0b18ab3aa7bd59a727f526672101366ddeec09ef0cf59ca", language: "cn" };//本机
+			return { sunlight: "HD837c1e6019ef09164c07838131f3aa3fb82f3e3eb1bf26b307de0109a9c", language: "cn" };//本机
 			// return {sunlight:"HD9ae9bca5bcac2ac8f759b44c387ba282ffbb0a7faf042ce56da97c2b611",language:"cn"};//测试服
 
 		}
@@ -677,14 +683,14 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getWebsite(): string
 	{
-		// if (this.IsTestServer)
-		// {//测试服
+		if (this.IsTestServer)
+		{//测试服
 			return "www.libraw.io";
-		// }
-		// else
-		// {
-		// 	return "www.harmonydag.com";
-		// }
+		}
+		else
+		{
+			return "www.harmonydag.com";
+		}
 	}
 
 	/**

@@ -143,7 +143,6 @@ module game
 			if (this._surplusTime < 0)
 			{
 				AllData.instance.dispatchEventWith(MainNotify.BOSS_TIME_OVER);
-				HomePageRequest.todayBigWinnerRequest();
 				this.removeTimer();
 			}
 			else

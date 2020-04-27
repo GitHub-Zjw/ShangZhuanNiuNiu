@@ -104,30 +104,18 @@ module becomeBoss
 			{
 				return;
 			}
-			let bossData = AllData.instance.getBecomeBossData();
-			switch (notification.getName())
+			else
 			{
-				case RequestsNotify.wrte_myon:
-					bossData.isSoonBoss = true;
-					break;
-				case RequestsNotify.wrte_myunder:
-					bossData.isSoonDown = true;
-					break;
-				case RequestsNotify.wrte_myadj:
-					bossData.isSoonChange = true;
-					break;
-				case RequestsNotify.sideline_cancelvillage:
-					bossData.isSoonBoss =false;
-					break;
-				case RequestsNotify.sideline_canceltune:
-					bossData.isSoonChange = false;
-					break;
-				case RequestsNotify.sideline_cancelunder:
-					bossData.isSoonDown = false;
-					break;
+				if (data["Data"] && data["Data"]["st"] != undefined)
+				{
+					AllData.instance.HomePageData.state = data["Data"]["st"];
+					becomeBoss.sendBecomeBossRequest();
+				}
+				else
+				{
+					TipsUtils.showTipsFromCenter("缺少数据");
+				}
 			}
-
-			game.AppFacade.instance.sendNotification(GameNotify.MY_STATE_CHANGE);
 		}
 	}
 }

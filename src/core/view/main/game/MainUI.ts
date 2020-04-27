@@ -111,6 +111,7 @@ module game
 		private _allBallBtns: BallBtn[];
 		private _selectBallIndex: number;								//选中的筹码索引，0表示未选中
 		private _myTz: number = 0;										//本局本人已投住金额
+		private _isBossTimeOver: boolean;								//本轮时间是否结束
 
 		protected initView(): void
 		{
@@ -122,6 +123,10 @@ module game
 			this._selectBallIndex = 0;
 			RegionDataRequest.sendRequest();
 			HomePageRequest.sendHomePageData();
+
+			core.SoundUtils.getInstance().setMusicEnable(true);
+			core.SoundUtils.getInstance().setEffectEnable(true);
+			core.SoundUtils.getInstance().playSound(12, 0);
 		}
 
 		protected addEvent(): void
@@ -132,6 +137,7 @@ module game
 			this.region2.addClickListener(this.onRegionClick, this);
 			this.region3.addClickListener(this.onRegionClick, this);
 			AllData.instance.addEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
+			AllData.instance.addEventListener(MainNotify.BOSS_TIME_OVER, this.onBossTimeOver, this);
 		}
 
 		protected removeEvent(): void
@@ -143,11 +149,13 @@ module game
 				this._regionComs[i].removeClickListener(this.onRegionClick, this);
 			}
 			AllData.instance.removeEventListener(MainNotify.STOP_BETS, this.onStopBet, this);
+			AllData.instance.removeEventListener(MainNotify.BOSS_TIME_OVER, this.onBossTimeOver, this);
 		}
 
 		protected onButtonClick(btnName: string): void
 		{
 			super.onButtonClick(btnName);
+			let self = this;
 			switch (btnName)
 			{
 				case "ball1_btn":
@@ -184,7 +192,19 @@ module game
 					game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_SETTING);
 					break;
 				case "betBtn":
-					HomePageRequest.myBetRequest(this._myRegionBalls);
+					if (!AllData.instance.IsNoShowPwd)
+					{
+						game.AppFacade.getInstance().sendNotification(PanelNotify.OPEN_INPUT_PASSWORD);
+					}
+					else
+					{
+						HomePageRequest.myBetRequest(this._myRegionBalls);
+						this.betBtn.touchable = false;
+						let temp = setTimeout(function ()
+						{
+							self.betBtn.touchable = true;
+						}, 2000);
+					}
 					break;
 				case "closeBtn":
 					this.onCloseAllBtnClick();
@@ -201,8 +221,9 @@ module game
 					// testLoad.url="ui://game/card0_0";
 					break;
 				case "joinSucceedBtn":
-					AllData.instance.setPlayerBetSucceed();
-					this.onGetBetSucceedData();
+					// AllData.instance.setPlayerBetSucceed();
+					// this.onGetBetSucceedData();
+					this.createGameScene();
 					break;
 				case "cardResultBtn":
 					AllData.instance.setTestResultData();
@@ -279,27 +300,6 @@ module game
 			this.dzValueTxt.text = (this._myTz / 3).toString();
 		}
 
-		// /**获取区域数据 */
-		// public onGetRegionData(data: RegionData): void
-		// {
-		// 	this.region0.setResults(AllData.instance.getRegionRecord(data.Data.ht));
-		// 	this.region1.setResults(AllData.instance.getRegionRecord(data.Data.hx));
-		// 	this.region2.setResults(AllData.instance.getRegionRecord(data.Data.mh));
-		// 	this.region3.setResults(AllData.instance.getRegionRecord(data.Data.fk));
-
-		// 	this.region0.setBetValue(data.Data.ht.he.toString());
-		// 	this.region1.setBetValue(data.Data.hx.he.toString());
-		// 	this.region2.setBetValue(data.Data.mh.he.toString());
-		// 	this.region3.setBetValue(data.Data.fk.he.toString());
-
-		// 	let ballIndexs: number[][] = [];
-		// 	ballIndexs[0] = AllData.instance.getBetIndexByValue(data.Data.ht.he);
-		// 	ballIndexs[1] = AllData.instance.getBetIndexByValue(data.Data.hx.he);
-		// 	ballIndexs[2] = AllData.instance.getBetIndexByValue(data.Data.mh.he);
-		// 	ballIndexs[3] = AllData.instance.getBetIndexByValue(data.Data.fk.he);
-		// 	this.addBall(ballIndexs, false, false);
-		// }
-
 		/**
 		 * 收到投注信息
 		 */
@@ -308,7 +308,7 @@ module game
 			let otherBetData = AllData.instance.OtherBetData;
 			if (otherBetData.playerName)
 			{
-				this.betPlayerCom.refreshView(otherBetData.playerLevel, otherBetData.betMoney, otherBetData.playerName, otherBetData.betRegions);
+				this.betPlayerCom.refreshView(otherBetData.playerLevel, otherBetData.betMoney, otherBetData.playerName, otherBetData.betRegions, otherBetData.id);
 			}
 			let ballIndexs: number[][] = [];
 			let isHaveChange: boolean = false;
@@ -342,21 +342,17 @@ module game
 		public onGetBetSucceedData(): void
 		{
 			TipsUtils.showTipsFromCenter("投注成功")
-			let myBetNums = AllData.instance.MyBetNums;
-			for (let i = 0; i < 4; i++)
-			{
-				this._regionComs[i].addBetValue(myBetNums[i]);
-			}
-			let homePageData = AllData.instance.HomePageData;
-
 			this._myTz += AllData.instance.getMyAllBet();
+
+
+			let homePageData = AllData.instance.HomePageData;
 			this.tzValueTxt.text = "" + this._myTz;
 			this.dzValueTxt.text = (this._myTz / 3).toString();
-
 			this.playerMoneyTxt.text = (homePageData.myMoney - this._myTz).toString();
 			this.updateAllBetBar();
 			this.onBetSucceed();
 			AllData.instance.cleanMyBet();
+			this.updateRegionValue();
 		}
 
 		/**
@@ -367,7 +363,11 @@ module game
 			this.playResultAmi();
 		}
 
-
+		/**密码正确 */
+		public onGetPassWordTrue(): void
+		{
+			HomePageRequest.myBetRequest(this._myRegionBalls);
+		}
 
 		private changeBetBtn(enabled: boolean): void
 		{
@@ -389,6 +389,7 @@ module game
 			this.redoRegion();
 			this.changeBetBtn(true);
 			this.resultCom.visible = false;
+			this.betPlayerCom.redo();
 		}
 
 		private redoRegion(): void
@@ -550,6 +551,23 @@ module game
 			{
 				this.bigWinnerCom.refreshView();
 				this.bigWinnerTran.play(this.getNextData, this);
+				core.SoundUtils.getInstance().playSound(22);
+			}
+			else
+			{
+				this.playBossTimeOverAmi();
+			}
+		}
+
+		//获取本轮结束数据
+		private playBossTimeOverAmi(): void
+		{
+			let self = this;
+			if (this._isBossTimeOver)
+			{
+				HomePageRequest.todayBigWinnerRequest();
+				this._isBossTimeOver = false;
+				let temp = setTimeout(this.getNextData, 1500);
 			}
 			else
 			{
@@ -571,6 +589,11 @@ module game
 		}
 
 		/****************************************** 以上是动画流程 ******************************************/
+
+		private onBossTimeOver(): void
+		{
+			this._isBossTimeOver = true;
+		}
 
 		private onCloseAllBtnClick(): void
 		{
@@ -720,7 +743,7 @@ module game
 			return isHaveBall;
 		}
 
-		/**投注成功 */
+		/**将本人小球加入所有人小球列表 */
 		public onBetSucceed(): void
 		{
 			for (let i = 0; i < 4; i++)
@@ -744,7 +767,7 @@ module game
 			this.zipFileStartLoadTime = new Date().valueOf();
 			let data = RES.getRes("sound_zip");
 			var zip = new JSZip(data);
-			let audioArrayBuffer = zip.file("background1.mp3").asArrayBuffer();
+			let audioArrayBuffer = zip.file("aniu10.mp3").asArrayBuffer();
 			this.visualize(audioArrayBuffer);
 			console.log('ok');
 

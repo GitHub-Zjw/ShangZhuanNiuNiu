@@ -43,14 +43,12 @@ module game
 
 
 		private _records: EnumerationType.WinOrLose[];
-		private _betValue: number;
 
 		protected initView(): void
 		{
 			super.initView();
 			this.resultList.itemRenderer = this.resultListItemRenderer;
 			this.resultList.callbackThisObj = this;
-			this._betValue = 0;
 			this._records = [];
 		}
 
@@ -111,21 +109,13 @@ module game
 			this.betValueTxt.text = betValue;
 		}
 
-		/**添加下注 */
-		public addBetValue(value: number): void
-		{
-			this._betValue += value;
-			this.setBetValue(this._betValue.toString());
-		}
-
 		/**
 		 * 重置
 		 */
 		public redo(): void
 		{
-			this._betValue = 0;
 			this.winImg.visible = this.lostImg.visible = this.hkImg.visible = false;
-			this.setBetValue(this._betValue.toString());
+			this.setBetValue("0");
 		}
 
 		private resultListItemRenderer(index: number, obj: WLPointItem): void

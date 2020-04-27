@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "game_atlas0,game,game_atlas0_1,config_zip",
+			"keys": "game_atlas0,game,game_atlas0_1,config_zip,sound_zip",
 			"name": "preload"
 		},
 		{
@@ -21,7 +21,7 @@
 			"name": "setting"
 		},
 		{
-			"keys": "aniu0_mp3,aniu1_mp3,aniu10_mp3,aniu2_mp3,aniu3_mp3,aniu4_mp3,aniu5_mp3,aniu6_mp3,aniu7_mp3,aniu8_mp3,aniu9_mp3,backg_mp3,chouma_mp3,daojishi_mp3,kaiahixiazhuqian_mp3,kaishixiazhu_mp3,tingzhixiazhu_mp3,yigechouma_mp3,zhangtongpei_mp3,zhangtongsha_mp3,fdzpyx_mp3",
+			"keys": "aniu0_mp3,aniu1_mp3,aniu10_mp3,aniu2_mp3,aniu3_mp3,aniu4_mp3,aniu5_mp3,aniu6_mp3,aniu7_mp3,aniu8_mp3,aniu9_mp3,backg_mp3,chouma_mp3,daojishi_mp3,kaiahixiazhuqian_mp3,kaishixiazhu_mp3,tingzhixiazhu_mp3,yigechouma_mp3,zhangtongpei_mp3,zhangtongsha_mp3,fdzpyx_mp3,daYingjia_mp3,haXiXuanZhongPai_mp3",
 			"name": "sound"
 		},
 		{
@@ -31,6 +31,10 @@
 		{
 			"keys": "becomeBoss,becomeBoss_atlas0",
 			"name": "becomeBoss"
+		},
+		{
+			"keys": "password,password_atlas0",
+			"name": "password"
 		}
 	],
 	"resources": [
@@ -233,6 +237,31 @@
 			"url": "assets/sound/fdzpyx.mp3",
 			"type": "sound",
 			"name": "fdzpyx_mp3"
+		},
+		{
+			"url": "assets/sound/daYingjia.mp3",
+			"type": "sound",
+			"name": "daYingjia_mp3"
+		},
+		{
+			"url": "assets/sound/haXiXuanZhongPai.mp3",
+			"type": "sound",
+			"name": "haXiXuanZhongPai_mp3"
+		},
+		{
+			"url": "assets/image/password/password.fui",
+			"type": "bin",
+			"name": "password"
+		},
+		{
+			"url": "assets/image/password/password_atlas0.png",
+			"type": "image",
+			"name": "password_atlas0"
+		},
+		{
+			"url": "assets/sound/sound.zip",
+			"type": "bin",
+			"name": "sound_zip"
 		}
 	]
 }

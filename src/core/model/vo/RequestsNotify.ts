@@ -49,11 +49,11 @@ class RequestsNotify
 	public static showcattle_Betting: string = "Showcattle/Betting";
 
 	/**密码验证 */
-	public static checkpwd: string = "checkpwd";
+	public static checkpwd: string = "open/checkpwd";
 
 	/**今日大赢家 */
 	public static showcattle_winner: string = "Showcattle/winner";
 
 	/**交易信息 */
-	public static trainfo: string = "trainfo";
+	public static trainfo: string = "open/CheckToken";
 }
