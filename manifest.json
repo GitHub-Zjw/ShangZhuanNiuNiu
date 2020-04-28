@@ -142,6 +142,7 @@
 		"bin-debug/utils/Global.js",
 		"bin-debug/utils/NativeApi.js",
 		"bin-debug/utils/RegUtils.js",
+		"bin-debug/utils/SoundManager.js",
 		"bin-debug/utils/SoundUtils.js",
 		"bin-debug/utils/TipsManager.js",
 		"bin-debug/utils/TipsPanel.js",

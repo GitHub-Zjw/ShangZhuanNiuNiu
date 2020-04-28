@@ -14,6 +14,7 @@ module password {
 			return [
 				PanelNotify.OPEN_INPUT_PASSWORD,
 				PanelNotify.CLOSE_INPUT_PASSWORD,
+				PanelNotify.ON_RESULT_AMI_PLAY,
 				GameNotify.AG_DATA
 			]
 		}
@@ -27,6 +28,7 @@ module password {
 				case PanelNotify.OPEN_INPUT_PASSWORD:
 					this.addRES(this.moduleName);
 					break;
+				case PanelNotify.ON_RESULT_AMI_PLAY:
 				case PanelNotify.CLOSE_INPUT_PASSWORD:
 					this._pwdUI = null;
 					this.closePanel();

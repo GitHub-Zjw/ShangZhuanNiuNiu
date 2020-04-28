@@ -14,7 +14,8 @@ module setting
 		{
 			return [
 				PanelNotify.OPEN_SETTING,
-				PanelNotify.CLOSE_SETTING
+				PanelNotify.CLOSE_SETTING,
+				PanelNotify.ON_RESULT_AMI_PLAY
 			]
 		}
 
@@ -27,6 +28,7 @@ module setting
 					this.addRES(this.moduleName);
 					break;
 				case PanelNotify.CLOSE_SETTING:
+				case PanelNotify.ON_RESULT_AMI_PLAY:
 					this.closePanel();
 					break;
 			}

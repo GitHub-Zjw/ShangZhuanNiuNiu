@@ -67,7 +67,6 @@ module password
 		{
 			super.initView();
 			AgRequest.sendAgRequest();
-			this.passwordTxt.restrict = "A-Z 0-9 a-z";
 			this.passwordTxt.password = true;
 		}
 

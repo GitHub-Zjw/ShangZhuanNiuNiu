@@ -142,12 +142,14 @@ module game
 		private _timer: egret.Timer
 		private _listItemNumber: number;
 		private _hxListTempDatas: HXItemData[];
+		//发牌位置定格点
 		private _centerXs: number[][];
 		private _centerX1 = 27;
 		private _centerX2 = 233;
+		//卡牌归位点
 		private _endXs: number[][];
 		private _endX1 = 37;
-		private _endX2 = 224;
+		private _endX2 = 233;
 
 
 		protected initView(): void
@@ -181,13 +183,13 @@ module game
 
 				this._cards[p2][p1] = this["card" + i];
 
-				let centerX1 = 27 * p1;
-				let centerX2 = 233 * p2;
+				let centerX1 = this._centerX1 * p1;
+				let centerX2 = this._centerX2 * p2;
 				let centerX = centerX1 + centerX2 + this.centerCard.x;
 				this._centerXs[p2][p1] = centerX;
 
-				let endX1 = 37 * p1;
-				let endX2 = 224 * p2;
+				let endX1 = this._endX1 * p1;
+				let endX2 = this._endX2 * p2;
 				let endX = endX1 + endX2 + this.endCard.x;
 				this._endXs[p2][p1] = endX;
 			}
@@ -307,7 +309,7 @@ module game
 			this.moveTxt.visible = true;
 			this.moveTxt.text = this._resultData.moveStr;
 			let tw = egret.Tween.get(this.moveTxt);
-			tw.to({ x: endX, y: endY }, 700)
+			tw.to({ x: endX, y: endY }, 400)
 				.call(function ()
 				{
 					self.moveTxt.x = starX;
@@ -324,7 +326,7 @@ module game
 			let bossIndex = this._resultData.bossPosition;
 			this._yellowBoxImgs[bossIndex].visible = true;
 			this._luckTxts[bossIndex].text = this._resultData.bossStr;
-			this._lightTrans[bossIndex].play(this.backCard, this);
+			// this._lightTrans[bossIndex].play(this.backCard, this);
 		}
 
 		//卡牌归位

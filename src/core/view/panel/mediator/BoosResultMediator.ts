@@ -14,7 +14,8 @@ module boosResult
 		{
 			return [
 				PanelNotify.OPEN_BOSS_RESULT,
-				PanelNotify.CLOSE_BOSS_RESULT
+				PanelNotify.CLOSE_BOSS_RESULT,
+				PanelNotify.ON_RESULT_AMI_PLAY
 			]
 		}
 
@@ -29,6 +30,7 @@ module boosResult
 					this.addRES(this.moduleName);
 					break;
 				case PanelNotify.CLOSE_BOSS_RESULT:
+				case PanelNotify.ON_RESULT_AMI_PLAY:
 					this.closePanel();
 					break;
 			}

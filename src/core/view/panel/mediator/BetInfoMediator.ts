@@ -14,6 +14,7 @@ module betInfo {
 			return [
 				PanelNotify.OPEN_BET_INFO,
 				PanelNotify.CLOSE_BET_INFO,
+				PanelNotify.ON_RESULT_AMI_PLAY,
 				GameNotify.BET_DETAILE,
 				GameNotify.BET_DETAILE_OVER,
 				GameNotify.BIG_WINNER,
@@ -32,6 +33,7 @@ module betInfo {
 				case PanelNotify.OPEN_BET_INFO:
 					this.addRES(this.moduleName);
 					break;
+				case PanelNotify.ON_RESULT_AMI_PLAY:
 				case PanelNotify.CLOSE_BET_INFO:
 					this.closePanel();
 					break;

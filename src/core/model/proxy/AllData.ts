@@ -683,14 +683,14 @@ class AllData extends egret.EventDispatcher
 	 */
 	public getWebsite(): string
 	{
-		if (this.IsTestServer)
-		{//测试服
+		// if (this.IsTestServer)
+		// {//测试服
 			return "www.libraw.io";
-		}
-		else
-		{
-			return "www.harmonydag.com";
-		}
+		// }
+		// else
+		// {
+		// 	return "www.harmonydag.com";
+		// }
 	}
 
 	/**

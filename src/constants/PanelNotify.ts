@@ -6,16 +6,16 @@
 */
 class PanelNotify
 {
-    
+
     /**打开玩法规则界面 */
     public static OPEN_RULE: string = "MainNotify_OPEN_RULE";
-    
+
     /**关闭玩法规则界面 */
     public static CLOSE_RULE: string = "MainNotify_CLOSE_RULE";
 
     /**打开结算界面 */
     public static OPEN_BOSS_RESULT: string = "OPEN_BOSS_RESULT";
-    
+
     /**关闭结算界面 */
     public static CLOSE_BOSS_RESULT: string = "CLOSE_BOSS_RESULT";
 
@@ -55,11 +55,14 @@ class PanelNotify
     /**关闭预约变仓界面 */
     public static CLOSE_WANT_TO_CHANGE: string = "CLOSE_WANT_TO_CHANGE";
 
-    
+
     /**打开输入密码界面 */
     public static OPEN_INPUT_PASSWORD: string = "PANELNOTIFY_OPEN_INPUT_PASSWORD";
     /**关闭输入密码界面 */
     public static CLOSE_INPUT_PASSWORD: string = "PANELNOTIFY_CLOSE_INPUT_PASSWORD";
+
+    /**开始播放结果动画 */
+    public static ON_RESULT_AMI_PLAY: string = "ON_RESULT_AMI_PLAY";
 }
 
 

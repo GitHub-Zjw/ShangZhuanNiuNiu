@@ -14,7 +14,8 @@ module gameRule
 		{
 			return [
 				PanelNotify.OPEN_RULE,
-				PanelNotify.CLOSE_RULE
+				PanelNotify.CLOSE_RULE,
+				PanelNotify.ON_RESULT_AMI_PLAY
 			]
 		}
 
@@ -27,6 +28,7 @@ module gameRule
 					this.addRES(this.moduleName);
 					break;
 				case PanelNotify.CLOSE_RULE:
+				case PanelNotify.ON_RESULT_AMI_PLAY:
 					this.closePanel();
 					break;
 			}

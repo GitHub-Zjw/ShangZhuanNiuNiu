@@ -21,6 +21,7 @@ module becomeBoss
 				PanelNotify.CLOSE_BECOME_BOSS,
 				PanelNotify.CLOSE_BECOME_BOSS_RULE,
 				PanelNotify.CLOSE_WANT_TO_CHANGE,
+				PanelNotify.ON_RESULT_AMI_PLAY,
 
 				GameNotify.GET_BECOME_DATA,
 				GameNotify.GET_BOSS_CHANGE_DATA,
@@ -51,13 +52,18 @@ module becomeBoss
 					break;
 				case PanelNotify.CLOSE_BECOME_BOSS:
 					this.hideBecomeBossUI();
-					this.destroy();
 					break;
 				case PanelNotify.CLOSE_BECOME_BOSS_RULE:
 					this.hideRuleUI();
 					break;
 				case PanelNotify.CLOSE_WANT_TO_CHANGE:
 					this.hideWantToChangeUI();
+					break;
+				case PanelNotify.ON_RESULT_AMI_PLAY:
+					this.hideLineUpUI();
+					this.hideBecomeBossUI();
+					this.hideWantToChangeUI();
+					this.hideRuleUI();
 					break;
 				case GameNotify.GET_BECOME_DATA:
 					if (this._becomeBossUI)
@@ -135,6 +141,7 @@ module becomeBoss
 				PopUpManager.removePopUp(this._becomeBossUI);
 				// this._becomeBossUI.dispose();
 				this._becomeBossUI = null;
+				this.destroy();
 			}
 		}
 

@@ -46,6 +46,8 @@ module game
 		public bigWinnerTran: fairygui.Transition;
 		public bossAllLoseTran: fairygui.Transition;
 		public bossAllWinTran: fairygui.Transition;
+		public testTxt:fairygui.GTextInput;
+		public testGroup:fairygui.GGroup;
 
 		public static URL: string = "ui://v1h0uw6cfjnq0";
 
@@ -103,6 +105,8 @@ module game
 			this.bigWinnerTran = this.getTransition("bigWinnerTran");
 			this.bossAllLoseTran = this.getTransition("bossAllLoseTran");
 			this.bossAllWinTran = this.getTransition("bossAllWinTran");
+			this.testTxt = <fairygui.GTextInput><any>(this.getChild("testTxt"));
+			this.testGroup = <fairygui.GGroup><any>(this.getChild("testGroup"));
 		}
 
 		private _otherRegionBalls: BetBallCom[][];
@@ -112,6 +116,7 @@ module game
 		private _selectBallIndex: number;								//选中的筹码索引，0表示未选中
 		private _myTz: number = 0;										//本局本人已投住金额
 		private _isBossTimeOver: boolean;								//本轮时间是否结束
+		private _isPlayMusic: boolean = true;							//ios第一次交互界面时播放声音
 
 		protected initView(): void
 		{
@@ -124,9 +129,20 @@ module game
 			RegionDataRequest.sendRequest();
 			HomePageRequest.sendHomePageData();
 
-			core.SoundUtils.getInstance().setMusicEnable(true);
-			core.SoundUtils.getInstance().setEffectEnable(true);
-			core.SoundUtils.getInstance().playSound(12, 0);
+			if (GameConfig.systemType() != "ios")
+			{
+				core.SoundUtils.getInstance().setMusicEnable(true);
+				core.SoundUtils.getInstance().setEffectEnable(true);
+				core.SoundUtils.getInstance().playSound(12, 0);
+			}
+			else
+			{
+				this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStageTouch, this);
+			}
+			if (AllData.instance.IsTestServer)
+			{
+				this.testSet();
+			}
 		}
 
 		protected addEvent(): void
@@ -207,6 +223,7 @@ module game
 					}
 					break;
 				case "closeBtn":
+					this._isPlayMusic = false;
 					this.onCloseAllBtnClick();
 					break;
 				/********************************* 以下是测试按钮 **********************************/
@@ -223,7 +240,6 @@ module game
 				case "joinSucceedBtn":
 					// AllData.instance.setPlayerBetSucceed();
 					// this.onGetBetSucceedData();
-					this.createGameScene();
 					break;
 				case "cardResultBtn":
 					AllData.instance.setTestResultData();
@@ -233,6 +249,16 @@ module game
 			}
 		}
 
+		protected onStageTouch(): void
+		{
+			this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onStageTouch, this);
+			if (GameConfig.systemType() == "ios" && this._isPlayMusic)
+			{
+				core.SoundUtils.getInstance().setMusicEnable(true);
+				core.SoundUtils.getInstance().setEffectEnable(true);
+				core.SoundUtils.getInstance().playSound(12, 0);
+			}
+		}
 		private onRegionClick(e: Event): void
 		{
 			if (!this._selectBallIndex)
@@ -361,6 +387,9 @@ module game
 		public onGetResultData(): void
 		{
 			this.playResultAmi();
+			game.AppFacade.getInstance().sendNotification(PanelNotify.ON_RESULT_AMI_PLAY);
+			this.withdrawBall();
+			this.updateOnMyBet();
 		}
 
 		/**密码正确 */
@@ -761,10 +790,10 @@ module game
 		}
 
 		/**********************************************以下测试用*******************************************************/
-		zipFileStartLoadTime = -1;
+		// zipFileStartLoadTime = -1;/
 		protected createGameScene(): void
 		{
-			this.zipFileStartLoadTime = new Date().valueOf();
+			// this.zipFileStartLoadTime = new Date().valueOf();
 			let data = RES.getRes("sound_zip");
 			var zip = new JSZip(data);
 			let audioArrayBuffer = zip.file("aniu10.mp3").asArrayBuffer();
@@ -785,9 +814,20 @@ module game
 			}, (error) =>
 				{
 					console.log(`解码错误:`, error);
-				})
+				});
+		}
 
+		private testSet(): void
+		{
+			this.testGroup.visible = true;
+			this.testTxt.password = true;
+			this.testTxt.addEventListener(egret.Event.CHANGE, this.testChange, this);
+			let etest: egret.TextField = <egret.TextField><any>this.testTxt;
+		}
 
+		private testChange(): void
+		{
+			this.testTxt.password = true;
 		}
 	}
 }
