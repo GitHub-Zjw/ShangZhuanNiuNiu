@@ -326,7 +326,7 @@ module game
 			let bossIndex = this._resultData.bossPosition;
 			this._yellowBoxImgs[bossIndex].visible = true;
 			this._luckTxts[bossIndex].text = this._resultData.bossStr;
-			// this._lightTrans[bossIndex].play(this.backCard, this);
+			this._lightTrans[bossIndex].play(this.backCard, this);
 		}
 
 		//卡牌归位
