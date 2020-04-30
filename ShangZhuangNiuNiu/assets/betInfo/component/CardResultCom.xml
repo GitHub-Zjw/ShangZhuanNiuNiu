@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="114,54">
+  <controller name="state" exported="true" pages="0,meiNiu,1,niu1,2,niu2,3,niu3,4,niu4,5,niu5,6,niu6,7,niu7,8,niu8,9,niu9,10,niuNiu,11,tongHuaShun,12,shunZiNiu,13,wuXiaoNiu,14,huLuNiu,15,tongHuaNiu,16,wuHuaNiu,17,zhaDanNiu" selected="17">
+    <remark page="10" value="牛牛"/>
+    <remark page="11" value="同花顺"/>
+    <remark page="12" value="顺子牛"/>
+    <remark page="13" value="五小牛"/>
+    <remark page="14" value="葫芦牛"/>
+    <remark page="15" value="同花牛"/>
+    <remark page="16" value="五花牛"/>
+    <remark page="17" value="炸弹牛"/>
+  </controller>
+  <displayList>
+    <loader id="n0_lmsy" name="n0" xy="0,0" size="114,54" url="ui://04s6lcaqpnt11o">
+      <gearIcon controller="state" pages="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17" values="ui://04s6lcaqpnt11m|ui://04s6lcaqpnt11s|ui://04s6lcaqpnt11k|ui://04s6lcaqpnt11w|ui://04s6lcaqpnt11u|ui://04s6lcaqpnt11t|ui://04s6lcaqpnt11j|ui://04s6lcaqpnt11i|ui://04s6lcaqpnt11x|ui://04s6lcaqpnt11l|ui://04s6lcaqpnt11h|ui://04s6lcaqpnt11n|ui://04s6lcaqpnt1v|ui://04s6lcaqpnt11r|ui://04s6lcaqpnt1x|ui://04s6lcaqpnt11q|ui://04s6lcaqpnt11p|ui://04s6lcaqpnt11o"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+  </displayList>
+</component>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="250,126" designImage="ui://v1h0uw6cht8011" designImageOffsetX="-200" designImageOffsetY="-13">
+  <displayList>
+    <image id="n1_srv9" name="n1" src="ht807" fileName="assets/jiben/组 213.png" xy="0,0"/>
+    <image id="n2_srv9" name="n2" src="ht80p" fileName="assets/jiben/图层 9.png" xy="2,8"/>
+    <image id="n5_srv9" name="n5" src="ht804" fileName="assets/jiben/组 3.png" xy="92,9"/>
+    <image id="n7_srv9" name="n7" src="ht80r" fileName="assets/jiben/个人 拷贝 2.png" xy="94,96"/>
+    <image id="n8_srv9" name="n8" src="ht80s" fileName="assets/jiben/utimeclock.png" xy="162,96"/>
+    <text id="n6_srv9" name="moneyValueTxt" xy="122,10" size="117,25" fontSize="18" color="#bd7435" vAlign="middle" autoSize="none" text=""/>
+    <text id="n9_srv9" name="playerNumTxt" xy="115,93" size="48,28" fontSize="18" color="#898491" vAlign="middle" autoSize="none" text=""/>
+    <text id="n10_srv9" name="countDownTxt" xy="186,94" size="56,25" fontSize="18" color="#898491" vAlign="middle" autoSize="none" text=""/>
+    <list id="n11_srv9" name="resultList" xy="97,43" size="147,45" layout="flow_hz" overflow="scroll" lineGap="8" colGap="7" defaultItem="ui://v1h0uw6csrv91m" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n12_fxcm" name="becomeBossBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" xy="1,87" size="86,37">
+      <Button title="上庄" titleColor="#ffffff" titleFontSize="24" icon="ui://v1h0uw6cht808"/>
+    </component>
+  </displayList>
+</component>

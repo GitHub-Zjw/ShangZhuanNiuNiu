@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://p7m6l6xrdhgaa">
+  <displayList>
+    <component id="n1_h3zd" name="loadingBar" src="h3zd5" fileName="component/loadingBar.xml" xy="560,431">
+      <ProgressBar max="100"/>
+    </component>
+  </displayList>
+</component>

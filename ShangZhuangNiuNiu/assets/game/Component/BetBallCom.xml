@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="36,36">
+  <controller name="state" pages="0,,1,,2,,3,,4,,5," selected="5"/>
+  <displayList>
+    <loader id="n0_ecgg" name="iconLoader" xy="0,0" size="36,36" url="ui://v1h0uw6cht80x" fill="scale">
+      <gearIcon controller="state" pages="0,1,2,3,4,5" values="ui://v1h0uw6cht8010|ui://v1h0uw6cht80z|ui://v1h0uw6cht80w|ui://v1h0uw6cht80y|ui://v1h0uw6cht80v|ui://v1h0uw6cht80x"/>
+    </loader>
+  </displayList>
+</component>

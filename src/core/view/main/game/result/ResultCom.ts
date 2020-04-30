@@ -376,6 +376,7 @@ module game
 		//显示庄家牌型
 		private playShowBossCardTypeAmi(): void
 		{
+			this.cardResultCom0.x = this._cards[this._resultData.bossPosition][0].x;
 			this.showCardTypeAmi(this._resultData.bossPosition, this.cardResultCom0, this.playShowRegionCard1, this);
 		}
 

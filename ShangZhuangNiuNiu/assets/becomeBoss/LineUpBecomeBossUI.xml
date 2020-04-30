@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://hyt9m7t9fxcmt">
+  <displayList>
+    <graph id="n0_fxcm" name="n0" xy="-281,0" size="1883,750" group="n3_fxcm" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n1_fxcm" name="closeBtn" src="fxcm4" fileName="assets/button/Button1(1).xml" xy="-203,0" size="1762,750" group="n3_fxcm" alpha="0"/>
+    <component id="n2_fxcm" name="n2" src="fxcm5" fileName="assets/button/Button1.xml" xy="295,25" size="745,703" group="n3_fxcm" alpha="0"/>
+    <group id="n3_fxcm" name="n3" xy="-281,0" size="1883,750"/>
+    <image id="n27_fxcm" name="n27" src="fxcm6" fileName="assets/shangZhuang/矩形 6@2x.png" xy="292,19"/>
+    <image id="n14_fxcm" name="n14" src="fxcm9" fileName="assets/shangZhuang/组 3@2x(1).png" xy="389,176"/>
+    <image id="n11_fxcm" name="n11" src="fxcmw" fileName="assets/lineUpBecomeBoss/组 207 拷贝@2x(1).png" xy="345,230" size="650,104"/>
+    <component id="n4_fxcm" name="money1kBtn" src="fxcmu" fileName="assets/button/Button3.xml" xy="359,372">
+      <Button title="1000HDAG" titleColor="#fffdf5" titleFontSize="25"/>
+    </component>
+    <component id="n5_fxcm" name="money5kBtn" src="fxcmu" fileName="assets/button/Button3.xml" xy="570,372">
+      <Button title="5000HDAG" titleColor="#fffdf5" titleFontSize="25"/>
+    </component>
+    <component id="n6_fxcm" name="money1wBtn" src="fxcmu" fileName="assets/button/Button3.xml" xy="780,372">
+      <Button title="10000HDAG" titleColor="#fffdf5" titleFontSize="25"/>
+    </component>
+    <component id="n7_fxcm" name="money5wBtn" src="fxcmu" fileName="assets/button/Button3.xml" xy="358,491">
+      <Button title="50000HDAG" titleColor="#fffdf5" titleFontSize="25"/>
+    </component>
+    <component id="n8_fxcm" name="money10wBtn" src="fxcmu" fileName="assets/button/Button3.xml" xy="570,491">
+      <Button title="100000HDAG" titleColor="#fffdf5" titleFontSize="25"/>
+    </component>
+    <component id="n9_fxcm" name="money50wBtn" src="fxcmu" fileName="assets/button/Button3.xml" xy="780,491">
+      <Button title="500000HDAG" titleColor="#fffdf5" titleFontSize="25"/>
+    </component>
+    <component id="n12_fxcm" name="doBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="379,600" size="595,96">
+      <Button title="预约上庄" titleColor="#ffffff" titleFontSize="28" icon="ui://hyt9m7t9fxcmv"/>
+    </component>
+    <component id="n13_fxcm" name="maxBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="861,246" size="107,69">
+      <Button title="MAX" titleColor="#ffffff" titleFontSize="28" icon="ui://hyt9m7t9fxcmx"/>
+    </component>
+    <component id="n15_fxcm" name="helpBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="318,56" size="38,38">
+      <Button icon="ui://hyt9m7t9fxcma"/>
+    </component>
+    <component id="n17_fxcm" name="backBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="998,10" size="60,60">
+      <Button icon="ui://hyt9m7t9fxcm7"/>
+    </component>
+    <text id="n16_fxcm" name="n16" xy="311,96" size="53,31" fontSize="24" color="#9489d5" text="规则"/>
+    <text id="n23_fxcm" name="useMoneyInTxt" xy="379,256" size="470,54" input="true" prompt="[color=#6D62A4][size=26]输入上庄金额[/size][/color]" keyboardType="4" fontSize="26" color="#ffffff" vAlign="middle" autoSize="none" text=""/>
+    <text id="n24_fxcm" name="playerMoneyTxt" xy="420,175" size="44,31" fontSize="24" color="#ffffff" vAlign="middle" autoClearText="true" text="620"/>
+    <text id="n25_fxcm" name="n25" xy="386,134" size="121,31" fontSize="24" color="#9489d5" text="HDAG账户"/>
+    <text id="n26_fxcm" name="n26" xy="604,62" size="129,39" fontSize="30" color="#ece9ff" vAlign="middle" bold="true" text="预约上庄"/>
+  </displayList>
+</component>

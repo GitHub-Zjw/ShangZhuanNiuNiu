@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="623,67" designImage="ui://04s6lcaqpnt1b" designImageOffsetX="-356" designImageOffsetY="-114">
+  <controller name="c1" pages="0,,1,,2,,3,,4,,5," selected="5"/>
+  <displayList>
+    <graph id="n0_pnt1" name="n0" xy="0,65" size="623,2" type="rect" lineSize="0" fillColor="#ff5b5261"/>
+    <loader id="n4_pnt1" name="n4" xy="37,4" size="50,50" url="ui://04s6lcaqpnt11">
+      <gearIcon controller="c1" pages="0,1,2,3,4,5" values="ui://04s6lcaqpnt120|ui://04s6lcaqpnt121|ui://04s6lcaqpnt11z|ui://04s6lcaqpnt11y|ui://04s6lcaqpnt122|ui://04s6lcaqpnt11"/>
+    </loader>
+    <text id="n1_pnt1" name="nameTxt" xy="99,13" size="158,31" fontSize="24" color="#ffffff" autoSize="none" autoClearText="true" text="wu"/>
+    <text id="n2_pnt1" name="hdagTxt" xy="524,12" size="96,35" fontSize="26" color="#d2a177" autoSize="none" autoClearText="true" text="128"/>
+    <text id="n5_pnt1" name="rankTxt" xy="30,6" size="50,31" fontSize="24" color="#ffffff" align="center" autoSize="none" text="1">
+      <gearDisplay controller="c1" pages="5"/>
+    </text>
+    <component id="n3_pnt1" name="cardResultCom" src="pnt1h" fileName="component/CardResultCom.xml" xy="293,6" controller="state,1"/>
+    <image id="n10_pnt1" name="htImage" src="pnt19" fileName="assets/image/矢量智能对象@2x(1).png" xy="433,-1" size="57,57" group="n14_pnt1" visible="false"/>
+    <image id="n11_pnt1" name="hxImage" src="pnt1a" fileName="assets/image/矢量智能对象 拷贝 12@2x.png" xy="434,4" size="50,50" group="n14_pnt1" visible="false"/>
+    <image id="n12_pnt1" name="mhImage" src="pnt17" fileName="assets/image/矢量智能对象 拷贝 2@2x.png" xy="442,4" size="50,50" group="n14_pnt1" visible="false"/>
+    <image id="n13_pnt1" name="fkImage" src="pnt18" fileName="assets/image/矢量智能对象@2x.png" xy="433,1" size="57,57" group="n14_pnt1" visible="false"/>
+    <group id="n14_pnt1" name="n14" xy="433,-1" size="59,59"/>
+  </displayList>
+</component>

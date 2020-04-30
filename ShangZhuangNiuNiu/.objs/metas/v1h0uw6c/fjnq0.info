@@ -1,0 +1,27 @@
+{
+	"fitScreen": "",
+	"objectStatus": {
+		"n101_ydsh": {
+			"collapsed": true
+		},
+		"n44_srv9": {
+			"collapsed": true
+		},
+		"n77_lmsy": {
+			"locked": true
+		},
+		"n100_ydsh": {
+			"collapsed": true
+		},
+		"n74_lmsy": {
+			"hidden": true
+		},
+		"n80_fek2": {
+			"hidden": true
+		},
+		"n30_srv9": {
+			"locked": true,
+			"collapsed": true
+		}
+	}
+}

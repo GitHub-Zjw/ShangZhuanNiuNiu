@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://hyt9m7t9fxcm14">
+  <displayList>
+    <graph id="n0_fxcm" name="n0" xy="-288,0" size="1943,750" group="n3_fxcm" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n1_fxcm" name="closeBtn" src="fxcm4" fileName="assets/button/Button1(1).xml" xy="-305,0" size="1890,750" group="n3_fxcm" alpha="0"/>
+    <component id="n2_fxcm" name="n2" src="fxcm5" fileName="assets/button/Button1.xml" xy="295,21" size="742,706" group="n3_fxcm" alpha="0"/>
+    <group id="n3_fxcm" name="n3" xy="-305,0" size="1960,750"/>
+    <image id="n5_fxcm" name="n5" src="fxcm6" fileName="assets/shangZhuang/矩形 6@2x.png" xy="292,19"/>
+    <component id="n6_fxcm" name="backBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="998,10" size="60,60">
+      <Button icon="ui://hyt9m7t9fxcm7"/>
+    </component>
+    <text id="n7_fxcm" name="n7" xy="603,62" size="129,39" fontSize="30" color="#ece9ff" vAlign="middle" bold="true" text="预约调仓"/>
+    <text id="n8_fxcm" name="n8" xy="380,132" size="117,36" fontSize="28" color="#998bf0" text="预约加仓"/>
+    <text id="n9_fxcm" name="n9" xy="381,311" size="117,36" fontSize="28" color="#998bf0" text="预约减仓"/>
+    <text id="n10_fxcm" name="n10" xy="420,486" size="101,31" fontSize="24" color="#9489d5" text="上庄余额"/>
+    <text id="n11_fxcm" name="n11" xy="814,486" size="101,31" fontSize="24" color="#9489d5" text="账户余额"/>
+    <text id="n12_fxcm" name="bossMoneyTxt" xy="451,526" pivot="0.5,0.5" size="38,31" fontSize="24" color="#ffffff" autoClearText="true" text="9.1"/>
+    <text id="n13_fxcm" name="playerMoneyTxt" xy="845,526" pivot="0.5,0.5" size="38,31" fontSize="24" color="#ffffff" autoClearText="true" text="9.1"/>
+    <component id="n14_fxcm" name="okBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="379,599" size="595,96">
+      <Button title="确定" titleColor="#ffffff" titleFontSize="28" icon="ui://hyt9m7t9fxcmv"/>
+    </component>
+    <image id="n15_fxcm" name="n15" src="fxcmw" fileName="assets/lineUpBecomeBoss/组 207 拷贝@2x(1).png" xy="348,176" size="650,104"/>
+    <component id="n16_fxcm" name="addMaxBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="864,192" size="107,69">
+      <Button title="MAX" titleColor="#ffffff" titleFontSize="28" icon="ui://hyt9m7t9fxcmx"/>
+    </component>
+    <text id="n17_fxcm" name="addInTxt" xy="382,202" size="470,54" input="true" prompt="[color=#6D62A4][size=26]输入加仓金额[/size][/color]" keyboardType="4" fontSize="26" color="#ffffff" vAlign="middle" autoSize="none" text=""/>
+    <image id="n18_fxcm" name="n18" src="fxcmw" fileName="assets/lineUpBecomeBoss/组 207 拷贝@2x(1).png" xy="346,362" size="650,104"/>
+    <component id="n19_fxcm" name="reduceMaxBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="862,378" size="107,69">
+      <Button title="MAX" titleColor="#ffffff" titleFontSize="28" icon="ui://hyt9m7t9fxcmx"/>
+    </component>
+    <text id="n20_fxcm" name="reduceInTxt" xy="380,388" size="470,54" input="true" prompt="[color=#6D62A4][size=26]输入减仓金额[/size][/color]" keyboardType="4" fontSize="26" color="#ffffff" vAlign="middle" autoSize="none" text=""/>
+  </displayList>
+</component>

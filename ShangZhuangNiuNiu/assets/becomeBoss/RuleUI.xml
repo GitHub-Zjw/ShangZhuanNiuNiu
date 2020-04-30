@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://hyt9m7t9fxcm14">
+  <displayList>
+    <graph id="n0_fxcm" name="n0" xy="-282,0" size="1918,750" group="n3_fxcm" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n1_fxcm" name="closeBtn" src="fxcm4" fileName="assets/button/Button1(1).xml" xy="-247,0" size="1834,750" group="n3_fxcm" alpha="0"/>
+    <component id="n2_fxcm" name="n2" src="fxcm5" fileName="assets/button/Button1.xml" xy="295,21" size="742,706" group="n3_fxcm" alpha="0"/>
+    <group id="n3_fxcm" name="n3" xy="-282,0" size="1918,750"/>
+    <image id="n4_fxcm" name="n4" src="fxcm6" fileName="assets/shangZhuang/矩形 6@2x.png" xy="292,19"/>
+    <component id="n6_fxcm" name="backBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="998,9" size="60,60">
+      <Button icon="ui://hyt9m7t9fxcm7"/>
+    </component>
+    <text id="n7_fxcm" name="n7" xy="603,61" size="129,39" fontSize="30" color="#ece9ff" vAlign="middle" bold="true" text="规则说明"/>
+    <list id="n8_fxcm" name="n8" xy="323,120" size="689,587" overflow="scroll" defaultItem="ui://hyt9m7t9fxcm16">
+      <item/>
+    </list>
+  </displayList>
+</component>

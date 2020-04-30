@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="dz1ncib1">
+  <resources>
+    <component id="ri2z0" name="BoosResultUI.xml" path="/" exported="true"/>
+    <image id="ri2z6" name="组 1745 拷贝@2x.png" path="/assets/image/"/>
+    <image id="ri2z1" name="组 3@3x 拷贝 3@2x.png" path="/assets/image/"/>
+    <image id="ri2z2" name="组 1745 拷贝@2x(1).png" path="/assets/image/"/>
+    <image id="ri2z3" name="组 3@3x 拷贝 3@2x(1).png" path="/assets/image/"/>
+    <image id="ri2z4" name="上庄牛牛庄家输赢-赢.png" path="/assets/"/>
+    <image id="ri2z5" name="上庄牛牛庄家输赢-输.png" path="/assets/"/>
+    <component id="ri2z7" name="Button1.xml" path="/component/"/>
+  </resources>
+  <publish name="boosResult\boosResult" genCode="true"/>
+</packageDescription>

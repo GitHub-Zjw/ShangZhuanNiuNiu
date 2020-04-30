@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="82,82" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,disabled" selected="0">
+    <action type="play_transition" fromPage="" toPage="1" transition="t0" repeat="-1" stopOnExit="true"/>
+  </controller>
+  <controller name="state" exported="true" pages="0,,1,,2,,3,,4,,5," selected="5"/>
+  <displayList>
+    <loader id="n4_itti" name="n4" xy="0,0" size="82,82" url="ui://v1h0uw6ciw2x5p">
+      <gearDisplay controller="button" pages="0,1"/>
+      <gearIcon controller="state" pages="0,1,2,3,4,5" values="ui://v1h0uw6ciw2x5u|ui://v1h0uw6ciw2x5t|ui://v1h0uw6ciw2x5s|ui://v1h0uw6ciw2x5r|ui://v1h0uw6ciw2x5q|ui://v1h0uw6ciw2x5p"/>
+    </loader>
+    <loader id="n14_iw2x" name="n14" xy="0,0" size="82,82" url="ui://v1h0uw6ciw2x5j">
+      <gearDisplay controller="button" pages="2"/>
+      <gearIcon controller="state" pages="0,1,2,3,4,5" values="ui://v1h0uw6ciw2x5o|ui://v1h0uw6ciw2x5n|ui://v1h0uw6ciw2x5m|ui://v1h0uw6ciw2x5l|ui://v1h0uw6ciw2x5k|ui://v1h0uw6ciw2x5j"/>
+    </loader>
+    <image id="n21_iw2x" name="n21" src="iw2x5v" fileName="assets/ball/椭圆 3@2x.png" xy="1,0" pivot="0.5,0.5" alpha="0"/>
+  </displayList>
+  <Button mode="Radio"/>
+  <transition name="t0">
+    <item time="0" type="Alpha" target="n21_iw2x" value="1"/>
+    <item time="0" type="Scale" target="n21_iw2x" tween="true" startValue="1,1" endValue="1.25,1.25" duration="24"/>
+    <item time="18" type="Alpha" target="n21_iw2x" tween="true" startValue="1" endValue="0" duration="6"/>
+  </transition>
+</component>

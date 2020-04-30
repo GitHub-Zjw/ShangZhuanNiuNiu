@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="18,18">
+  <controller name="state" exported="true" pages="0,win,1,lose" selected="1"/>
+  <displayList>
+    <loader id="n1_srv9" name="n1" xy="0,0" size="18,18" url="ui://v1h0uw6cht80n">
+      <gearIcon controller="state" pages="0,1" values="ui://v1h0uw6cht80m|ui://v1h0uw6cht80n"/>
+    </loader>
+  </displayList>
+</component>

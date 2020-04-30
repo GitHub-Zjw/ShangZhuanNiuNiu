@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://dd7x5ggvri2z1">
+  <controller name="select" pages="0,,1," selected="0"/>
+  <displayList>
+    <graph id="n11_ri2z" name="n11" xy="-338,0" size="1971,750" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n8_ri2z" name="closeBtn" src="ri2z9" fileName="component/Button1.xml" xy="-304,0" size="1911,750" alpha="0"/>
+    <component id="n10_ri2z" name="n10" src="ri2za" fileName="component/Button1(1).xml" xy="294,17" size="750,717" alpha="0"/>
+    <image id="n0_ri2z" name="n0" src="ri2z6" fileName="assets/img/矩形 6@2x.png" xy="293,20"/>
+    <component id="n3_ri2z" name="n3" src="ri2z9" fileName="component/Button1.xml" xy="380,57">
+      <Button checked="true" controller="select" page="0"/>
+    </component>
+    <component id="n4_ri2z" name="n4" src="ri2za" fileName="component/Button1(1).xml" xy="668,57">
+      <Button controller="select" page="1"/>
+    </component>
+    <list id="n5_ri2z" name="n5" xy="333,170" size="671,523" overflow="scroll" defaultItem="ui://dd7x5ggvri2zb">
+      <gearDisplay controller="select" pages="0"/>
+      <item/>
+    </list>
+    <list id="n7_ri2z" name="n7" xy="327,169" size="682,523" overflow="scroll" defaultItem="ui://dd7x5ggvri2zd">
+      <gearDisplay controller="select" pages="1"/>
+      <item/>
+    </list>
+  </displayList>
+</component>

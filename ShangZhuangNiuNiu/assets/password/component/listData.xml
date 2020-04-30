@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="534,501">
+  <displayList>
+    <graph id="n2_ydsh" name="n2" xy="0,0" size="534,501" group="n14_ydsh" type="rect" lineSize="0" fillColor="#fff2f2f2"/>
+    <text id="n12_ydsh" name="fromTxt" xy="19,424" size="501,74" group="n14_ydsh" fontSize="28" color="#0c0b0b" vAlign="middle" autoSize="none" autoClearText="true" text="hjkhjklhjklhjklhjklhjklhjklhjkljkljujklhjklhjklhjklhjklhjklhjkljklju"/>
+    <text id="n3_ydsh" name="n3" xy="11,18" size="125,40" group="n14_ydsh" fontSize="32" color="#2b2c2d" text="Transfer"/>
+    <text id="n4_ydsh" name="n4" xy="17,85" size="82,36" group="n14_ydsh" fontSize="28" color="#a1a2a6" text="memo"/>
+    <text id="n5_ydsh" name="n5" xy="17,180" size="98,36" group="n14_ydsh" fontSize="28" color="#a1a2a6" text="quantity"/>
+    <text id="n6_ydsh" name="n6" xy="17,276" size="29,36" group="n14_ydsh" fontSize="28" color="#a1a2a6" text="to"/>
+    <text id="n7_ydsh" name="n7" xy="17,392" size="62,36" group="n14_ydsh" fontSize="28" color="#a1a2a6" text="from"/>
+    <text id="n8_ydsh" name="transferTxt" xy="142,21" size="381,70" group="n14_ydsh" fontSize="28" color="#323232" autoSize="none" autoClearText="true" text="hjkhjklhjklhjklhjklhjklhjklhjkljkljuifod aufiodfasjhjkahjklhjkl"/>
+    <text id="n9_ydsh" name="memoTxt" xy="16,124" size="384,37" group="n14_ydsh" fontSize="28" color="#0c0b0b" autoSize="none" autoClearText="true" text="hjkhjklhjklhjklhjklhjklhjklhjkljklju"/>
+    <text id="n10_ydsh" name="qualityTxt" xy="17,222" size="384,37" group="n14_ydsh" fontSize="28" color="#0c0b0b" autoSize="none" autoClearText="true" text="hjkhjklhjklhjklhjklhjklhjklhjkljklju"/>
+    <text id="n11_ydsh" name="toTxt" xy="18,302" size="501,74" group="n14_ydsh" fontSize="28" color="#0c0b0b" vAlign="middle" autoSize="none" autoClearText="true" text="hjkhjklhjklhjklhjklhjklhjklhjkljkljujklhjklhjklhjklhjklhjklhjkljklju"/>
+    <group id="n14_ydsh" name="n14" xy="0,0" size="534,501"/>
+  </displayList>
+</component>

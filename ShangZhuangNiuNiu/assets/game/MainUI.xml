@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://v1h0uw6cvr9h66">
+  <controller name="ballSelect" pages="0,,1,,2,,3,,4,,5,,6," selected="0"/>
+  <displayList>
+    <image id="n94_iw2x" name="bg" src="iw2x5i" fileName="assets/jiben/组 218@2x.png" xy="-144,0"/>
+    <image id="n104_vr9h" name="n104" src="vr9h6b" fileName="assets/jiben/youHua/组 17@2x.png" xy="213,251" group="n100_ydsh"/>
+    <image id="n105_vr9h" name="n105" src="vr9h6a" fileName="assets/jiben/youHua/组 18@2x.png" xy="445,252" group="n100_ydsh"/>
+    <image id="n106_vr9h" name="n106" src="vr9h69" fileName="assets/jiben/youHua/组 19@2x.png" xy="677,251" group="n100_ydsh"/>
+    <image id="n107_vr9h" name="n107" src="vr9h68" fileName="assets/jiben/youHua/组 20@2x.png" xy="909,251" group="n100_ydsh"/>
+    <group id="n100_ydsh" name="n100" xy="213,251" size="921,233" advanced="true" layout="hz" colGap="7" excludeInvisibles="true"/>
+    <image id="n29_srv9" name="n29" src="ht80h" fileName="assets/jiben/筹码框.png" xy="48,564">
+      <relation target="" sidePair="top-bottom"/>
+    </image>
+    <image id="n36_srv9" name="n36" src="ht80b" fileName="assets/jiben/组 206.png" xy="465,714">
+      <relation target="" sidePair="bottom-bottom"/>
+    </image>
+    <component id="n59_itti" name="ball1_btn" src="itti1t" fileName="Component/Buttoin/BallBtn.xml" xy="396,611" controller="state,0">
+      <Button controller="ballSelect" page="1"/>
+    </component>
+    <component id="n60_itti" name="ball2_btn" src="itti1t" fileName="Component/Buttoin/BallBtn.xml" xy="490,611" controller="state,1">
+      <Button controller="ballSelect" page="2"/>
+    </component>
+    <component id="n61_itti" name="ball3_btn" src="itti1t" fileName="Component/Buttoin/BallBtn.xml" xy="581,611" controller="state,2">
+      <Button controller="ballSelect" page="3"/>
+    </component>
+    <component id="n62_itti" name="ball4_btn" src="itti1t" fileName="Component/Buttoin/BallBtn.xml" xy="674,611" controller="state,3">
+      <Button controller="ballSelect" page="4"/>
+    </component>
+    <component id="n63_itti" name="ball5_btn" src="itti1t" fileName="Component/Buttoin/BallBtn.xml" xy="766,610" controller="state,4">
+      <Button controller="ballSelect" page="5"/>
+    </component>
+    <component id="n64_itti" name="ball6_btn" src="itti1t" fileName="Component/Buttoin/BallBtn.xml" xy="857,608" controller="state,5">
+      <Button controller="ballSelect" page="6"/>
+    </component>
+    <component id="n16_ht80" name="methodBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" xy="1178,23" size="50,50">
+      <Button icon="ui://v1h0uw6cht80u"/>
+    </component>
+    <component id="n17_ht80" name="settingBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" xy="1250,22" size="50,50">
+      <Button icon="ui://v1h0uw6cht80t"/>
+    </component>
+    <component id="n18_ht80" name="closeBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" xy="26,15" size="85,62">
+      <Button icon="ui://v1h0uw6cht809"/>
+    </component>
+    <component id="n23_ht80" name="cleanBtn" src="ht8017" fileName="Component/Buttoin/CbgBtn.xml" xy="171,639">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="清空" titleColor="#ffffff" titleFontSize="30" icon="ui://v1h0uw6cht8019"/>
+    </component>
+    <component id="n24_ht80" name="betBtn" src="ht8017" fileName="Component/Buttoin/CbgBtn.xml" xy="965,642">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="投注" titleColor="#ffffff" titleFontSize="30" icon="ui://v1h0uw6cht8018"/>
+    </component>
+    <text id="n31_srv9" name="pgValueTxt" xy="506,120" size="113,31" fontSize="24" color="#ffffff" text="0/0 HDAG"/>
+    <text id="n32_srv9" name="bossChangeTxt" xy="273,184" size="143,31" alpha="0" fontSize="24" color="#f7de6c" ubb="true" text="+12141.2141"/>
+    <text id="n34_srv9" name="playerChangeTxt" xy="597,705" size="122,27" alpha="0" fontSize="20" color="#f7de6c" align="center" ubb="true" text="+12141.2141">
+      <relation target="n35_srv9" sidePair="left-right,bottom-bottom"/>
+    </text>
+    <text id="n35_srv9" name="playerMoneyTxt" xy="502,714" size="93,31" fontSize="24" color="#ffffff" text="0 HDAG">
+      <relation target="" sidePair="bottom-bottom"/>
+    </text>
+    <text id="n41_srv9" name="n41" xy="985,583" size="54,28" group="n44_srv9" fontSize="20" color="#ffffff" bold="true" text="底注:"/>
+    <text id="n39_srv9" name="dzValueTxt" xy="1046,583" size="70,28" group="n44_srv9" fontSize="20" color="#ffffff" autoSize="none" bold="true" text="0"/>
+    <text id="n42_srv9" name="n42" xy="1116,583" size="63,28" group="n44_srv9" fontSize="20" color="#f7de6c" autoSize="none" bold="true" text="投注："/>
+    <text id="n43_srv9" name="tzValueTxt" xy="1177,583" size="66,28" group="n44_srv9" fontSize="20" color="#f7de6c" autoSize="none" bold="true" text="0"/>
+    <group id="n44_srv9" name="txt" xy="985,583" size="258,28"/>
+    <component id="n45_srv9" name="betPlayerCom" src="srv91g" fileName="Component/BetPlayerCom.xml" xy="464,10" pivot="0.5,0.5">
+      <relation target="" sidePair="top-top"/>
+    </component>
+    <component id="n37_srv9" name="clockCom" src="srv91e" fileName="Component/ClockCom.xml" xy="417,138" visible="false"/>
+    <component id="n46_srv9" name="bossCom" src="srv91l" fileName="Component/BossCom.xml" xy="144,11"/>
+    <component id="n71_lmsy" name="ballGroupCom" src="lmsy22" fileName="assets/com/Component2.xml" xy="0,0" size="1335,750" touchable="false"/>
+    <component id="n47_srv9" name="region0" src="srv91n" fileName="Component/RegionCom.xml" xy="215,252" group="n101_ydsh" controller="state,2"/>
+    <component id="n48_srv9" name="region1" src="srv91n" fileName="Component/RegionCom.xml" xy="445,252" group="n101_ydsh" controller="state,1"/>
+    <component id="n49_srv9" name="region2" src="srv91n" fileName="Component/RegionCom.xml" xy="678,252" group="n101_ydsh" controller="state,3"/>
+    <component id="n50_srv9" name="region3" src="srv91n" fileName="Component/RegionCom.xml" xy="910,252" group="n101_ydsh" controller="state,0"/>
+    <group id="n101_ydsh" name="n101" xy="215,252" size="920,232"/>
+    <image id="n26_ht80" name="n26" src="ht801a" fileName="assets/jiben/组 219.png" xy="674,225" group="n30_srv9" alpha="0"/>
+    <image id="n27_ht80" name="n27" src="ht801b" fileName="assets/jiben/组 219 拷贝.png" xy="161,225" group="n30_srv9" alpha="0"/>
+    <image id="n25_ht80" name="n25" src="ht801c" fileName="assets/jiben/组 217.png" xy="594,291" group="n30_srv9" alpha="0"/>
+    <group id="n30_srv9" name="begin" xy="161,225" size="973,327"/>
+    <component id="n67_h3zd" name="maxBetBar" src="h3zd1w" fileName="Component/MoneyBar.xml" xy="483,146">
+      <ProgressBar max="100"/>
+    </component>
+    <image id="n81_x04y" name="n81" src="x04y5a" fileName="assets/bigWinner/组 1745@2x.png" xy="430,337" alpha="0"/>
+    <image id="n83_x04y" name="n83" src="x04y59" fileName="assets/bigWinner/组 1744@2x.png" xy="430,337" alpha="0"/>
+    <image id="n72_lmsy" name="n72" src="lmsy23" fileName="assets/jiben/组 23@2x(1).png" xy="368,297" alpha="0"/>
+    <component id="n74_lmsy" name="resultCom" src="lmsy26" fileName="Component/ResultCom.xml" xy="0,0" size="1335,750" visible="false"/>
+    <component id="n80_fek2" name="bigWinnerCom" src="fek255" fileName="Component/bigWinner/BigWinnerCom.xml" xy="377,155" pivot="0.5,0.5" visible="false"/>
+    <component id="n68_ecgg" name="homePageDataBtn" src="ht8017" fileName="Component/Buttoin/CbgBtn.xml" xy="-28,159" group="n77_lmsy" alpha="0.5">
+      <Button title="下发首页数据" titleColor="#00ff00" titleFontSize="18"/>
+    </component>
+    <component id="n69_ecgg" name="betDetailDataBtn" src="ht8017" fileName="Component/Buttoin/CbgBtn.xml" xy="-30,274" group="n77_lmsy" alpha="0.5">
+      <Button title="下发投注数据" titleColor="#00ff00" titleFontSize="18"/>
+    </component>
+    <component id="n70_lmsy" name="joinSucceedBtn" src="ht8017" fileName="Component/Buttoin/CbgBtn.xml" xy="-28,389" group="n77_lmsy" alpha="0.5">
+      <Button title="测试声音" titleColor="#00ff00" titleFontSize="18"/>
+    </component>
+    <component id="n76_lmsy" name="cardResultBtn" src="ht8017" fileName="Component/Buttoin/CbgBtn.xml" xy="-28,497" group="n77_lmsy" alpha="0.5">
+      <Button title="下发结果" titleColor="#00ff00" titleFontSize="18"/>
+    </component>
+    <text id="n108_vr9h" name="testTxt" xy="940,194" size="356,142" group="n77_lmsy" input="true" prompt="633" fontSize="36" color="#ffffff" autoSize="none" text=""/>
+    <group id="n77_lmsy" name="testGroup" xy="-30,159" size="1326,426" visible="false" advanced="true"/>
+  </displayList>
+  <transition name="bossResultTran">
+    <item time="0" type="Alpha" target="n32_srv9" tween="true" startValue="0.5" endValue="1" duration="6"/>
+    <item time="0" type="XY" target="n32_srv9" tween="true" startValue="273,184" endValue="273,145" duration="6"/>
+    <item time="24" type="Alpha" target="n32_srv9" value="0"/>
+  </transition>
+  <transition name="playerResultTran">
+    <item time="0" type="Alpha" target="n34_srv9" value="1"/>
+    <item time="18" type="Alpha" target="n34_srv9" tween="true" startValue="1" endValue="0" duration="6"/>
+  </transition>
+  <transition name="beginTran">
+    <item time="0" type="Alpha" target="n25_ht80" value="0"/>
+    <item time="0" type="Alpha" target="n26_ht80" tween="true" startValue="0" endValue="1" duration="3"/>
+    <item time="0" type="Alpha" target="n27_ht80" tween="true" startValue="0" endValue="1" duration="3"/>
+    <item time="0" type="XY" target="n26_ht80" tween="true" startValue="1179,225" endValue="672,225" duration="6"/>
+    <item time="0" type="XY" target="n27_ht80" tween="true" startValue="-339,225" endValue="161,225" duration="6"/>
+    <item time="6" type="Alpha" target="n25_ht80" value="1"/>
+    <item time="36" type="Alpha" target="n25_ht80" value="0"/>
+    <item time="36" type="Alpha" target="n26_ht80" value="0"/>
+    <item time="36" type="Alpha" target="n27_ht80" value="0"/>
+  </transition>
+  <transition name="stopBetTran">
+    <item time="0" type="Alpha" target="n72_lmsy" value="1"/>
+    <item time="0" type="XY" target="n72_lmsy" tween="true" startValue="368,397" endValue="368,297" duration="18" ease="Cubic.Out"/>
+    <item time="18" type="Alpha" target="n72_lmsy" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="18" type="XY" target="n72_lmsy" tween="true" startValue="368,297" endValue="368,197" duration="6" ease="Cubic.In"/>
+  </transition>
+  <transition name="bigWinnerTran">
+    <item time="0" type="Scale" target="n80_fek2" tween="true" startValue="0,0" endValue="1,1" duration="6"/>
+    <item time="0" type="Visible" target="n80_fek2" value="true"/>
+    <item time="72" type="Visible" target="n80_fek2" value="false"/>
+  </transition>
+  <transition name="bossAllLoseTran">
+    <item time="0" type="Alpha" target="n81_x04y" tween="true" startValue="0" endValue="1" duration="6"/>
+    <item time="0" type="XY" target="n81_x04y" tween="true" startValue="430,420" endValue="430,337" duration="6"/>
+    <item time="18" type="Alpha" target="n81_x04y" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="18" type="XY" target="n81_x04y" tween="true" startValue="430,337" endValue="430,250" duration="6"/>
+  </transition>
+  <transition name="bossAllWinTran">
+    <item time="0" type="Alpha" target="n83_x04y" tween="true" startValue="0" endValue="1" duration="6"/>
+    <item time="0" type="XY" target="n83_x04y" tween="true" startValue="430,418" endValue="430,337" duration="6"/>
+    <item time="18" type="Alpha" target="n83_x04y" tween="true" startValue="1" endValue="0" duration="6"/>
+    <item time="18" type="XY" target="n83_x04y" tween="true" startValue="430,337" endValue="430,271" duration="6"/>
+  </transition>
+</component>

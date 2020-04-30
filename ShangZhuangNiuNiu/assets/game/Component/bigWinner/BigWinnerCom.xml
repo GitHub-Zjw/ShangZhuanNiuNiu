@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="581,440" designImageOffsetX="-315" designImageOffsetY="-96">
+  <displayList>
+    <image id="n5_vr9h" name="n5" src="vr9h62" fileName="assets/bigWinner2/组 20@2x.png" xy="0,0" group="n6_vr9h"/>
+    <list id="n1_fek2" name="winnerList" xy="81,173" size="433,233" group="n6_vr9h" touchable="false" overflow="scroll" margin="9,0,0,0" lineGap="36" defaultItem="ui://v1h0uw6cfek257" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <group id="n6_vr9h" name="n6" xy="0,0" size="581,440"/>
+  </displayList>
+</component>

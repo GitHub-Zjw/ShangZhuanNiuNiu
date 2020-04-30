@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="671,1932">
+  <displayList>
+    <graph id="n122_ri2z" name="n122" xy="0,0" size="671,1524" group="n124_ri2z" type="rect" lineSize="0" lineColor="#ff453a85" fillColor="#ff453a85"/>
+    <loader id="n17_ri2z" name="n17" xy="94,33" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvri2z4">
+      <relation target="n16_ri2z" sidePair="left-left"/>
+    </loader>
+    <loader id="n6_ri2z" name="n6" xy="36,72" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n11_ri2z" name="n11" xy="64,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy32" fill="scaleFree"/>
+    <loader id="n12_ri2z" name="n12" xy="92,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2p" fill="scaleFree"/>
+    <loader id="n13_ri2z" name="n13" xy="147,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2q" fill="scaleFree"/>
+    <loader id="n14_ri2z" name="n14" xy="185,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2d" fill="scaleFree"/>
+    <loader id="n72_ri2z" name="n72" xy="128,783" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n70_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n73_ri2z" name="n73" xy="36,822" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2j" fill="scaleFree"/>
+    <loader id="n74_ri2z" name="n74" xy="76,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2k" fill="scaleFree"/>
+    <loader id="n75_ri2z" name="n75" xy="116,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2h" fill="scaleFree"/>
+    <loader id="n76_ri2z" name="n76" xy="156,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2f" fill="scaleFree"/>
+    <loader id="n77_ri2z" name="n77" xy="196,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2z" fill="scaleFree"/>
+    <loader id="n92_ri2z" name="n92" xy="130,1033" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n90_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n93_ri2z" name="n93" xy="36,1072" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n94_ri2z" name="n94" xy="76,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2k" fill="scaleFree"/>
+    <loader id="n95_ri2z" name="n95" xy="116,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3n" fill="scaleFree"/>
+    <loader id="n96_ri2z" name="n96" xy="156,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3a" fill="scaleFree"/>
+    <loader id="n97_ri2z" name="n97" xy="196,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3g" fill="scaleFree"/>
+    <loader id="n112_ri2z" name="n112" xy="131,1283" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n110_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n113_ri2z" name="n113" xy="36,1322" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3f" fill="scaleFree"/>
+    <loader id="n114_ri2z" name="n114" xy="76,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3q" fill="scaleFree"/>
+    <loader id="n115_ri2z" name="n115" xy="116,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3p" fill="scaleFree"/>
+    <loader id="n116_ri2z" name="n116" xy="156,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3o" fill="scaleFree"/>
+    <loader id="n117_ri2z" name="n117" xy="196,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3n" fill="scaleFree"/>
+    <loader id="n22_ri2z" name="n22" xy="474,33" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvri2z4">
+      <relation target="n20_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n23_ri2z" name="n23" xy="359,72" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n24_ri2z" name="n24" xy="387,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2d" fill="scaleFree"/>
+    <loader id="n25_ri2z" name="n25" xy="415,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2j" fill="scaleFree"/>
+    <loader id="n26_ri2z" name="n26" xy="470,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2t" fill="scaleFree"/>
+    <loader id="n27_ri2z" name="n27" xy="508,71" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3e" fill="scaleFree"/>
+    <loader id="n62_ri2z" name="n62" xy="450,783" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n60_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n63_ri2z" name="n63" xy="359,822" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n64_ri2z" name="n64" xy="399,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2k" fill="scaleFree"/>
+    <loader id="n65_ri2z" name="n65" xy="439,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3o" fill="scaleFree"/>
+    <loader id="n66_ri2z" name="n66" xy="479,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3p" fill="scaleFree"/>
+    <loader id="n67_ri2z" name="n67" xy="519,821" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2z" fill="scaleFree"/>
+    <loader id="n82_ri2z" name="n82" xy="452,1033" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n80_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n83_ri2z" name="n83" xy="359,1072" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n84_ri2z" name="n84" xy="399,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2k" fill="scaleFree"/>
+    <loader id="n85_ri2z" name="n85" xy="439,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3n" fill="scaleFree"/>
+    <loader id="n86_ri2z" name="n86" xy="479,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy33" fill="scaleFree"/>
+    <loader id="n87_ri2z" name="n87" xy="519,1071" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3g" fill="scaleFree"/>
+    <loader id="n102_ri2z" name="n102" xy="454,1283" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n100_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n103_ri2z" name="n103" xy="359,1322" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3r" fill="scaleFree"/>
+    <loader id="n104_ri2z" name="n104" xy="399,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3e" fill="scaleFree"/>
+    <loader id="n105_ri2z" name="n105" xy="439,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3m" fill="scaleFree"/>
+    <loader id="n106_ri2z" name="n106" xy="479,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy39" fill="scaleFree"/>
+    <loader id="n107_ri2z" name="n107" xy="519,1321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3l" fill="scaleFree"/>
+    <loader id="n33_ri2z" name="n33" xy="36,322" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n34_ri2z" name="n34" xy="64,321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2d" fill="scaleFree"/>
+    <loader id="n35_ri2z" name="n35" xy="92,321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2j" fill="scaleFree"/>
+    <loader id="n36_ri2z" name="n36" xy="147,321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3i" fill="scaleFree"/>
+    <loader id="n37_ri2z" name="n37" xy="185,321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3m" fill="scaleFree"/>
+    <loader id="n32_ri2z" name="n32" xy="152,283" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvri2z3">
+      <relation target="n30_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n125_k2v0" name="n125" xy="409,282" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvri2z2">
+      <relation target="n131_k2v0" sidePair="left-right"/>
+    </loader>
+    <loader id="n126_k2v0" name="n126" xy="359,321" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n127_k2v0" name="n127" xy="387,320" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2d" fill="scaleFree"/>
+    <loader id="n128_k2v0" name="n128" xy="415,320" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2j" fill="scaleFree"/>
+    <loader id="n129_k2v0" name="n129" xy="470,320" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3i" fill="scaleFree"/>
+    <loader id="n130_k2v0" name="n130" xy="508,320" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3l" fill="scaleFree"/>
+    <loader id="n42_ri2z" name="n42" xy="99,533" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0f">
+      <relation target="n40_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n43_ri2z" name="n43" xy="36,572" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n44_ri2z" name="n44" xy="64,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy32" fill="scaleFree"/>
+    <loader id="n45_ri2z" name="n45" xy="92,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3r" fill="scaleFree"/>
+    <loader id="n46_ri2z" name="n46" xy="147,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy33" fill="scaleFree"/>
+    <loader id="n47_ri2z" name="n47" xy="185,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy3m" fill="scaleFree"/>
+    <loader id="n52_ri2z" name="n52" xy="449,533" size="50,50" group="n124_ri2z" url="ui://dd7x5ggvk2v0e">
+      <relation target="n50_ri2z" sidePair="left-right"/>
+    </loader>
+    <loader id="n53_ri2z" name="n53" xy="359,572" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2x" fill="scaleFree"/>
+    <loader id="n54_ri2z" name="n54" xy="399,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2l" fill="scaleFree"/>
+    <loader id="n55_ri2z" name="n55" xy="439,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy2m" fill="scaleFree"/>
+    <loader id="n56_ri2z" name="n56" xy="479,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy30" fill="scaleFree"/>
+    <loader id="n57_ri2z" name="n57" xy="519,571" size="89,126" group="n124_ri2z" url="ui://v1h0uw6clmsy32" fill="scaleFree"/>
+    <text id="n16_ri2z" name="n16" xy="36,32" size="57,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="无牛"/>
+    <text id="n19_ri2z" name="n19" xy="36,213" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="任3张之和都不能成为10的倍数"/>
+    <text id="n70_ri2z" name="n70" xy="36,782" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="同花牛"/>
+    <text id="n71_ri2z" name="n71" xy="36,963" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="花色相同的5张牌"/>
+    <text id="n90_ri2z" name="n90" xy="36,1032" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="炸弹牛"/>
+    <text id="n91_ri2z" name="n91" xy="36,1213" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="4张相同点数的牌和单张"/>
+    <text id="n110_ri2z" name="n110" xy="36,1282" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="同花牛"/>
+    <text id="n111_ri2z" name="n111" xy="36,1463" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="花色相同且点数相连的5张牌"/>
+    <text id="n20_ri2z" name="n20" xy="359,32" size="111,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="牛1至牛6"/>
+    <text id="n21_ri2z" name="n21" xy="359,213" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="3张之和为10的倍数，另2张之和 的个位数为1-6"/>
+    <text id="n60_ri2z" name="n60" xy="359,782" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="五花牛"/>
+    <text id="n61_ri2z" name="n61" xy="359,963" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="由JQK组成的5张牌"/>
+    <text id="n80_ri2z" name="n80" xy="359,1032" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="葫芦牛"/>
+    <text id="n81_ri2z" name="n81" xy="359,1213" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="3张相同点数的牌和一对"/>
+    <text id="n100_ri2z" name="n100" xy="359,1282" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="五小牛"/>
+    <text id="n101_ri2z" name="n101" xy="359,1463" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="5张牌点数均小于5且点数之和 小于等于10"/>
+    <text id="n123_ri2z" name="n123" xy="18,1548" size="633,377" group="n124_ri2z" fontSize="24" color="#8477d5" leading="9" ubb="true" autoSize="none" text="优先比较牌型大小，若牌型相同则比较最大牌点数大小，点数相同则比较最大牌花色。[color=#E0B16C]例外:当庄闲两家同为无牛且最大牌都小于等于J时，庄家赢。[/color]&#xA;[color=#FFFFFF][size=26]牌型大小[/size][/color]&#xA;同花顺>五小牛>炸弹牛>葫芦牛>同花牛>五花牛>顺子牛>牛牛>牛9>牛8>牛7>牛6>牛5>牛4>牛3>牛2>牛1>没牛&#xA;[color=#FFFFFF][size=26]点数大小[/size][/color]&#xA;K>Q>J>10>9>8>7>6>5>4>3>2>A&#xA;[color=#FFFFFF][size=26]花色大小[/size][/color]&#xA;黑桃>红桃>梅花>方块"/>
+    <text id="n31_ri2z" name="n31" xy="36,463" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="3张之和为10的倍数，另2张之和 的个位数为7-8"/>
+    <text id="n30_ri2z" name="n30" xy="36,282" size="111,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="牛7至牛8"/>
+    <text id="n132_k2v0" name="n132" xy="359,462" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="3张之和为10的倍数，另2张之和 的个位数为9"/>
+    <text id="n131_k2v0" name="n131" xy="359,281" size="45,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="牛9"/>
+    <text id="n40_ri2z" name="n40" xy="36,532" size="57,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="牛牛"/>
+    <text id="n41_ri2z" name="n41" xy="36,713" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="3张之和为10的倍数，另2张之和&#xA;为10的倍数"/>
+    <text id="n50_ri2z" name="n50" xy="359,532" size="83,35" group="n124_ri2z" fontSize="26" color="#ffffff" text="顺子牛"/>
+    <text id="n51_ri2z" name="n51" xy="359,713" size="302,52" group="n124_ri2z" fontSize="20" color="#8477d5" autoSize="none" text="点击相连的5张牌"/>
+    <group id="n124_ri2z" name="n124" xy="0,0" size="671,1925"/>
+  </displayList>
+</component>

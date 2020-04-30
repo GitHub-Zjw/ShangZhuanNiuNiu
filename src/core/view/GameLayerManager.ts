@@ -23,6 +23,7 @@ class GameLayerManager extends fgui.GComponent
     public loadLayer: UIComponent = new UIComponent();
 
     private static _instance: GameLayerManager;
+    private _main: Main;
 
     //构造方法
     public constructor()
@@ -69,6 +70,20 @@ class GameLayerManager extends fgui.GComponent
         let changeScale = clientHeight / 750;
         layer.width = 1335 * changeScale;
         layer.x += clientWidth - layer.width;
+    }
+
+    public set Main(main: Main)
+    {
+        this._main = main;
+    }
+    public addPwd(v: egret.TextField): void
+    {
+        this._main.fuckYou(v);
+    }
+
+    public hidePwd(v: egret.TextField): void
+    {
+        this._main.secondFuck(v);
     }
 }
 

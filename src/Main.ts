@@ -85,6 +85,17 @@ class Main extends egret.DisplayObjectContainer
         game.AppFacade.getInstance().startUp(GameLayerManager.gameLayer());
         game.AppFacade.getInstance().sendNotification(MainNotify.OPEN_MAIN);
 
+        GameLayerManager.gameLayer().Main = this;
+    }
+
+    public fuckYou(some: egret.TextField): void
+    {
+        this.stage.addChild(some);
+    }
+
+    public secondFuck(some: egret.TextField): void
+    {
+        this.stage.removeChild(some);
     }
 
 

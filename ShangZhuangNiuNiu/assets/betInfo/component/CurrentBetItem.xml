@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="623,67" designImage="ui://04s6lcaqpnt1c" designImageOffsetX="-356" designImageOffsetY="-116">
+  <controller name="htCol" pages="0,,1," selected="0"/>
+  <controller name="hxCol" pages="0,,1," selected="0"/>
+  <controller name="mhCol" pages="0,,1," selected="0"/>
+  <controller name="fkCol" pages="0,,1," selected="0"/>
+  <displayList>
+    <graph id="n0_pnt1" name="n0" xy="0,63" size="623,2" type="rect" lineSize="0" fillColor="#ff5b5261"/>
+    <text id="n1_pnt1" name="nameTxt" xy="28,10" size="36,31" fontSize="24" color="#ffffff" autoClearText="true" text="wu"/>
+    <text id="n2_pnt1" name="hdagTxt" xy="502,9" size="116,35" fontSize="26" color="#d2a177" autoSize="none" autoClearText="true" text="128"/>
+    <image id="n9_pnt1" name="n9" src="pnt16" fileName="assets/image/矢量智能对象 拷贝 3@2x.png" xy="207,1">
+      <gearDisplay controller="htCol" pages="0"/>
+    </image>
+    <image id="n10_pnt1" name="n10" src="pnt15" fileName="assets/image/矢量智能对象 拷贝 4@2x.png" xy="280,1">
+      <gearDisplay controller="hxCol" pages="0"/>
+    </image>
+    <image id="n6_pnt1" name="n6" src="pnt13" fileName="assets/image/矢量智能对象 拷贝 10@2x.png" xy="353,1">
+      <gearDisplay controller="mhCol" pages="0"/>
+    </image>
+    <image id="n11_pnt1" name="n11" src="pnt14" fileName="assets/image/矢量智能对象 拷贝 5@2x.png" xy="426,1">
+      <gearDisplay controller="fkCol" pages="0"/>
+    </image>
+    <image id="n13_pnt1" name="n13" src="pnt19" fileName="assets/image/矢量智能对象@2x(1).png" xy="203,-2">
+      <gearDisplay controller="htCol" pages="1"/>
+    </image>
+    <image id="n7_pnt1" name="n7" src="pnt1a" fileName="assets/image/矢量智能对象 拷贝 12@2x.png" xy="280,1">
+      <gearDisplay controller="hxCol" pages="1"/>
+    </image>
+    <image id="n8_pnt1" name="n8" src="pnt17" fileName="assets/image/矢量智能对象 拷贝 2@2x.png" xy="353,1">
+      <gearDisplay controller="mhCol" pages="1"/>
+    </image>
+    <image id="n12_pnt1" name="n12" src="pnt18" fileName="assets/image/矢量智能对象@2x.png" xy="422,-2">
+      <gearDisplay controller="fkCol" pages="1"/>
+    </image>
+  </displayList>
+</component>

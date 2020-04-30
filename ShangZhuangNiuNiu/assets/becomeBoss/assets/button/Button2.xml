@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="60,60" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver,5,disabled" selected="0"/>
+  <displayList>
+    <image id="n0_fxcm" name="n0" src="fxcmm" fileName="assets/zhuangJiaYingKui/组 229@2x.png" xy="0,0">
+      <gearDisplay controller="button" pages="0"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_fxcm" name="n1" src="fxcmm" fileName="assets/zhuangJiaYingKui/组 229@2x.png" xy="0,0">
+      <gearDisplay controller="button" pages="1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n2_fxcm" name="n2" src="fxcmm" fileName="assets/zhuangJiaYingKui/组 229@2x.png" xy="0,0">
+      <gearDisplay controller="button" pages="2"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n3_fxcm" name="n3" src="fxcmm" fileName="assets/zhuangJiaYingKui/组 229@2x.png" xy="0,0">
+      <gearDisplay controller="button" pages="3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n4_fxcm" name="icon" xy="0,0" size="60,60" align="center" vAlign="middle">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n5_fxcm" name="n5" src="fxcmp" fileName="assets/zhuangJiaYingKui/组 229 拷贝 2@2x.png" xy="0,0">
+      <gearDisplay controller="button" pages="5"/>
+    </image>
+  </displayList>
+  <Button/>
+</component>

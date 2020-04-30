@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://duwd3xqfri2z3">
+  <displayList>
+    <graph id="n0_ri2z" name="n0" xy="-325,0" size="2039,750" group="n4_ri2z" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n2_ri2z" name="closeBtn" src="ri2z2" fileName="component/Button1(1).xml" xy="-279,0" size="1945,750" group="n4_ri2z" alpha="0"/>
+    <component id="n1_ri2z" name="n1" src="ri2z1" fileName="component/Button1.xml" xy="450,228" size="435,293" group="n4_ri2z" alpha="0"/>
+    <group id="n4_ri2z" name="n4" xy="-325,0" size="2039,750"/>
+    <image id="n3_ri2z" name="n3" src="ri2z4" fileName="assets/image/矩形 6@2x.png" xy="450,227" size="436,297"/>
+    <text id="n5_ri2z" name="n5" xy="509,270" size="57,35" fontSize="26" color="#fffced" text="音乐"/>
+    <text id="n6_ri2z" name="n6" xy="509,356" size="57,35" fontSize="26" color="#fffced" text="音效"/>
+    <component id="n7_ri2z" name="bgBtn" src="ri2z9" fileName="component/Button2.xml" xy="747,260"/>
+    <component id="n8_ri2z" name="effectBtn" src="ri2z9" fileName="component/Button2.xml" xy="749,346"/>
+    <component id="n11_ri2z" name="cencalBtn" src="ri2zb" fileName="component/Button3.xml" xy="476,431" size="180,60">
+      <Button title="取消" titleColor="#ffffff" titleFontSize="26" icon="ui://duwd3xqfri2z8"/>
+    </component>
+    <component id="n12_ri2z" name="okBtn" src="ri2zb" fileName="component/Button3.xml" xy="682,431" size="180,60">
+      <Button title="确认" titleColor="#ffffff" titleFontSize="26" icon="ui://duwd3xqfri2z7"/>
+    </component>
+  </displayList>
+</component>

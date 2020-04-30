@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="689,1086">
+  <displayList>
+    <text id="n0_fxcm" name="n0" xy="0,0" size="689,1085" fontSize="24" color="#c9c3ef" leading="23" ubb="true" autoSize="none" text="[color=#E0B16C]每轮[/color]游戏[color=#E0B16C]20分钟[/color]，20分钟后进行本轮结算，结算后开始新的一轮游戏。&#xA;1.上庄&#xA;·上庄金额需大于[color=#E0B16C]1000 HDAG[/color]。&#xA;·游戏途中可预约上庄,本轮结束后下轮自动上庄,下轮游戏开始前可取消预约。&#xA;2.投注限额&#xA;·玩家底注投注额度不超过庄家底池的4%&#xA;3.调仓&#xA;·已上庄玩家可预约调仓(加仓或减仓),下轮生效。&#xA;·预约加仓金额不低于[color=#E0B16C]1000HDAG[/color]&#xA;·减仓金额不可高于上庄余额且不可低于[color=#E0B16C]100HDAG[/color],减仓生效后若余额低于[color=#E0B16C]1000HDAG[/color]将自动下庄。 &#xA;·预约上庄阶段不可调仓,&#xA;4.下庄&#xA;·预约上庄时,可随时取消预约,上庄后,可预约下庄,下轮生效。每局结算时,若余额低于[color=#E0B16C]200HDAG[/color]将自动下庄&#xA;注:取消预约后将取消全部预约&#xA;5.手续费&#xA;·收取闲家盈利的1.5%和庄家盈利的1%费用作为手续费(亏损则不收取)&#xA;                            "/>
+  </displayList>
+</component>

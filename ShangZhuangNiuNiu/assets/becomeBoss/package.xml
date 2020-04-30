@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="hyt9m7t9">
+  <resources>
+    <image id="fxcm0" name="上庄牛牛上庄-预约中.png" path="/assets/"/>
+    <image id="fxcm1" name="上庄牛牛庄家盈亏.png" path="/assets/"/>
+    <image id="fxcm2" name="上庄牛牛上庄.png" path="/assets/"/>
+    <component id="fxcm3" name="BeconmeBossUI.xml" path="/" exported="true"/>
+    <component id="fxcm4" name="Button1(1).xml" path="/assets/button/"/>
+    <component id="fxcm5" name="Button1.xml" path="/assets/button/"/>
+    <image id="fxcm6" name="矩形 6@2x.png" path="/assets/shangZhuang/"/>
+    <image id="fxcm7" name="组 228@2x.png" path="/assets/shangZhuang/"/>
+    <image id="fxcm8" name="组 227@2x.png" path="/assets/shangZhuang/"/>
+    <image id="fxcm9" name="组 3@2x(1).png" path="/assets/shangZhuang/"/>
+    <image id="fxcma" name="wenhao@2x.png" path="/assets/shangZhuang/"/>
+    <component id="fxcmb" name="Button1(2).xml" path="/assets/button/"/>
+    <image id="fxcmc" name="组 219@2x.png" path="/assets/shangZhuang/"/>
+    <component id="fxcmd" name="Button1(1)(1).xml" path="/assets/button/"/>
+    <image id="fxcme" name="组 230@2x.png" path="/assets/shangZhuang/"/>
+    <component id="fxcmf" name="Button1(3).xml" path="/assets/button/"/>
+    <image id="fxcmg" name="矩形 8@2x.png" path="/assets/shangZhuang/"/>
+    <image id="fxcmi" name="矩形 9@2x.png" path="/assets/shangZhuang/"/>
+    <component id="fxcmj" name="AlreadyBecomeItem.xml" path="/component/"/>
+    <component id="fxcmk" name="LoadItem.xml" path="/component/"/>
+    <component id="fxcml" name="DoingItem.xml" path="/component/"/>
+    <image id="fxcmm" name="组 229@2x.png" path="/assets/zhuangJiaYingKui/"/>
+    <image id="fxcmn" name="组 229 拷贝@2x.png" path="/assets/zhuangJiaYingKui/"/>
+    <image id="fxcmo" name="组 229 拷贝 3@2x.png" path="/assets/zhuangJiaYingKui/"/>
+    <image id="fxcmp" name="组 229 拷贝 2@2x.png" path="/assets/zhuangJiaYingKui/"/>
+    <component id="fxcmq" name="Button2.xml" path="/assets/button/"/>
+    <component id="fxcmr" name="BossMoneyChangeItam.xml" path="/component/"/>
+    <component id="fxcms" name="LineUpBecomeBossUI.xml" path="/" exported="true"/>
+    <image id="fxcmt" name="上庄牛牛预约上庄.png" path="/assets/"/>
+    <component id="fxcmu" name="Button3.xml" path="/assets/button/"/>
+    <image id="fxcmv" name="组 233@2x.png" path="/assets/lineUpBecomeBoss/"/>
+    <image id="fxcmw" name="组 207 拷贝@2x(1).png" path="/assets/lineUpBecomeBoss/" scale9grid="108,13,216,31"/>
+    <image id="fxcmx" name="组 227@2x.png" path="/assets/lineUpBecomeBoss/"/>
+    <image id="fxcmz" name="组 227@2x.png" path="/assets/shangZhuangHou/"/>
+    <image id="fxcm10" name="组 227@2x(1).png" path="/assets/shangZhuangHou/"/>
+    <image id="fxcm11" name="上庄牛牛上庄后按钮.png" path="/assets/"/>
+    <component id="fxcm12" name="WantToChangeUI.xml" path="/" exported="true"/>
+    <image id="fxcm14" name="上庄牛牛预约调仓.png" path="/assets/"/>
+    <component id="fxcm15" name="RuleUI.xml" path="/" exported="true"/>
+    <component id="fxcm16" name="RuleItem.xml" path="/component/"/>
+    <image id="fxcm17" name="上庄牛牛规则说明.png" path="/assets/"/>
+  </resources>
+  <publish name="becomeBoss\becomeBoss" genCode="true"/>
+</packageDescription>

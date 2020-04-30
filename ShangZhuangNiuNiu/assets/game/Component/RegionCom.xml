@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="225,232" designImage="ui://v1h0uw6cvr9h66" designImageOffsetX="-214" designImageOffsetY="-248">
+  <controller name="state" exported="true" pages="0,fangKuai,1,hongTao,3,caoHua,2,heiTao" selected="3"/>
+  <displayList>
+    <loader id="n1_srv9" name="n1" xy="0,0" size="225,232" visible="false" url="ui://v1h0uw6cvr9h6b">
+      <gearIcon controller="state" pages="0,1,3,2" values="ui://v1h0uw6cvr9h68|ui://v1h0uw6cvr9h6a|ui://v1h0uw6cvr9h69|ui://v1h0uw6cvr9h6b"/>
+    </loader>
+    <list id="n2_srv9" name="resultList" xy="6,208" size="213,22" layout="row" overflow="scroll" scroll="horizontal" margin="1,0,2,0" colGap="3" defaultItem="ui://v1h0uw6csrv91m" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n4_srv9" name="betValueTxt" xy="10,5" size="18,31" fontSize="24" color="#f7de6c" text="0"/>
+    <image id="n6_srv9" name="hkImg" src="srv91p" fileName="assets/jiben/矩形 14.png" xy="-17,-29" pivot="0.5,0.5" size="267,294" visible="false"/>
+    <image id="n11_h3zd" name="winImg" src="h3zd1y" fileName="assets/jiben/组 23@2x.png" xy="9,55" pivot="0.5,0.5" visible="false"/>
+    <image id="n12_h3zd" name="lostImg" src="srv91r" fileName="assets/jiben/组 23 拷贝.png" xy="10,55" alpha="0"/>
+  </displayList>
+  <transition name="winTran">
+    <item time="0" type="Scale" target="n11_h3zd" tween="true" startValue="0,0" endValue="1,1" duration="12" ease="Back.InOut"/>
+    <item time="0" type="Scale" target="n6_srv9" tween="true" startValue="0,0" endValue="1,1" duration="12"/>
+    <item time="0" type="Visible" target="n11_h3zd" value="true"/>
+    <item time="0" type="Visible" target="n6_srv9" value="true"/>
+  </transition>
+  <transition name="loseTran">
+    <item time="0" type="Alpha" target="n12_h3zd" tween="true" startValue="0" endValue="1" duration="12"/>
+    <item time="0" type="Visible" target="n12_h3zd" value="true"/>
+  </transition>
+</component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="569,33">
+  <displayList>
+    <text id="n0_fxcm" name="roundCountTxt" xy="1,0" pivot="0.5,0.5" size="70,31" group="n5_fxcm" fontSize="24" color="#bfb9f4" autoClearText="true" text="35793"/>
+    <text id="n1_fxcm" name="timeTxt" xy="137,2" pivot="0.5,0.5" size="64,31" group="n5_fxcm" fontSize="24" color="#bfb9f4" autoClearText="true" text="13:40"/>
+    <text id="n2_fxcm" name="changeTxt" xy="274,2" pivot="0.5,0.5" size="103,31" group="n5_fxcm" fontSize="24" color="#bfb9f4" ubb="true" autoClearText="true" text="164.6395"/>
+    <text id="n3_fxcm" name="moneyTxt" xy="484,0" pivot="0.5,0.5" size="85,31" group="n5_fxcm" fontSize="24" color="#bfb9f4" autoClearText="true" text="14.15%"/>
+    <group id="n5_fxcm" name="n5" xy="0,0" size="569,33"/>
+  </displayList>
+</component>

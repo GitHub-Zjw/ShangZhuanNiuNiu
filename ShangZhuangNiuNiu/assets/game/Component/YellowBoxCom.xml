@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="197,125" overflow="hidden">
+  <displayList>
+    <image id="n40_to54" name="n40" src="lmsy28" fileName="assets/result/形状 4@2x.png" xy="-138,-137" size="232,223" visible="false"/>
+  </displayList>
+  <transition name="lightTran">
+    <item time="0" type="Visible" target="n40_to54" value="true"/>
+    <item time="0" type="XY" target="n40_to54" tween="true" startValue="-145,-124" endValue="110,37" duration="18"/>
+    <item time="18" type="Visible" target="n40_to54" value="false"/>
+  </transition>
+</component>

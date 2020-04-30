@@ -63,11 +63,63 @@ module password
 		}
 
 		private _isSelect: boolean = false;
+		private _pwd: egret.TextField;
 		protected initView(): void
 		{
 			super.initView();
 			AgRequest.sendAgRequest();
 			this.passwordTxt.password = true;
+			this.passwordTxt.touchable = false;
+
+		}
+
+		private addPwd(): void
+		{
+			this._pwd = new egret.TextField();
+			let clientWidth = document.documentElement.clientWidth;
+			let clientHeight = document.documentElement.clientHeight;
+			this._pwd.textColor = 0xffffff;
+			this._pwd.width = 323;
+			this._pwd.height = 35;
+			this._pwd.size = 26;
+			this._pwd.x = this.passwordTxt.x + GameLayerManager.gameLayer().x;
+			this._pwd.y = this.passwordTxt.y + 3;
+			this._pwd.textAlign = egret.VerticalAlign.MIDDLE;
+			this._pwd.type = egret.TextFieldType.INPUT;
+			this._pwd.inputType = egret.TextFieldInputType.PASSWORD;
+			this._pwd.displayAsPassword = true;
+			this._pwd.addEventListener(egret.Event.FOCUS_IN, this.focusIn, this);
+			this._pwd.addEventListener(egret.Event.FOCUS_OUT, this.focusOut, this);
+			this._pwd.maxChars = 15;
+			GameLayerManager.gameLayer().addPwd(this._pwd);
+		}
+
+		public hidePwd(): void
+		{
+			if (this._pwd)
+			{
+				this._pwd.removeEventListener(egret.Event.FOCUS_IN, this.focusIn, this);
+				this._pwd.removeEventListener(egret.Event.FOCUS_OUT, this.focusOut, this);
+				GameLayerManager.gameLayer().hidePwd(this._pwd);
+				this._pwd = null;
+			}
+		}
+
+		private focusIn(): void
+		{
+			this.passwordTxt.visible = false;
+		}
+
+		private focusOut(): void
+		{
+			if (this._pwd.text == "")
+			{
+				this.passwordTxt.visible = true;
+			}
+			else
+			{
+				this.passwordTxt.visible = false;
+			}
 		}
 
 		protected onButtonClick(name: string): void
@@ -79,17 +131,19 @@ module password
 					break;
 				case "okBtn":
 					this.isShowTip.setSelectedPage("false");
+					this.addPwd();
 					break;
 				case "cancelBtn":
 				case "closeBtn":
 					game.AppFacade.getInstance().sendNotification(PanelNotify.CLOSE_INPUT_PASSWORD);
 					break;
 				case "okBtn2":
-					PassWordRequest.sendPassWordRequest(this.passwordTxt.text);
+					PassWordRequest.sendPassWordRequest(this._pwd.text);
 					AllData.instance.IsNoShowPwd = this._isSelect;
 					game.AppFacade.getInstance().sendNotification(PanelNotify.CLOSE_INPUT_PASSWORD);
 					break;
 				case "cancleBtn2":
+					this.hidePwd();
 					this.passwordTxt.text = "";
 					this.isShowTip.setSelectedPage("true");
 					break;
@@ -105,6 +159,12 @@ module password
 			this.transferTxt.text = data.Data.to;
 			this.fromTxt.text = AllData.instance.Sunlight;
 			this.memoTxt.text = "上庄牛牛";
+		}
+
+		public dispose(): void
+		{
+			this.hidePwd();
+			super.dispose();
 		}
 	}
 }

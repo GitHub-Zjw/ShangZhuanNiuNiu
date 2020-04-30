@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="580,66" overflow="hidden" designImage="ui://v1h0uw6cht8011" designImageOffsetX="-500" designImageOffsetY="-12">
+  <displayList>
+    <image id="n22_x04y" name="n22" src="x04y5b" fileName="assets/jiben/组 214@2x.png" xy="0,2"/>
+    <image id="n2_srv9" name="n2" src="ht801" fileName="assets/jiben/钻石.png" xy="195,-113"/>
+    <text id="n8_srv9" name="ballValueTxt" xy="207,-110" size="31,36" fontSize="24" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" strokeColor="#a5a5a5" strokeSize="0" text="0"/>
+    <image id="n4_srv9" name="n4" src="srv91k" fileName="assets/jiben/矢量智能对象(10).png" xy="307,71" group="n20_srv9"/>
+    <image id="n5_srv9" name="n5" src="srv91j" fileName="assets/jiben/矢量智能对象(11).png" xy="154,73" group="n20_srv9"/>
+    <image id="n6_srv9" name="n6" src="srv91i" fileName="assets/jiben/矢量智能对象(8).png" xy="206,71" group="n20_srv9"/>
+    <image id="n7_srv9" name="n7" src="srv91h" fileName="assets/jiben/矢量智能对象(9).png" xy="257,71" group="n20_srv9"/>
+    <image id="n9_srv9" name="fkImg" src="ht80i" fileName="assets/jiben/矢量智能对象.png" xy="200,67" group="n20_srv9"/>
+    <image id="n12_srv9" name="hongtaoImg" src="ht80j" fileName="assets/jiben/矢量智能对象(3).png" xy="148,67" group="n20_srv9"/>
+    <image id="n10_srv9" name="heitaoImg" src="ht80l" fileName="assets/jiben/矢量智能对象(1).png" xy="253,68" group="n20_srv9"/>
+    <image id="n11_srv9" name="chImg" src="ht80k" fileName="assets/jiben/矢量智能对象(2).png" xy="305,68" group="n20_srv9"/>
+    <text id="n3_srv9" name="playerNameTxt" xy="12,84" size="139,28" group="n20_srv9" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" text="name"/>
+    <text id="n18_srv9" name="batValueTxt" xy="366,82" size="110,33" group="n20_srv9" fontSize="24" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" text="0"/>
+    <group id="n20_srv9" name="n20" xy="12,67" size="464,58" advanced="true"/>
+    <text id="n21_gnrp" name="noBodyTxt" xy="161,20" size="174,28" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" text="——"/>
+    <component id="n16_srv9" name="detailBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" xy="275,-114" size="50,50">
+      <Button icon="ui://v1h0uw6cht80q"/>
+    </component>
+    <component id="n17_srv9" name="prizeBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" xy="503,7" size="50,50">
+      <Button icon="ui://v1h0uw6cht80o"/>
+    </component>
+  </displayList>
+  <transition name="betTran">
+    <item time="0" type="Visible" target="n21_gnrp" value="true"/>
+    <item time="0" type="XY" target="n20_srv9" tween="true" startValue="7,32,0.024,1" endValue="7,1,0.024,0.031" duration="6"/>
+    <item time="1" type="Visible" target="n21_gnrp" value="false"/>
+  </transition>
+</component>

@@ -46,8 +46,8 @@ module game
 		public bigWinnerTran: fairygui.Transition;
 		public bossAllLoseTran: fairygui.Transition;
 		public bossAllWinTran: fairygui.Transition;
-		public testTxt:fairygui.GTextInput;
-		public testGroup:fairygui.GGroup;
+		public testTxt: fairygui.GTextInput;
+		public testGroup: fgui.GGroup;
 
 		public static URL: string = "ui://v1h0uw6cfjnq0";
 
@@ -106,7 +106,7 @@ module game
 			this.bossAllLoseTran = this.getTransition("bossAllLoseTran");
 			this.bossAllWinTran = this.getTransition("bossAllWinTran");
 			this.testTxt = <fairygui.GTextInput><any>(this.getChild("testTxt"));
-			this.testGroup = <fairygui.GGroup><any>(this.getChild("testGroup"));
+			this.testGroup = <fgui.GGroup><any>(this.getChild("testGroup"));
 		}
 
 		private _otherRegionBalls: BetBallCom[][];
@@ -228,8 +228,9 @@ module game
 					break;
 				/********************************* 以下是测试按钮 **********************************/
 				case "homePageDataBtn":
-					HomePageRequest.sendHomePageData();
+					// HomePageRequest.sendHomePageData();
 					// this.createGameScene();
+					this.testTxt.requestFocus();
 					break;
 				case "betDetailDataBtn":
 					AllData.instance.setTestOtherBetData();
@@ -266,7 +267,7 @@ module game
 				return;
 			}
 			let sourceIndex = this._selectBallIndex - 1;
-			let selectMoney = AllData.instance.BallValues[sourceIndex] * 3;
+			let selectMoney = AllData.instance.BallValues[sourceIndex] * 5;
 			if (!AllData.instance.getBetMoneyIsEnough(selectMoney))
 			{
 				TipsUtils.showTipsFromCenter("您的金额不足");
@@ -278,29 +279,30 @@ module game
 				return;
 			}
 			let region: RegionCom = <RegionCom><any>e.currentTarget;
-			let addBallNum: number[][] = [[], [], [], []];
+			let addBallNums: number[][] = [[], [], [], []];
+			let addBallNum: number[] = [sourceIndex, sourceIndex, sourceIndex, sourceIndex, sourceIndex];
 			switch (region.name)
 			{
 				case "region0":
 					AllData.instance.addMyBet(selectMoney, 0);
-					addBallNum[0] = [sourceIndex, sourceIndex, sourceIndex];
+					addBallNums[0] = addBallNum;
 					break;
 				case "region1":
 					AllData.instance.addMyBet(selectMoney, 1);
-					addBallNum[1] = [sourceIndex, sourceIndex, sourceIndex];
+					addBallNums[1] = addBallNum;
 					break;
 				case "region2":
 					AllData.instance.addMyBet(selectMoney, 2);
-					addBallNum[2] = [sourceIndex, sourceIndex, sourceIndex];
+					addBallNums[2] = addBallNum;
 					break;
 				case "region3":
 					AllData.instance.addMyBet(selectMoney, 3);
-					addBallNum[3] = [sourceIndex, sourceIndex, sourceIndex];
+					addBallNums[3] = addBallNum;
 					break;
 			}
 			core.SoundUtils.getInstance().playSound(18);
 			this.updateOnMyBet();
-			this.addBall(addBallNum, true);
+			this.addBall(addBallNums, true);
 		}
 
 		/**接收到首页信息 */
@@ -443,7 +445,7 @@ module game
 		{
 			let tzValue = AllData.instance.getMyAllBet() + this._myTz;
 			this.tzValueTxt.text = tzValue.toString();
-			this.dzValueTxt.text = (tzValue / 3).toString();
+			this.dzValueTxt.text = (tzValue / 5).toString();
 			this.playerMoneyTxt.text = (AllData.instance.HomePageData.myMoney - AllData.instance.getMyAllBet() - this._myTz).toString();
 
 			this.updateRegionValue();
@@ -822,12 +824,16 @@ module game
 			this.testGroup.visible = true;
 			this.testTxt.password = true;
 			this.testTxt.addEventListener(egret.Event.CHANGE, this.testChange, this);
-			let etest: egret.TextField = <egret.TextField><any>this.testTxt;
+			let etest: egret.TextField = new egret.TextField();
+			etest.inputType = egret.TextFieldInputType.PASSWORD;
+			etest.type = egret.TextFieldType.INPUT;
+			etest.displayAsPassword = true;
 		}
 
 		private testChange(): void
 		{
-			this.testTxt.password = true;
+			// this.testTxt.password = false;
+			// this.testTxt.password = true;
 		}
 	}
 }

@@ -1,0 +1,21 @@
+{
+	"atlasSetting":{
+		"paging":true,
+		"sizeOption":"pot",
+		"trimImage":true
+	},
+	"binaryFormat":true,
+	"codeGeneration":{
+		"classNamePrefix":"",
+		"codePath":"D:\\Zjw\\object\\h5\\FairyguiObj\\ShangZhuanNiuNiu\\ShangZhuanNiuNiu\\resource\\assets\\tempTs",
+		"codeType":"",
+		"getMemberByName":true,
+		"ignoreNoname":true,
+		"memberNamePrefix":"",
+		"packageName":null
+	},
+	"compressDesc":false,
+	"fileExtension":"fui",
+	"packageCount":2,
+	"path":"D:\\Zjw\\object\\h5\\FairyguiObj\\ShangZhuanNiuNiu\\ShangZhuanNiuNiu\\resource\\assets\\image"
+}

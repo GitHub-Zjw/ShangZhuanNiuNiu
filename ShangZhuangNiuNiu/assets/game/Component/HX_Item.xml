@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="767,41" designImage="ui://v1h0uw6clmsy3v" designImageOffsetX="-286" designImageOffsetY="-563">
+  <controller name="isLuck" pages="0,false,1,true" selected="0"/>
+  <displayList>
+    <graph id="n3_lmsy" name="n3" xy="0,1" size="767,39" type="rect" lineSize="0" fillColor="#ff733593">
+      <gearDisplay controller="isLuck" pages="1"/>
+    </graph>
+    <text id="n0_lmsy" name="qkTxk" xy="64,6" pivot="0.5,0.5" size="87,31" fontSize="24" color="#ffffff" align="center" ubb="true" autoClearText="true" text="656523"/>
+    <text id="n1_lmsy" name="hxTxt" xy="306,6" pivot="0.5,0.5" size="138,31" fontSize="24" color="#ffffff" align="center" ubb="true" autoClearText="true" text="...dhfh5dfj65"/>
+    <text id="n2_lmsy" name="timeTxt" xy="597,6" pivot="0.5,0.5" size="100,31" fontSize="24" color="#ffffff" align="center" ubb="true" autoClearText="true" text="13:02:03"/>
+  </displayList>
+</component>

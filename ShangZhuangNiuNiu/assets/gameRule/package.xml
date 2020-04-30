@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="dd7x5ggv">
+  <resources>
+    <component id="ri2z0" name="GameRuleUI.xml" path="/" exported="true"/>
+    <image id="ri2z1" name="上庄牛牛天平 - 2.png" path="/assets/"/>
+    <image id="ri2z2" name="x3@2x.png" path="/assets/img/"/>
+    <image id="ri2z3" name="x2@2x.png" path="/assets/img/"/>
+    <image id="ri2z4" name="x1@2x.png" path="/assets/img/"/>
+    <image id="ri2z6" name="矩形 6@2x.png" path="/assets/img/"/>
+    <image id="ri2z7" name="组 219@2x.png" path="/assets/img/"/>
+    <component id="ri2z9" name="Button1.xml" path="/component/"/>
+    <component id="ri2za" name="Button1(1).xml" path="/component/"/>
+    <component id="ri2zb" name="Component1.xml" path="/component/"/>
+    <component id="ri2zd" name="Label1.xml" path="/component/"/>
+    <image id="k2v0e" name="x5@2x.png" path="/assets/img/youhua/"/>
+    <image id="k2v0f" name="x4@2x.png" path="/assets/img/youhua/"/>
+  </resources>
+  <publish name="gameRule\gameRule" genCode="true"/>
+</packageDescription>

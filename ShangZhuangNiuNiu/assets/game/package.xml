@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="v1h0uw6c">
+  <resources>
+    <component id="fjnq0" name="MainUI.xml" path="/" exported="true"/>
+    <image id="ht801" name="钻石.png" path="/assets/jiben/"/>
+    <image id="ht802" name="组 5.png" path="/assets/jiben/"/>
+    <image id="ht803" name="组 5(1).png" path="/assets/jiben/"/>
+    <image id="ht804" name="组 3.png" path="/assets/jiben/"/>
+    <image id="ht805" name="组 215.png" path="/assets/jiben/"/>
+    <image id="ht806" name="组 214.png" path="/assets/jiben/"/>
+    <image id="ht807" name="组 213.png" path="/assets/jiben/"/>
+    <image id="ht808" name="组 212.png" path="/assets/jiben/"/>
+    <image id="ht809" name="组 211.png" path="/assets/jiben/"/>
+    <image id="ht80a" name="组 207 拷贝.png" path="/assets/jiben/"/>
+    <image id="ht80b" name="组 206.png" path="/assets/jiben/"/>
+    <image id="ht80d" name="组 20.png" path="/assets/jiben/"/>
+    <image id="ht80e" name="组 19.png" path="/assets/jiben/"/>
+    <image id="ht80f" name="组 18.png" path="/assets/jiben/"/>
+    <image id="ht80g" name="组 17.png" path="/assets/jiben/"/>
+    <image id="ht80h" name="筹码框.png" path="/assets/jiben/"/>
+    <image id="ht80i" name="矢量智能对象.png" path="/assets/jiben/"/>
+    <image id="ht80j" name="矢量智能对象(3).png" path="/assets/jiben/"/>
+    <image id="ht80k" name="矢量智能对象(2).png" path="/assets/jiben/"/>
+    <image id="ht80l" name="矢量智能对象(1).png" path="/assets/jiben/"/>
+    <image id="ht80m" name="椭圆 2.png" path="/assets/jiben/"/>
+    <image id="ht80n" name="椭圆 2 拷贝.png" path="/assets/jiben/"/>
+    <image id="ht80o" name="奖杯.png" path="/assets/jiben/"/>
+    <image id="ht80p" name="图层 9.png" path="/assets/jiben/"/>
+    <image id="ht80q" name="个人.png" path="/assets/jiben/"/>
+    <image id="ht80r" name="个人 拷贝 2.png" path="/assets/jiben/"/>
+    <image id="ht80s" name="utimeclock.png" path="/assets/jiben/"/>
+    <image id="ht80t" name="shezhi.png" path="/assets/jiben/"/>
+    <image id="ht80u" name="icontianping.png" path="/assets/jiben/"/>
+    <image id="ht80v" name="50.png" path="/assets/jiben/"/>
+    <image id="ht80w" name="5.png" path="/assets/jiben/"/>
+    <image id="ht80x" name="100.png" path="/assets/jiben/"/>
+    <image id="ht80y" name="10.png" path="/assets/jiben/"/>
+    <image id="ht80z" name="1.png" path="/assets/jiben/"/>
+    <image id="ht8010" name="0.1.png" path="/assets/jiben/"/>
+    <image id="ht8011" name="上庄牛牛首页.png" path="/assets/"/>
+    <image id="ht8012" name="组 215(1).png" path="/assets/jiben/"/>
+    <component id="ht8015" name="IconBtn.xml" path="/Component/Buttoin/" exported="true"/>
+    <component id="ht8017" name="CbgBtn.xml" path="/Component/Buttoin/"/>
+    <image id="ht8018" name="组 5(9).png" path="/assets/jiben/"/>
+    <image id="ht8019" name="组 5(8).png" path="/assets/jiben/"/>
+    <image id="ht801a" name="组 219.png" path="/assets/jiben/"/>
+    <image id="ht801b" name="组 219 拷贝.png" path="/assets/jiben/"/>
+    <image id="ht801c" name="组 217.png" path="/assets/jiben/"/>
+    <image id="ht801d" name="上庄牛牛开始下注.png" path="/assets/"/>
+    <component id="srv91e" name="ClockCom.xml" path="/Component/"/>
+    <image id="srv91f" name="组 205(4).png" path="/assets/jiben/"/>
+    <component id="srv91g" name="BetPlayerCom.xml" path="/Component/"/>
+    <image id="srv91h" name="矢量智能对象(9).png" path="/assets/jiben/"/>
+    <image id="srv91i" name="矢量智能对象(8).png" path="/assets/jiben/"/>
+    <image id="srv91j" name="矢量智能对象(11).png" path="/assets/jiben/"/>
+    <image id="srv91k" name="矢量智能对象(10).png" path="/assets/jiben/"/>
+    <component id="srv91l" name="BossCom.xml" path="/Component/"/>
+    <component id="srv91m" name="WLPointItem.xml" path="/Component/"/>
+    <component id="srv91n" name="RegionCom.xml" path="/Component/"/>
+    <image id="srv91p" name="矩形 14.png" path="/assets/jiben/"/>
+    <image id="srv91r" name="组 23 拷贝.png" path="/assets/jiben/"/>
+    <image id="srv91s" name="goldenLain.png" path="/assets/jiben/"/>
+    <component id="itti1t" name="BallBtn.xml" path="/Component/Buttoin/"/>
+    <image id="h3zd1u" name="组 207 拷贝@2x.png" path="/assets/jiben/" scale="9grid" scale9grid="108,14,216,25"/>
+    <image id="h3zd1v" name="矩形 5@2x.png" path="/assets/jiben/" scale="9grid" scale9grid="19,9,16,15"/>
+    <component id="h3zd1w" name="MoneyBar.xml" path="/Component/"/>
+    <image id="h3zd1x" name="组 5@2x(1).png" path="/assets/jiben/"/>
+    <image id="h3zd1y" name="组 23@2x.png" path="/assets/jiben/"/>
+    <image id="ecgg1z" name="组 215@2x(1).png" path="/assets/jiben/"/>
+    <component id="ecgg20" name="BetBallCom.xml" path="/Component/" exported="true"/>
+    <component id="lmsy21" name="Component1.xml" path="/assets/com/"/>
+    <component id="lmsy22" name="Component2.xml" path="/assets/com/"/>
+    <image id="lmsy23" name="组 23@2x(1).png" path="/assets/jiben/"/>
+    <component id="lmsy26" name="ResultCom.xml" path="/Component/"/>
+    <image id="lmsy27" name="组 24@2x.png" path="/assets/result/"/>
+    <image id="lmsy28" name="形状 4@2x.png" path="/assets/result/"/>
+    <image id="lmsy29" name="上庄牛牛哈希选牌.png" path="/assets/"/>
+    <image id="lmsy2a" name="card5_2.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2b" name="card5_1.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2c" name="card4_9.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2d" name="card4_8.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2e" name="card4_7.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2f" name="card4_6.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2g" name="card4_5.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2h" name="card4_4.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2i" name="card4_3.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2j" name="card4_2.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2k" name="card4_13.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2l" name="card4_12.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2m" name="card4_11.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2n" name="card4_10.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2o" name="card4_1.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2p" name="card3_9.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2q" name="card3_8.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2r" name="card3_7.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2s" name="card3_6.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2t" name="card3_5.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2u" name="card3_4.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2v" name="card3_3.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2w" name="card3_2.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2x" name="card3_13.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2y" name="card3_12.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy2z" name="card3_11.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy30" name="card3_10.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy31" name="card3_1.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy32" name="card2_9.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy33" name="card2_8.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy34" name="card2_7.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy35" name="card2_6.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy36" name="card2_5.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy37" name="card2_4.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy38" name="card2_3.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy39" name="card2_2.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3a" name="card2_13.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3b" name="card2_12.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3c" name="card2_11.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3d" name="card2_10.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3e" name="card2_1.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3f" name="card1_9.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3g" name="card1_8.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3h" name="card1_7.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3i" name="card1_6.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3j" name="card1_5.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3k" name="card1_4.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3l" name="card1_3.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3m" name="card1_2.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3n" name="card1_13.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3o" name="card1_12.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3p" name="card1_11.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3q" name="card1_10.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3r" name="card1_1.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <image id="lmsy3s" name="card0_0.png" path="/assets/cards/" exported="true" duplicatePadding="true"/>
+    <component id="lmsy3t" name="CardCom.xml" path="/Component/"/>
+    <component id="lmsy3u" name="HX_Item.xml" path="/Component/"/>
+    <image id="lmsy3v" name="上庄牛牛哈希选牌(1).png" path="/assets/"/>
+    <image id="lmsy3w" name="上庄牛牛开奖.png" path="/assets/"/>
+    <image id="lmsy4f" name="牛3 拷贝 4@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4g" name="牛3 拷贝 3@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4h" name="牛3 拷贝 2@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4i" name="牛3@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4j" name="牛3 拷贝@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4k" name="牛3 拷贝 17@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4l" name="牛3 拷贝 16@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4m" name="牛3 拷贝 15@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4n" name="牛3 拷贝 14@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4o" name="牛3 拷贝 13@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4p" name="牛3 拷贝 12@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4q" name="牛3 拷贝 11@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4r" name="牛3 拷贝 10@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4s" name="牛3 拷贝 9@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4t" name="牛3 拷贝 8@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4u" name="牛3 拷贝 7@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4v" name="牛3 拷贝 6@2x.png" path="/assets/result/value/"/>
+    <image id="lmsy4w" name="牛3 拷贝 5@2x.png" path="/assets/result/value/"/>
+    <component id="lmsy4x" name="CardResultCom.xml" path="/Component/"/>
+    <component id="to544y" name="YellowBoxCom.xml" path="/Component/"/>
+    <image id="to544z" name="矩形 14@2x.png" path="/assets/result/"/>
+    <image id="fek250" name="jiangbei 1 拷贝 2@2x.png" path="/assets/bigWinner/"/>
+    <image id="fek251" name="jiangbei @2x.png" path="/assets/bigWinner/"/>
+    <image id="fek252" name="jiangbei  拷贝@2x.png" path="/assets/bigWinner/"/>
+    <image id="fek253" name="组 20@2x.png" path="/assets/bigWinner/"/>
+    <image id="fek254" name="组 3@2x(1).png" path="/assets/bigWinner/"/>
+    <component id="fek255" name="BigWinnerCom.xml" path="/Component/bigWinner/"/>
+    <image id="fek256" name="上庄牛牛本轮大赢家.png" path="/assets/"/>
+    <component id="fek257" name="BigWinnerItem.xml" path="/Component/bigWinner/"/>
+    <image id="fek258" name="矩形 15@2x.png" path="/assets/bigWinner/"/>
+    <image id="x04y59" name="组 1744@2x.png" path="/assets/bigWinner/"/>
+    <image id="x04y5a" name="组 1745@2x.png" path="/assets/bigWinner/"/>
+    <image id="x04y5b" name="组 214@2x.png" path="/assets/jiben/"/>
+    <image id="x04y5d" name="矩形 15@2x.png" path="/assets/jiben/"/>
+    <component id="x04y5g" name="TipCom.xml" path="/Component/" exported="true"/>
+    <image id="x04y5h" name="组 215@2x(1)(1).png" path="/assets/jiben/"/>
+    <image id="iw2x5i" name="组 218@2x.png" path="/assets/jiben/"/>
+    <image id="iw2x5j" name="100@2x.png" path="/assets/ball/black/"/>
+    <image id="iw2x5k" name="50@2x.png" path="/assets/ball/black/"/>
+    <image id="iw2x5l" name="10@2x.png" path="/assets/ball/black/"/>
+    <image id="iw2x5m" name="5@2x.png" path="/assets/ball/black/"/>
+    <image id="iw2x5n" name="1@2x.png" path="/assets/ball/black/"/>
+    <image id="iw2x5o" name="0.1@2x.png" path="/assets/ball/black/"/>
+    <image id="iw2x5p" name="100@2x.png" path="/assets/ball/waid/"/>
+    <image id="iw2x5q" name="50@2x.png" path="/assets/ball/waid/"/>
+    <image id="iw2x5r" name="10@2x.png" path="/assets/ball/waid/"/>
+    <image id="iw2x5s" name="5@2x.png" path="/assets/ball/waid/"/>
+    <image id="iw2x5t" name="1@2x.png" path="/assets/ball/waid/"/>
+    <image id="iw2x5u" name="0.1@2x.png" path="/assets/ball/waid/"/>
+    <image id="iw2x5v" name="椭圆 3@2x.png" path="/assets/ball/"/>
+    <image id="vr9h5y" name="jiangbei @2x(1).png" path="/assets/bigWinner/"/>
+    <image id="vr9h5z" name="jiangbei 1 拷贝 2@2x.png" path="/assets/bigWinner2/"/>
+    <image id="vr9h60" name="jiangbei @2x.png" path="/assets/bigWinner2/"/>
+    <image id="vr9h61" name="jiangbei  拷贝@2x.png" path="/assets/bigWinner2/"/>
+    <image id="vr9h62" name="组 20@2x.png" path="/assets/bigWinner2/"/>
+    <image id="vr9h63" name="组 3@2x(1).png" path="/assets/bigWinner2/"/>
+    <image id="vr9h65" name="矩形 15@2x.png" path="/assets/bigWinner2/"/>
+    <image id="vr9h66" name="上庄牛牛首页(1).png" path="/assets/"/>
+    <image id="vr9h67" name="组 205@2x.png" path="/assets/jiben/"/>
+    <image id="vr9h68" name="组 20@2x.png" path="/assets/jiben/youHua/"/>
+    <image id="vr9h69" name="组 19@2x.png" path="/assets/jiben/youHua/"/>
+    <image id="vr9h6a" name="组 18@2x.png" path="/assets/jiben/youHua/"/>
+    <image id="vr9h6b" name="组 17@2x.png" path="/assets/jiben/youHua/"/>
+    <image id="k2v06c" name="牛7＊2 拷贝@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06d" name="牛7＊2 拷贝 10@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06e" name="牛7＊2 拷贝 8@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06f" name="牛7＊2 拷贝 7@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06g" name="牛7＊2 拷贝 6@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06h" name="牛7＊2 拷贝 5@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06i" name="牛7＊2 拷贝 4@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06j" name="牛7＊2 拷贝 3@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06k" name="牛7＊2 拷贝 2@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06l" name="牛7＊2  @2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06m" name="牛7＊2   拷贝@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06n" name="牛7＊2   拷贝 4@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06o" name="牛7＊2   拷贝 3@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06p" name="牛7＊2   拷贝 2@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06q" name="牛7＊2    拷贝 5@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06r" name="牛7＊2    拷贝 4@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06s" name="牛7＊2    拷贝 3@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06t" name="牛7＊2    拷贝 2@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06u" name="牛3@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06v" name="牛3 拷贝@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06w" name="牛3 拷贝 17@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06x" name="牛3 拷贝 16@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06y" name="牛3 拷贝 15@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v06z" name="牛3 拷贝 14@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v070" name="牛3 拷贝 13@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v071" name="牛3 拷贝 12@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v072" name="牛3 拷贝 11@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v073" name="牛3 拷贝 10@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v074" name="牛3 拷贝 9@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v075" name="牛3 拷贝 8@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v076" name="牛3 拷贝 7@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v077" name="牛3 拷贝 6@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v078" name="牛3 拷贝 5@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v079" name="牛3 拷贝 4@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v07a" name="牛3 拷贝 3@2x.png" path="/assets/result/value/youHua/"/>
+    <image id="k2v07b" name="牛3 拷贝 2@2x.png" path="/assets/result/value/youHua/"/>
+  </resources>
+  <publish name="game\game" genCode="true"/>
+</packageDescription>

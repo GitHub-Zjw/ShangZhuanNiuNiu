@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="04s6lcaq">
+  <resources>
+    <component id="pnt10" name="BetInfoUI.xml" path="/" exported="true"/>
+    <image id="pnt11" name="15 拷贝 14@2x.png" path="/assets/image/"/>
+    <image id="pnt12" name="矩形 8@2x.png" path="/assets/image/"/>
+    <image id="pnt13" name="矢量智能对象 拷贝 10@2x.png" path="/assets/image/"/>
+    <image id="pnt14" name="矢量智能对象 拷贝 5@2x.png" path="/assets/image/"/>
+    <image id="pnt15" name="矢量智能对象 拷贝 4@2x.png" path="/assets/image/"/>
+    <image id="pnt16" name="矢量智能对象 拷贝 3@2x.png" path="/assets/image/"/>
+    <image id="pnt17" name="矢量智能对象 拷贝 2@2x.png" path="/assets/image/"/>
+    <image id="pnt18" name="矢量智能对象@2x.png" path="/assets/image/"/>
+    <image id="pnt19" name="矢量智能对象@2x(1).png" path="/assets/image/"/>
+    <image id="pnt1a" name="矢量智能对象 拷贝 12@2x.png" path="/assets/image/"/>
+    <image id="pnt1b" name="上庄牛牛奖杯.png" path="/assets/"/>
+    <image id="pnt1c" name="上庄牛牛奖杯 - 本期投注.png" path="/assets/"/>
+    <component id="pnt1d" name="Button1.xml" path="/component/"/>
+    <component id="pnt1e" name="CurrentBetItem.xml" path="/component/"/>
+    <component id="pnt1f" name="LoadingItem.xml" path="/component/"/>
+    <component id="pnt1g" name="TodayWinnerItem.xml" path="/component/"/>
+    <component id="pnt1h" name="CardResultCom.xml" path="/component/"/>
+    <image id="pnt1i" name="牛3 拷贝 17@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1j" name="牛3 拷贝 16@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1k" name="牛3@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1l" name="牛3 拷贝@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1m" name="牛3 拷贝 2@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1n" name="牛3 拷贝 3@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1o" name="牛3 拷贝 4@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1p" name="牛3 拷贝 5@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1q" name="牛3 拷贝 6@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1r" name="牛3 拷贝 7@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1s" name="牛3 拷贝 8@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1t" name="牛3 拷贝 9@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1u" name="牛3 拷贝 10@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1v" name="牛3 拷贝 11@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1w" name="牛3 拷贝 12@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1x" name="牛3 拷贝 13@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1y" name="牛3 拷贝 14@2x.png" path="/assets/result/value/"/>
+    <image id="pnt1z" name="牛3 拷贝 15@2x.png" path="/assets/result/value/"/>
+    <image id="pnt110" name="牛牛@2x.png" path="/assets/image/"/>
+    <image id="pnt111" name="牛牛 拷贝@2x.png" path="/assets/image/"/>
+    <image id="pnt112" name="牛六@2x.png" path="/assets/image/"/>
+    <image id="pnt113" name="牛二@2x.png" path="/assets/image/"/>
+    <image id="pnt114" name="牛二 拷贝@2x.png" path="/assets/image/"/>
+    <image id="pnt115" name="没牛@2x.png" path="/assets/image/"/>
+    <image id="pnt116" name="同花顺@2x.png" path="/assets/image/"/>
+    <image id="pnt117" name="同花顺 拷贝@2x.png" path="/assets/image/"/>
+    <image id="pnt118" name="同花顺 拷贝 2@2x.png" path="/assets/image/"/>
+    <image id="pnt119" name="同花牛@2x.png" path="/assets/image/"/>
+    <image id="pnt11a" name="同花牛 拷贝 2@2x.png" path="/assets/image/"/>
+    <image id="pnt11b" name="牛一@2x.png" path="/assets/image/"/>
+    <image id="pnt11c" name="牛五@2x.png" path="/assets/image/"/>
+    <image id="pnt11d" name="牛四@2x.png" path="/assets/image/"/>
+    <image id="pnt11e" name="牛四 拷贝@2x.png" path="/assets/image/"/>
+    <image id="pnt11f" name="牛三@2x.png" path="/assets/image/"/>
+    <image id="pnt11g" name="牛三 拷贝@2x.png" path="/assets/image/"/>
+    <image id="pnt11h" name="牛牛@2x.png" path="/assets/result/"/>
+    <image id="pnt11i" name="牛牛 拷贝@2x.png" path="/assets/result/"/>
+    <image id="pnt11j" name="牛六@2x.png" path="/assets/result/"/>
+    <image id="pnt11k" name="牛二@2x.png" path="/assets/result/"/>
+    <image id="pnt11l" name="牛二 拷贝@2x.png" path="/assets/result/"/>
+    <image id="pnt11m" name="没牛@2x.png" path="/assets/result/"/>
+    <image id="pnt11n" name="同花顺@2x.png" path="/assets/result/"/>
+    <image id="pnt11o" name="同花顺 拷贝@2x.png" path="/assets/result/"/>
+    <image id="pnt11p" name="同花顺 拷贝 2@2x.png" path="/assets/result/"/>
+    <image id="pnt11q" name="同花牛@2x.png" path="/assets/result/"/>
+    <image id="pnt11r" name="同花牛 拷贝 2@2x.png" path="/assets/result/"/>
+    <image id="pnt11s" name="牛一@2x.png" path="/assets/result/"/>
+    <image id="pnt11t" name="牛五@2x.png" path="/assets/result/"/>
+    <image id="pnt11u" name="牛四@2x.png" path="/assets/result/"/>
+    <image id="pnt11v" name="牛四 拷贝@2x.png" path="/assets/result/"/>
+    <image id="pnt11w" name="牛三@2x.png" path="/assets/result/"/>
+    <image id="pnt11x" name="牛三 拷贝@2x.png" path="/assets/result/"/>
+    <image id="pnt11y" name="12 拷贝 12@2x.png" path="/assets/image/"/>
+    <image id="pnt11z" name="11 拷贝 12@2x.png" path="/assets/image/"/>
+    <image id="pnt120" name="1@2x.png" path="/assets/image/"/>
+    <image id="pnt121" name="1 拷贝 11@2x.png" path="/assets/image/"/>
+    <image id="pnt122" name="13 拷贝 12@2x.png" path="/assets/image/"/>
+    <component id="pnt123" name="Button1(1).xml" path="/component/"/>
+    <component id="pnt124" name="Button1(2).xml" path="/component/"/>
+    <image id="x04y25" name="组 217@2x.png" path="/assets/image/"/>
+  </resources>
+  <publish name="betInfo\betInfo" genCode="true"/>
+</packageDescription>

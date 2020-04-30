@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="duwd3xqf">
+  <resources>
+    <component id="ri2z0" name="SettingUI.xml" path="/" exported="true"/>
+    <component id="ri2z1" name="Button1.xml" path="/component/"/>
+    <component id="ri2z2" name="Button1(1).xml" path="/component/"/>
+    <image id="ri2z3" name="上庄牛牛设置.png" path="/assets/"/>
+    <image id="ri2z4" name="矩形 6@2x.png" path="/assets/image/"/>
+    <image id="ri2z5" name="开关@2x.png" path="/assets/image/"/>
+    <image id="ri2z6" name="开关 拷贝 2@2x.png" path="/assets/image/"/>
+    <image id="ri2z7" name="矩形 7@2x (1).png" path="/assets/image/"/>
+    <image id="ri2z8" name="矩形 7@2x.png" path="/assets/image/"/>
+    <component id="ri2z9" name="Button2.xml" path="/component/"/>
+    <component id="ri2zb" name="Button3.xml" path="/component/"/>
+  </resources>
+  <publish name="setting\setting" genCode="true"/>
+</packageDescription>

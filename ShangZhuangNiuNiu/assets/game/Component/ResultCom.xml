@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://v1h0uw6cvr9h66">
+  <displayList>
+    <image id="n0_lmsy" name="n0" src="h3zd1u" fileName="assets/jiben/组 207 拷贝@2x.png" xy="-310,-22" size="1977,799" group="n56_lmsy">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_lmsy" name="n1" src="lmsy27" fileName="assets/result/组 24@2x.png" xy="276,406" size="775,283" group="n56_lmsy"/>
+    <text id="n2_lmsy" name="n2" xy="181,94" size="33,61" group="n56_lmsy" fontSize="50" color="#d5d5d5" text="1"/>
+    <text id="n3_lmsy" name="n3" xy="413,94" size="33,61" group="n56_lmsy" fontSize="50" color="#d5d5d5" text="2"/>
+    <text id="n4_lmsy" name="n4" xy="648,94" size="33,61" group="n56_lmsy" fontSize="50" color="#d5d5d5" text="3"/>
+    <text id="n5_lmsy" name="n5" xy="880,94" size="33,61" group="n56_lmsy" fontSize="50" color="#d5d5d5" text="4"/>
+    <text id="n6_lmsy" name="n6" xy="1109,94" size="33,61" group="n56_lmsy" fontSize="50" color="#d5d5d5" text="5"/>
+    <list id="n14_lmsy" name="hxList" xy="282,510" size="762,168" group="n56_lmsy" touchable="false" overflow="scroll" margin="3,0,0,0" lineGap="10" defaultItem="ui://v1h0uw6clmsy3u">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n38_lmsy" name="luckTxt0" xy="117,331" size="169,36" group="n56_lmsy" fontSize="28" color="#d5d5d5" align="center" letterSpacing="11" ubb="true" autoSize="none" text="[1,6,b]"/>
+    <text id="n39_lmsy" name="luckTxt1" xy="350,331" size="169,36" group="n56_lmsy" fontSize="28" color="#d5d5d5" align="center" letterSpacing="11" ubb="true" autoSize="none" text="[2,7,c]"/>
+    <text id="n40_lmsy" name="luckTxt2" xy="583,331" size="169,36" group="n56_lmsy" fontSize="28" color="#d5d5d5" align="center" letterSpacing="11" ubb="true" autoSize="none" text="[3,8,d]"/>
+    <text id="n41_lmsy" name="luckTxt3" xy="816,331" size="169,36" group="n56_lmsy" fontSize="28" color="#d5d5d5" align="center" letterSpacing="11" ubb="true" autoSize="none" text="[4,9,e]"/>
+    <text id="n42_lmsy" name="luckTxt4" xy="1049,331" size="169,36" group="n56_lmsy" fontSize="28" color="#d5d5d5" align="center" letterSpacing="11" ubb="true" autoSize="none" text="[1,6,b]"/>
+    <text id="n44_lmsy" name="moveTxt" xy="705,518" size="29,36" group="n56_lmsy" visible="false" fontSize="28" color="#ffa03b" letterSpacing="11" ubb="true" autoSize="none" autoClearText="true" text="5"/>
+    <text id="n52_lmsy" name="n52" xy="362,477" size="55,33" group="n56_lmsy" fontSize="24" color="#b676d7" bold="true" text="区块"/>
+    <text id="n53_lmsy" name="n53" xy="630,477" size="55,33" group="n56_lmsy" fontSize="24" color="#b676d7" bold="true" text="哈希"/>
+    <text id="n54_lmsy" name="n54" xy="901,477" size="55,33" group="n56_lmsy" fontSize="24" color="#b676d7" bold="true" text="时间"/>
+    <image id="n157_to54" name="yellowBoxImg0" src="to544z" fileName="assets/result/矩形 14@2x.png" xy="82,147" size="241,164" group="n162_to54" visible="false"/>
+    <image id="n158_to54" name="yellowBoxImg1" src="to544z" fileName="assets/result/矩形 14@2x.png" xy="316,147" size="241,164" group="n162_to54" visible="false"/>
+    <image id="n159_to54" name="yellowBoxImg2" src="to544z" fileName="assets/result/矩形 14@2x.png" xy="547,147" size="241,164" group="n162_to54" visible="false"/>
+    <image id="n160_to54" name="yellowBoxImg3" src="to544z" fileName="assets/result/矩形 14@2x.png" xy="780,147" size="241,164" group="n162_to54" visible="false"/>
+    <image id="n161_to54" name="yellowBoxImg4" src="to544z" fileName="assets/result/矩形 14@2x.png" xy="1014,147" size="241,164" group="n162_to54" visible="false"/>
+    <group id="n162_to54" name="yellowBox" xy="82,147" size="1173,164" group="n56_lmsy"/>
+    <group id="n56_lmsy" name="txtGroup" xy="-310,-22" size="1977,799" advanced="true"/>
+    <component id="n15_lmsy" name="starCard" src="lmsy3t" fileName="Component/CardCom.xml" xy="622,398" visible="false"/>
+    <component id="n16_lmsy" name="centerCard" src="lmsy3t" fileName="Component/CardCom.xml" xy="102,165" visible="false"/>
+    <component id="n63_lmsy" name="endCard" src="lmsy3t" fileName="Component/CardCom.xml" xy="220,395" size="61,84" visible="false"/>
+    <component id="n78_lmsy" name="bossEndCard" src="lmsy3t" fileName="Component/CardCom.xml" xy="509,107" visible="false"/>
+    <component id="n92_lmsy" name="card0" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n94_lmsy" name="card1" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n95_lmsy" name="card2" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n96_lmsy" name="card3" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n97_lmsy" name="card4" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n98_lmsy" name="card5" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n99_lmsy" name="card6" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n100_lmsy" name="card7" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n101_lmsy" name="card8" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n102_lmsy" name="card9" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n103_lmsy" name="card10" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n104_lmsy" name="card11" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n105_lmsy" name="card12" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n106_lmsy" name="card13" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n107_lmsy" name="card14" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n108_lmsy" name="card15" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n109_lmsy" name="card16" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n110_lmsy" name="card17" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n111_lmsy" name="card18" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n112_lmsy" name="card19" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n113_lmsy" name="card20" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n114_lmsy" name="card21" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n115_lmsy" name="card22" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n116_lmsy" name="card23" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <component id="n117_lmsy" name="card24" src="lmsy3t" fileName="Component/CardCom.xml" xy="0,0" group="n93_lmsy" visible="false"/>
+    <group id="n93_lmsy" name="cardSGroup" xy="0,0" size="91,127"/>
+    <component id="n164_to54" name="lightCom0" src="to544y" fileName="Component/YellowBoxCom.xml" xy="103,168" group="n169_to54"/>
+    <component id="n165_to54" name="lightCom1" src="to544y" fileName="Component/YellowBoxCom.xml" xy="336,168" group="n169_to54"/>
+    <component id="n166_to54" name="lightCom2" src="to544y" fileName="Component/YellowBoxCom.xml" xy="569,168" group="n169_to54"/>
+    <component id="n167_to54" name="lightCom3" src="to544y" fileName="Component/YellowBoxCom.xml" xy="802,168" group="n169_to54"/>
+    <component id="n168_to54" name="lightCom4" src="to544y" fileName="Component/YellowBoxCom.xml" xy="1035,168" group="n169_to54"/>
+    <group id="n169_to54" name="light" xy="103,168" size="1129,125"/>
+    <component id="n84_lmsy" name="cardResultCom0" src="lmsy4x" fileName="Component/CardResultCom.xml" xy="510,182" size="299,54" visible="false" controller="state,3"/>
+    <component id="n86_lmsy" name="cardResultCom1" src="lmsy4x" fileName="Component/CardResultCom.xml" xy="221,442" size="210,37" visible="false" controller="state,3"/>
+    <component id="n87_lmsy" name="cardResultCom2" src="lmsy4x" fileName="Component/CardResultCom.xml" xy="455,442" size="210,37" visible="false" controller="state,3"/>
+    <component id="n88_lmsy" name="cardResultCom3" src="lmsy4x" fileName="Component/CardResultCom.xml" xy="686,442" size="210,37" visible="false" controller="state,3"/>
+    <component id="n89_lmsy" name="cardResultCom4" src="lmsy4x" fileName="Component/CardResultCom.xml" xy="919,442" size="210,37" visible="false" controller="state,3"/>
+  </displayList>
+</component>

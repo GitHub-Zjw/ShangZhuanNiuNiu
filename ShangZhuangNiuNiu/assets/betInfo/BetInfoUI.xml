@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://04s6lcaqpnt1c">
+  <controller name="c1" pages="0,,1," selected="0"/>
+  <displayList>
+    <graph id="n6_pnt1" name="n6" xy="-244,0" size="1867,750" group="n9_pnt1" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n7_pnt1" name="closeBtn" src="pnt123" fileName="component/Button1(1).xml" xy="-208,0" size="1785,750" group="n9_pnt1" alpha="0"/>
+    <component id="n8_pnt1" name="n8" src="pnt124" fileName="component/Button1(2).xml" xy="356,29" size="623,614" group="n9_pnt1" alpha="0"/>
+    <group id="n9_pnt1" name="n9" xy="-244,0" size="1867,750"/>
+    <image id="n10_x04y" name="n10" src="x04y25" fileName="assets/image/组 217@2x.png" xy="352,25"/>
+    <component id="n0_pnt1" name="todayWinner" src="pnt1d" fileName="component/Button1.xml" xy="578,48" size="154,59">
+      <Button title="今日大赢家" controller="c1" page="1"/>
+    </component>
+    <component id="n1_pnt1" name="currentBet" src="pnt1d" fileName="component/Button1.xml" xy="384,48" size="150,59">
+      <Button checked="true" title="本局投注" controller="c1" page="0"/>
+    </component>
+    <list id="n3_pnt1" name="currentBetList" xy="354,103" size="627,512" overflow="scroll" margin="10,0,0,0" ptrRes=",ui://04s6lcaqpnt1f" lineGap="10" defaultItem="ui://04s6lcaqpnt1e" autoClearItems="true">
+      <gearDisplay controller="c1" pages="0"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n4_pnt1" name="todayWinnerList" xy="355,105" size="627,512" overflow="scroll" margin="10,0,0,0" ptrRes=",ui://04s6lcaqpnt1f" lineGap="10" defaultItem="ui://04s6lcaqpnt1g" autoClearItems="true">
+      <gearDisplay controller="c1" pages="1"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

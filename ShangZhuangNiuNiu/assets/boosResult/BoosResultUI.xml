@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750" designImage="ui://dz1ncib1ri2z4">
+  <controller name="isWin" pages="0,true,1,false" selected="0"/>
+  <displayList>
+    <graph id="n13_ri2z" name="n13" xy="-331,0" size="1962,750" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n14_ri2z" name="closeBtn" src="ri2z7" fileName="component/Button1.xml" xy="-283,0" size="1897,750" alpha="0"/>
+    <component id="n15_ri2z" name="n15" src="ri2z7" fileName="component/Button1.xml" xy="403,132" size="526,501" alpha="0"/>
+    <image id="n0_ri2z" name="n0" src="ri2z2" fileName="assets/image/组 1745 拷贝@2x(1).png" xy="398,111">
+      <gearDisplay controller="isWin" pages="0"/>
+    </image>
+    <image id="n11_ri2z" name="n11" src="ri2z6" fileName="assets/image/组 1745 拷贝@2x.png" xy="398,111">
+      <gearDisplay controller="isWin" pages="1"/>
+    </image>
+    <image id="n1_ri2z" name="n1" src="ri2z1" fileName="assets/image/组 3@3x 拷贝 3@2x.png" xy="602,328">
+      <gearDisplay controller="isWin" pages="0"/>
+    </image>
+    <image id="n12_ri2z" name="n12" src="ri2z3" fileName="assets/image/组 3@3x 拷贝 3@2x(1).png" xy="602,328">
+      <gearDisplay controller="isWin" pages="1"/>
+    </image>
+    <graph id="n3_ri2z" name="n3" xy="403,473" size="532,1" type="rect" lineColor="#ff353d62"/>
+    <graph id="n4_ri2z" name="n4" xy="668,475" size="159,1" rotation="90" type="rect" lineColor="#ff353d62"/>
+    <text id="n2_ri2z" name="bossChangeTxt" xy="645,332" size="94,37" fontSize="29" color="#efb357" autoClearText="true" text="+22.71">
+      <gearColor controller="isWin" pages="1" values="#d3dbe5,#000000" default="#efb357,#000000"/>
+    </text>
+    <text id="n5_ri2z" name="myChangeTxt" xy="775,566" pivot="0.5,0.5" size="54,32" fontSize="25" color="#efb357" autoClearText="true" text="0.00">
+      <gearColor controller="isWin" pages="1" values="#b7bece,#000000" default="#efb357,#000000"/>
+    </text>
+    <text id="n6_ri2z" name="myBetMoneyTxt" xy="507,566" pivot="0.5,0.5" size="54,32" fontSize="25" color="#efb357" autoClearText="true" text="0.00">
+      <gearColor controller="isWin" pages="1" values="#b7bece,#000000" default="#efb357,#000000"/>
+    </text>
+    <text id="n8_ri2z" name="n8" xy="485,397" size="361,31" fontSize="24" color="#9299c5" text="余额将与HDAG自动转入您的账户"/>
+    <text id="n9_ri2z" name="n9" xy="462,519" size="145,31" fontSize="24" color="#9299c5" text="-  投入余额  -"/>
+    <text id="n10_ri2z" name="n10" xy="754,519" pivot="0.5,0.5" size="97,31" fontSize="24" color="#9299c5" text="-  盈亏  -"/>
+  </displayList>
+</component>

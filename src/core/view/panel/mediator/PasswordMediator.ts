@@ -1,4 +1,5 @@
-module password {
+module password
+{
 	export class PasswordMediator extends BaseMediator
 	{
 		public constructor(viewComponent: any = null)
@@ -30,8 +31,12 @@ module password {
 					break;
 				case PanelNotify.ON_RESULT_AMI_PLAY:
 				case PanelNotify.CLOSE_INPUT_PASSWORD:
-					this._pwdUI = null;
-					this.closePanel();
+					if (this._pwdUI)
+					{
+						this._pwdUI.hidePwd();
+						this._pwdUI = null;
+						this.closePanel();
+					}
 					break;
 				case GameNotify.AG_DATA:
 					if (this._pwdUI)
@@ -39,7 +44,7 @@ module password {
 						this._pwdUI.refreshView(data);
 					}
 					break;
-			}	
+			}
 		}
 
 		protected onResIsReady(isFirst: boolean): void

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="629,32">
+  <displayList>
+    <text id="n0_fxcm" name="playerNameTxt" xy="22,0" pivot="0.5,0.5" size="146,31" group="n4_fxcm" fontSize="24" color="#bfb9f4" autoClearText="true" text="thebigbanker"/>
+    <text id="n1_fxcm" name="betMoneyTxt" xy="251,1" pivot="0.5,0.5" size="142,31" group="n4_fxcm" fontSize="24" color="#bfb9f4" autoClearText="true" text="100000.0000"/>
+    <text id="n3_fxcm" name="proportionTxt" xy="544,1" pivot="0.5,0.5" size="85,31" group="n4_fxcm" fontSize="24" color="#bfb9f4" autoClearText="true" text="14.15%"/>
+    <group id="n4_fxcm" name="n4" xy="22,0" size="607,32"/>
+  </displayList>
+</component>

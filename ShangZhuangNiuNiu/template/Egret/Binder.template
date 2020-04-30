@@ -1,0 +1,9 @@
+module {packageName} {
+
+	export class Binder{
+		public static bindAll():void {
+			fgui.UIPackage.addPackage("{uiPkgName}")
+{bindContent}
+		}
+	}
+}

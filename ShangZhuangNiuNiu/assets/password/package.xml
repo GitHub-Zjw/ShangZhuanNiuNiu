@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="g9x2ap23">
+  <resources>
+    <component id="ydsh0" name="PasswordUI.xml" path="/" exported="true"/>
+    <image id="ydsh1" name="红黑大战 -金花 - 发起交易.png" path="/assets/"/>
+    <image id="ydsh2" name="7V}S8@Z7SU0O[G9966]SQJN.png" path="/assets/img/"/>
+    <image id="ydsh3" name="N7OOI0N1P50V%W5YN7VLS3J.png" path="/assets/img/"/>
+    <image id="ydsh4" name="椭圆 821@2x.png" path="/assets/img/"/>
+    <image id="ydsh5" name="组 54@2x.png" path="/assets/img/"/>
+    <component id="ydsh6" name="IsNeedShowBtn.xml" path="/component/"/>
+    <component id="ydsh7" name="listData.xml" path="/component/"/>
+    <image id="ydsh8" name="矩形 7@2x(2).png" path="/assets/img/"/>
+    <image id="ydsh9" name="矩形 7@2x(1).png" path="/assets/img/"/>
+    <image id="ydsha" name="矩形 6@2x.png" path="/assets/img/"/>
+    <image id="ydshb" name="矩形 7@2x.png" path="/assets/img/"/>
+    <component id="ydshc" name="Button1(1).xml" path="/component/"/>
+    <component id="ydshd" name="Button1(2).xml" path="/component/"/>
+  </resources>
+  <publish name="password\password" genCode="true"/>
+</packageDescription>

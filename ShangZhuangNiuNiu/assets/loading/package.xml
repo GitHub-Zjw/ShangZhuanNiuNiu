@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="p7m6l6xr">
+  <resources>
+    <image id="h3zd0" name="上庄牛牛启动页.png" path="/assets/"/>
+    <component id="h3zd1" name="LoadingUI.xml" path="/" exported="true"/>
+    <image id="h3zd2" name="组 222@2x.png" path="/assets/image/"/>
+    <image id="h3zd3" name="组 6@2x.png" path="/assets/image/"/>
+    <image id="h3zd4" name="矩形 1 拷贝 2@2x.png" path="/assets/image/" scale="9grid" scale9grid="11,6,522,10"/>
+    <component id="h3zd5" name="loadingBar.xml" path="/component/"/>
+    <image id="dhga6" name="光束@2x.png" path="/assets/image/"/>
+    <image id="dhga7" name="组 223 拷贝 3@2x.png" path="/assets/image/"/>
+    <image id="dhga8" name="矩形 2@2x.png" path="/assets/image/"/>
+    <image id="dhga9" name="矩形 2 拷贝@2x.png" path="/assets/image/" scale="9grid" scale9grid="26,3,52,6"/>
+    <image id="dhgaa" name="上庄牛牛启动页(1).png" path="/assets/"/>
+    <image id="ydshb" name="Y]MI0R[1I_U2WKX35FA4N(1.png" path="/assets/"/>
+    <image id="ydshc" name="S@59ZRK52LH[S1W{)$3FY@W.png" path="/assets/"/>
+  </resources>
+  <publish name="loading\loading" genCode="true">
+    <atlas compression="true" index="0"/>
+  </publish>
+</packageDescription>

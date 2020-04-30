@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="432,57" extention="ProgressBar">
+  <displayList>
+    <image id="n0_h3zd" name="n0" src="h3zd1u" fileName="assets/image/组 207 拷贝@2x.png" xy="0,0" size="432,57">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n2_lmsy" name="bar" src="lmsy21" fileName="assets/com/Component1.xml" xy="10,12"/>
+  </displayList>
+  <ProgressBar/>
+</component>

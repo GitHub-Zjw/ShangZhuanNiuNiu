@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="214,12" extention="ProgressBar" designImageOffsetX="-403" designImageOffsetY="-517">
+  <displayList>
+    <image id="n7_ydsh" name="n7" src="ydshc" fileName="assets/S@59ZRK52LH[S1W{)$3FY@W.png" xy="-38,-208" size="294,307"/>
+    <text id="n2_h3zd" name="title" xy="74,20" size="66,39" visible="false" fontSize="30" color="#ffffff" text="30%"/>
+    <image id="n5_dhga" name="bar" src="dhga9" fileName="assets/image/矩形 2 拷贝@2x.png" xy="0,0" size="214,12"/>
+  </displayList>
+  <ProgressBar/>
+</component>

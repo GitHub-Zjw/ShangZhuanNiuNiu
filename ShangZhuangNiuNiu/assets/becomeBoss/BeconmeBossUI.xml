@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1335,750">
+  <controller name="titleStateCon" pages="0,,1," selected="0"/>
+  <controller name="c2" pages="0,,1," selected="0"/>
+  <controller name="isBoss" pages="0,false,1,true" selected="0"/>
+  <controller name="isSoonChangeCon" pages="0,false,1,true" selected="0"/>
+  <controller name="isSoonDownCon" pages="0,false,1,true" selected="0"/>
+  <controller name="isSoonBoss" pages="0,false,1,true" selected="0"/>
+  <displayList>
+    <graph id="n0_fxcm" name="n0" xy="-294,0" size="1905,750" group="n3_fxcm" alpha="0.4" type="rect" fillColor="#ff000000"/>
+    <component id="n1_fxcm" name="closeBtn" src="fxcm4" fileName="assets/button/Button1(1).xml" xy="-285,0" size="1892,750" group="n3_fxcm" alpha="0"/>
+    <component id="n2_fxcm" name="n2" src="fxcm5" fileName="assets/button/Button1.xml" xy="295,21" size="742,706" group="n3_fxcm" alpha="0"/>
+    <group id="n3_fxcm" name="n3" xy="-294,0" size="1905,750"/>
+    <image id="n4_fxcm" name="n4" src="fxcm6" fileName="assets/shangZhuang/矩形 6@2x.png" xy="292,19"/>
+    <image id="n19_fxcm" name="n19" src="fxcmi" fileName="assets/shangZhuang/矩形 9@2x.png" xy="333,416" size="671,2" group="n31_fxcm"/>
+    <image id="n16_fxcm" name="n16" src="fxcme" fileName="assets/shangZhuang/组 230@2x.png" xy="333,279" group="n31_fxcm"/>
+    <image id="n6_fxcm" name="n6" src="fxcm9" fileName="assets/shangZhuang/组 3@2x(1).png" xy="350,208" group="n31_fxcm"/>
+    <component id="n42_fxcm" name="changeWarehouseBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="704,175" size="137,69" group="n31_fxcm">
+      <gearDisplay controller="isBoss" pages="1"/>
+      <gearText controller="isSoonChangeCon" pages="1" values="取消调仓" default="预约调仓"/>
+      <Button title="预约调仓" titleColor="#ffffff" titleFontSize="24" icon="ui://hyt9m7t9fxcm10"/>
+    </component>
+    <component id="n43_fxcm" name="downBossBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="865,173" size="137,69" group="n31_fxcm">
+      <gearDisplay controller="isBoss" pages="1"/>
+      <gearText controller="isSoonDownCon" pages="1" values="取消下庄" default="预约下庄"/>
+      <Button title="预约下庄" titleColor="#ffffff" titleFontSize="24" icon="ui://hyt9m7t9fxcmz"/>
+    </component>
+    <component id="n7_fxcm" name="orderBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="815,175" size="137,69" group="n31_fxcm">
+      <gearDisplay controller="isBoss" pages="0"/>
+      <gearText controller="isSoonBoss" pages="1" values="取消上庄" default="预约上庄"/>
+      <Button title="预约上庄" titleColor="#ffffff" titleFontSize="24" icon="ui://hyt9m7t9fxcm8"/>
+    </component>
+    <component id="n17_fxcm" name="alreadyBecomeBtn" src="fxcmf" fileName="assets/button/Button1(3).xml" xy="493,294" group="n31_fxcm">
+      <Button checked="true" title="已上庄" titleColor="#9489d5" controller="c2" page="0"/>
+    </component>
+    <component id="n18_fxcm" name="willBecomeBtn" src="fxcmf" fileName="assets/button/Button1(3).xml" xy="715,294" group="n31_fxcm">
+      <Button title="预约中" controller="c2" page="1"/>
+    </component>
+    <text id="n12_fxcm" name="n12" xy="349,165" size="101,31" group="n31_fxcm" fontSize="24" color="#9489d5" text="奖池余额"/>
+    <text id="n13_fxcm" name="n13" xy="539,165" size="125,31" group="n31_fxcm" fontSize="24" color="#9489d5" text="本轮倒计时"/>
+    <text id="n14_fxcm" name="surplueMoneyTxt" xy="380,208" size="44,31" group="n31_fxcm" fontSize="24" color="#ffffff" autoClearText="true" text="620"/>
+    <text id="n15_fxcm" name="surplueTimeTxt" xy="541,208" size="44,31" group="n31_fxcm" fontSize="24" color="#ffffff" autoClearText="true" text="620"/>
+    <text id="n26_fxcm" name="n26" xy="371,368" size="101,31" group="n30_fxcm" fontSize="24" color="#756eb3" text="预约玩家"/>
+    <text id="n27_fxcm" name="n27" xy="651,368" size="60,31" group="n30_fxcm" fontSize="24" color="#756eb3" text="金额 "/>
+    <text id="n28_fxcm" name="n28" xy="901,368" size="53,31" group="n30_fxcm" fontSize="24" color="#756eb3" text="类型"/>
+    <group id="n30_fxcm" name="n30" xy="371,368" size="584,31" group="n31_fxcm" advanced="true">
+      <gearDisplay controller="c2" pages="1"/>
+    </group>
+    <list id="n24_fxcm" name="alreadyBecomeList" xy="350,434" size="642,244" group="n31_fxcm" overflow="scroll" margin="8,0,0,0" lineGap="35" defaultItem="ui://hyt9m7t9fxcmj">
+      <gearDisplay controller="c2" pages="0"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n29_fxcm" name="doimgList" xy="351,433" size="642,244" group="n31_fxcm" overflow="scroll" margin="8,0,0,0" lineGap="35" defaultItem="ui://hyt9m7t9fxcml">
+      <gearDisplay controller="c2" pages="1"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n20_fxcm" name="n20" xy="376,369" size="101,31" group="n25_fxcm" fontSize="24" color="#756eb3" text="上庄玩家"/>
+    <text id="n21_fxcm" name="n21" xy="556,369" size="101,31" group="n25_fxcm" fontSize="24" color="#756eb3" text="投入金额"/>
+    <text id="n22_fxcm" name="n22" xy="735,368" size="101,31" group="n25_fxcm" fontSize="24" color="#756eb3" text="当前余额"/>
+    <text id="n23_fxcm" name="n23" xy="911,369" size="53,31" group="n25_fxcm" fontSize="24" color="#756eb3" text="占比"/>
+    <group id="n25_fxcm" name="n25" xy="376,368" size="589,32" group="n31_fxcm" advanced="true">
+      <gearDisplay controller="c2" pages="0"/>
+    </group>
+    <group id="n31_fxcm" name="n31" xy="333,165" size="671,528" advanced="true">
+      <gearDisplay controller="titleStateCon" pages="0"/>
+    </group>
+    <component id="n5_fxcm" name="backBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="998,10" size="60,60">
+      <Button icon="ui://hyt9m7t9fxcm7"/>
+    </component>
+    <component id="n8_fxcm" name="helpBtn" src="ht8015" fileName="Component/Buttoin/IconBtn.xml" pkg="v1h0uw6c" xy="318,56" size="38,38">
+      <Button icon="ui://hyt9m7t9fxcma"/>
+    </component>
+    <component id="n11_fxcm" name="bossListBtn" src="fxcmb" fileName="assets/button/Button1(2).xml" xy="381,58">
+      <Button checked="true" controller="titleStateCon" page="0"/>
+    </component>
+    <component id="n10_fxcm" name="bossMoneyChangeBtn" src="fxcmd" fileName="assets/button/Button1(1)(1).xml" xy="668,58">
+      <Button controller="titleStateCon" page="1"/>
+    </component>
+    <text id="n9_fxcm" name="n9" xy="311,96" size="53,31" fontSize="24" color="#9489d5" text="规则"/>
+    <text id="n32_fxcm" name="n32" xy="363,308" size="53,31" group="n41_fxcm" fontSize="24" color="#756eb3" text="轮次"/>
+    <text id="n33_fxcm" name="n33" xy="496,308" size="53,31" group="n41_fxcm" fontSize="24" color="#756eb3" text="时间"/>
+    <text id="n34_fxcm" name="n34" xy="655,308" size="53,31" group="n41_fxcm" fontSize="24" color="#756eb3" text="盈亏"/>
+    <text id="n35_fxcm" name="n35" xy="856,308" size="53,31" group="n41_fxcm" fontSize="24" color="#756eb3" text="余额"/>
+    <component id="n36_fxcm" name="leftBtn" src="fxcmq" fileName="assets/button/Button2.xml" xy="455,196" pivot="0.5,0.5" group="n41_fxcm"/>
+    <component id="n37_fxcm" name="rightBtn" src="fxcmq" fileName="assets/button/Button2.xml" xy="823,196" pivot="0.5,0.5" group="n41_fxcm" rotation="180"/>
+    <list id="n38_fxcm" name="bossMoneyChangeList" xy="344,371" size="650,314" group="n41_fxcm" overflow="scroll" margin="5,0,9,0" lineGap="35" defaultItem="ui://hyt9m7t9fxcmr" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n39_fxcm" name="dateTxt" xy="606,190" pivot="0.5,0.5" size="125,31" group="n41_fxcm" fontSize="24" color="#ffffff" autoClearText="true" text="2020-03-09"/>
+    <text id="n44_dhga" name="moneyChangeTxt" xy="659,229" pivot="0.5,0.5" size="18,31" group="n41_fxcm" fontSize="24" color="#ffffff" ubb="true" autoClearText="true" text="[color=#BFB9F4]0[/color]"/>
+    <group id="n41_fxcm" name="n41" xy="344,190" size="650,495" advanced="true">
+      <gearDisplay controller="titleStateCon" pages="1"/>
+    </group>
+  </displayList>
+</component>
